@@ -18,9 +18,9 @@ html, head, body, #main-wrapper
 
 @media screen and (max-width: 1210px)
 {
-    .hm-logo, .hm-menu { width: 100%; }
+    .hm-logo { width: 100%; }
 
-    .hm-menu ul { justify-content: center; align-items: center; }
+    .hm-menu { justify-content: center; align-items: center; }
 }
 
 @media screen and (max-width: 960px)
