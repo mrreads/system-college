@@ -75,7 +75,7 @@
 }
 
 
-.p-button a
+.p-button .ya_tupoy_urod
 {
     font-size: 26px;
 
@@ -116,7 +116,6 @@
 
 .avatar
 {
-    displat: inline;
     float: left;
 
     width: 55px;
@@ -124,4 +123,10 @@
     margin: 10px;
 
     border-radius: 10px;
+}
+
+.ya_tupoy_urod
+{
+    margin: 0px;
+    padding: 0px;
 }
