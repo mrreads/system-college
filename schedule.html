@@ -1,147 +1,128 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-
-	<title> Расписание!</title>
-
-	<link rel="stylesheet" href="styles/style_admin.css">
-	<link rel="stylesheet" href="styles/contents/style_schedule.css">
-
-	<link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
-
-	<style>
-	</style>
+    <meta charset="utf-8">
+    <title> Расписание!</title>
+    <link rel="stylesheet" href="styles/style_admin.css">
+    <link rel="stylesheet" href="styles/contents/style_schedule.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
+    <style>
+    </style>
 </head>
+
 <body>
-
-<div id="main-wrapper">
-
-<div id="wrapper-one">
-
-	<div id="side-bar">
-		<div class="hm-logo">
-			<h2> ЩЕЛКОВСКИЙ КОЛЛЕДЖ  </h2>
-		</div>
-
-		<div class="sb-profile">
-			<img src="images/avatar.png">
-			<p class="sb-name"> Имя Фамилия </p>
-			<p class="sb-role"> Студент </p>
-		</div>
-
-		<div class="sb-menu">
-			<ul>
-				<li> <a href="administration.html" > Администрация </a> </li>
-				<li> <a href="subject.html" > Предметы </a> </li>
-				<li> <a href="student_you.html"> Студент </a> </li>
-				<li> <a href="schedule.html"  id="sb-menu_active"> Расписание </a> </li>
-				<li> <a href="metodichka.html" > Методичка </a> </li>
-				<li> <a href="vneurochka.html" > Внеурочка </a> </li>
-			</ul>
-		</div>
-	</div>
-
-</div>
-
-<div id="wrapper-two">
-	<div id="header-menu">
-			<div class="hm-menu">
-				<ul>
-					<li> <a href="index.html" > Главная </a> </li>
-					<li> <a href="student_you.html" id="hm-menu_active"> Личный кабинет</a> </li>
-				</ul>
-			</div>
-
-		<div class="hm-login">
-			<a href="#"> Выйти </a>
-		</div>
-	</div>
-
-	<div id="content">
-
-		<div class="items-search">
-			<div class="items">
-					<div id="rasp">
-						<table border="1">
-						  <tr> 
-						    <th></th>
-						    <th>ПН<br></th>
-						    <th>ВТ</th>
-						    <th>СР</th>
-						    <th>ЧТ</th>
-						    <th>ПТ</th>
-						    <th>СБ</th>
-						  </tr>
-						  <tr>
-						    <td>9:00<br>10:35<br></td>
-						    <td>РУССКИЙ<br></td>
-						    <td>МАТАН<br></td>
-						    <td>РУССКИ</td>
-						    <td>МАТАН</td>
-						    <td>РУССКИ</td>
-						    <td></td>
-						  </tr>
-						  <tr>
-						    <td>10:45<br>12:20<br></td>
-						    <td>МАТАН</td>
-						    <td>РУССКИЙ</td>
-						    <td>МАТАН</td>
-						    <td>РУССКИЙ</td>
-						    <td>МАТАН</td>
-						    <td></td>
-						  </tr>
-						  <tr>
-						    <td>13:00<br>14:35<br></td>
-						    <td>РУССКИЙ</td>
-						    <td>МАТАН</td>
-						    <td>РУССКИЙ</td>
-						    <td>МАТАН</td>
-						    <td>РУССКИЙ</td>
-						    <td></td>
-						  </tr>
-						  <tr>
-						    <td>14:35<br>16:20</td>
-						    <td>МАТАН</td>
-						    <td>РУССКИЙ</td>
-						    <td>МАТАН</td>
-						    <td>РУССКИЙ</td>
-						    <td>МАТАН</td>
-						    <td></td>
-						  </tr>
-						</table></div>
-					</div>
-
-			<div class="is-search">
-				<input type="text" placeholder="Введите группу">
-					<div class="is-items">
-						<p class=is-p-button> <a href="#"> Группа </a> </p>
-						<hr>
-						<p class=is-p-button> <a href="#"> Группа </a> </p>
-						<hr>
-						<p class=is-p-button> <a href="#"> Группа </a> </p>
-						<hr>
-						<p class=is-p-button> <a href="#"> Группа </a> </p>
-						<hr>
-						<p class=is-p-button> <a href="#"> Группа </a> </p>
-						<hr>
-						<p class=is-p-button> <a href="#"> Группа </a> </p>
-						<hr>
-					</div>
-			</div>
-
-		</div>
-
-
-
-	</div>
-
-		</div>
-	</div>
-
-</div>
-
-</div>
-
+    <div id="main-wrapper">
+        <div id="wrapper-one">
+            <div id="side-bar">
+                <div class="hm-logo">
+                    <h2> ЩЕЛКОВСКИЙ КОЛЛЕДЖ </h2>
+                </div>
+                <div class="sb-profile">
+                    <img src="images/avatar.png">
+                    <p class="sb-name"> Имя Фамилия </p>
+                    <p class="sb-role"> Студент </p>
+                </div>
+                <div class="sb-menu">
+                    <ul>
+                        <li> <a href="administration.html"> Администрация </a> </li>
+                        <li> <a href="subject.html"> Предметы </a> </li>
+                        <li> <a href="student_you.html"> Студент </a> </li>
+                        <li> <a href="schedule.html" id="sb-menu_active"> Расписание </a> </li>
+                        <li> <a href="metodichka.html"> Методичка </a> </li>
+                        <li> <a href="vneurochka.html"> Внеурочка </a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="wrapper-two">
+            <div id="header-menu">
+                <div class="hm-menu">
+                    <ul>
+                        <li> <a href="index.html"> Главная </a> </li>
+                        <li> <a href="student_you.html" id="hm-menu_active"> Личный кабинет</a> </li>
+                    </ul>
+                </div>
+                <div class="hm-login">
+                    <a href="#"> Выйти </a>
+                </div>
+            </div>
+            <div id="content">
+                <div class="items-search">
+                    <div class="items">
+                        <div id="rasp">
+                            <table border="1">
+                                <tr>
+                                    <th></th>
+                                    <th>ПН<br></th>
+                                    <th>ВТ</th>
+                                    <th>СР</th>
+                                    <th>ЧТ</th>
+                                    <th>ПТ</th>
+                                    <th>СБ</th>
+                                </tr>
+                                <tr>
+                                    <td>9:00<br>10:35<br></td>
+                                    <td>РУССКИЙ<br></td>
+                                    <td>МАТАН<br></td>
+                                    <td>РУССКИ</td>
+                                    <td>МАТАН</td>
+                                    <td>РУССКИ</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>10:45<br>12:20<br></td>
+                                    <td>МАТАН</td>
+                                    <td>РУССКИЙ</td>
+                                    <td>МАТАН</td>
+                                    <td>РУССКИЙ</td>
+                                    <td>МАТАН</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>13:00<br>14:35<br></td>
+                                    <td>РУССКИЙ</td>
+                                    <td>МАТАН</td>
+                                    <td>РУССКИЙ</td>
+                                    <td>МАТАН</td>
+                                    <td>РУССКИЙ</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>14:35<br>16:20</td>
+                                    <td>МАТАН</td>
+                                    <td>РУССКИЙ</td>
+                                    <td>МАТАН</td>
+                                    <td>РУССКИЙ</td>
+                                    <td>МАТАН</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="is-search">
+                        <input type="text" placeholder="Введите группу">
+                        <div class="is-items">
+                            <p class=is-p-button> <a href="#"> Группа </a> </p>
+                            <hr>
+                            <p class=is-p-button> <a href="#"> Группа </a> </p>
+                            <hr>
+                            <p class=is-p-button> <a href="#"> Группа </a> </p>
+                            <hr>
+                            <p class=is-p-button> <a href="#"> Группа </a> </p>
+                            <hr>
+                            <p class=is-p-button> <a href="#"> Группа </a> </p>
+                            <hr>
+                            <p class=is-p-button> <a href="#"> Группа </a> </p>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
 </body>
+
 </html>
