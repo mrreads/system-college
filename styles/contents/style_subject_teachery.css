@@ -68,7 +68,7 @@
 }
 
 
-#content .items
+.items
 {
     background-color: white;
     box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
@@ -112,4 +112,16 @@
 #content .items p
 {
     margin: 0 auto;
+}
+
+.avatar
+{
+    displat: inline;
+    float: left;
+
+    width: 55px;
+    height: 55px;
+    margin: 10px;
+
+    border-radius: 10px;
 }
