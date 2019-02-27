@@ -76,6 +76,7 @@
 
 #content .items
 {
+    height: 100%;
     background-color: white;
     box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
 }
@@ -158,6 +159,7 @@
 {
     width: 25%;
     height: 100%;
+
     text-align: 100%;
 
     background-color: white;
@@ -229,10 +231,15 @@
 }
 
 
-#rasp
+table
 {
-    display: inline-block;
-    background-color: red;
-    height: 300px;
-    width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;    
+    border-collapse:collapse;
+}
+
+td, th
+{
+    padding: 15px; 
 }
