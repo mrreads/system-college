@@ -44,14 +44,15 @@ html, head, body, #main-wrapper
 #main-wrapper
 {
     min-width: 800px;
+    height: 100%;
 }
 
 
 #wrapper-one
 {
     float: left;
-
     width: 20%;
+    height: 100%;
 }
 
 #wrapper-two
@@ -60,6 +61,7 @@ html, head, body, #main-wrapper
 
     width: 80%;
 }
+
 
 #side-bar
 {
