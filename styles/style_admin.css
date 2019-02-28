@@ -36,6 +36,7 @@ html, head, body, #main-wrapper
 {
     .hm-login { width: 100%; }
 
+    .hm-menu { width: 100%; }
     .hm-menu li { width: 100%; }
 
     #nav-menu li { width: 100%;}
