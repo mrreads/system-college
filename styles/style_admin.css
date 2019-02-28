@@ -13,9 +13,6 @@ html, head, body, #main-wrapper
     background-color: #cecece;
 }
 
-
-
-
 @media screen and (max-width: 1210px)
 {
     .hm-logo { width: 100%; }
@@ -64,7 +61,6 @@ html, head, body, #main-wrapper
     width: 80%;
 }
 
-
 #side-bar
 {
     position: fixed;
@@ -78,7 +74,6 @@ html, head, body, #main-wrapper
 
     background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
 }
-
 
 .hm-logo h2
 {
@@ -141,8 +136,6 @@ html, head, body, #main-wrapper
     flex-flow: column nowrap;
 }
 
-
-
 .sb-menu a
 {
     font-size: 23px;
@@ -185,7 +178,6 @@ html, head, body, #main-wrapper
     flex-flow: row wrap;
 }
 
-
 .hm-menu ul
 {
     display: flex;
@@ -196,8 +188,6 @@ html, head, body, #main-wrapper
 
     flex-flow: row wrap;
 }
-
-
 
 .hm-menu a
 {
@@ -224,8 +214,6 @@ html, head, body, #main-wrapper
     background-color: #cecece;
     box-shadow: 0 -75px 85px -130px rgba(0,0,0,.85) inset;
 }
-
-
 
 .hm-login
 {
@@ -258,8 +246,6 @@ html, head, body, #main-wrapper
     box-shadow: 0 -75px 85px -130px rgba(0,0,0,.85) inset;
 }
 
-
-
 #nav-menu
 {
     display: flex;
@@ -281,8 +267,6 @@ html, head, body, #main-wrapper
 
     flex-flow: row wrap;
 }
-
-
 
 #nav-menu a
 {
@@ -307,8 +291,6 @@ html, head, body, #main-wrapper
     background-color: #bdbdbd;
     box-shadow: 0 -75px 85px -130px rgba(0,0,0,.85) inset;
 }
-
-
 
 #content
 {
