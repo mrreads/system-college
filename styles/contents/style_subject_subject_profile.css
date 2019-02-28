@@ -30,9 +30,8 @@
 #content #profile .info-background
 {
     height: 50%;
-
     margin: 0 0 50px 0;
-    
+
     background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
 
