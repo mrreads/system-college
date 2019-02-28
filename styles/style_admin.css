@@ -46,7 +46,7 @@ html, head, body, #main-wrapper
 
 #main-wrapper
 {
-        min-width: 800px;
+    min-width: 800px;
 }
 
 
@@ -316,3 +316,10 @@ html, head, body, #main-wrapper
 
     background-color: #cecece;
 }
+
+/*
+input
+{
+    background-image: linear-gradient(120deg, #ebedee 0%, #fdfbfb 100%);
+}
+*/
