@@ -52,6 +52,7 @@ html, head, body, #main-wrapper
 #wrapper-one
 {
     float: left;
+
     width: 20%;
     height: 100%;
 }
