@@ -169,9 +169,12 @@
 {
     font-size: 16px;
 
+    width: 85%;
     height: 50px;
     margin: 5px auto;
-    padding: 0 25px;
+    padding: 1%;
+
+    text-indent: 20px;
 
     border: none;
 }
@@ -181,10 +184,10 @@
 
 
 
+
 .is-items
 {
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
 }
 
 
