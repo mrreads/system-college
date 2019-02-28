@@ -44,6 +44,10 @@ html, head, body, #main-wrapper
     #nav-menu li { width: 100%;}
 }
 
+#main-wrapper
+{
+        min-width: 800px;
+}
 
 
 #wrapper-one

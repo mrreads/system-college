@@ -68,20 +68,21 @@
 }
 
 
-.items
+#content .items
 {
     background-color: white;
     box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
 }
 
 
-.p-button .ya_tupoy_urod
+.p-button a
 {
     font-size: 26px;
 
     display: block;
 
-    padding: 25px 16px;
+    width: 100%;
+    padding: 16px;
 
     transition: .2s linear;
     text-align: left;
@@ -111,21 +112,4 @@
 #content .items p
 {
     margin: 0 auto;
-}
-
-.avatar
-{
-    float: left;
-
-    width: 55px;
-    height: 55px;
-    margin: 10px;
-
-    border-radius: 10px;
-}
-
-.ya_tupoy_urod
-{
-    margin: 0px;
-    padding: 0px;
 }
