@@ -5,33 +5,41 @@
 
 #enter
 {
-    border: none;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    font-size: 21px;
+
     width: 80%;
     height: 55px;
+
     text-indent: 25px;
-    font-size: 21px;
+
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
 #search
 {
     font-family: 'Oswald', sans-serif;
-    text-align: center;
+    font-size: 16px;
+
+    float: right;
+
     width: 19%;
     height: 55px;
-    background-color: white;
-    float: right;
-    border: none;
+
     transition: .2s linear;
-    font-size: 16px;
+    text-align: center;
+
+    border: none;
+    background-color: white;
 }
 
 #search:hover
 {
-    background-color: black;
-    color: white;
     cursor: pointer;
     transition: .2s linear;
+
+    color: white;
+    background-color: black;
 }
 
 #content .search

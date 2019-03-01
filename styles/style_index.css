@@ -166,45 +166,53 @@ html, head, body, #main-wrapper
 
 form
 {
-    margin-left: auto;
     display: flex;
+
+    margin-left: auto;
+
     flex-flow: row nowrap;
     align-items: center;
-
-
 }
 
 #ishi
 {
-    background-image: url("../images/icons/search-icon.png");
+    transition: .2s linear;
+
+    background-image: url('../images/icons/search-icon.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    filter: opacity(0.4);
-    transition: .2s linear;
+
+    filter: opacity(.4);
 }
 
 #ishi:hover
 {
     transition: .2s linear;
+
     filter: opacity(1);
 }
 
 #ishi-pole
 {
-    border-bottom: 1px solid rgba(0,0,0,0.3);
     text-indent: 15px;
+
+    border-bottom: 1px solid rgba(0,0,0,.3);
 }
 
 form input
 {
-    border: none;
     font-family: 'Oswald', sans-serif;
-    background-color: #cecece;
-    text-indent: 25px;
     font-size: 19px;
+
     margin: 0 25px 0 0;
+
+    text-indent: 25px;
+
+    border: none;
+    background-color: #cecece;
 }
-#nav-menu, form
+#nav-menu,
+form
 {
     display: flex;
 
