@@ -103,3 +103,16 @@
     border-bottom: 1px solid #ccc;
     background: #999;
 }
+
+#content #profile .info-background a
+{
+    color: blue;
+    text-decoration: none;   
+    transition: .2s linear;
+}
+
+#content #profile .info-background a:hover
+{
+    color: red;
+    transition: .2s linear;
+}
