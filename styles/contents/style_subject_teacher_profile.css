@@ -86,11 +86,14 @@
     box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
 }
 
-#content #profile .info-background p
+#content #profile .info-background .user-info p,
+#content #profile .info-background .profile-info p
 {
     font-size: 26px;
 
     display: inline-block;
+
+    width: 300px;
 }
 
 #content #profile .info-background .user-info hr,
