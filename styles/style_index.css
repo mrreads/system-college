@@ -153,6 +153,12 @@ html, head, body, #main-wrapper
     box-shadow: 0 -75px 85px -130px rgba(0,0,0,.85) inset;
 }
 
+.hm-logo a
+{
+    text-decoration: none;
+    color: black;
+}
+
 #header-picture
 {
     height: 28%;
