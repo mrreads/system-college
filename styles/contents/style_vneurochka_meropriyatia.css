@@ -37,7 +37,6 @@
     background-color: black;
 }
 
-
 #content .search
 {
     display: flex;
@@ -101,7 +100,6 @@
     border-bottom: 1px solid #ccc;
     background: #999;
 }
-
 
 #content .items
 {

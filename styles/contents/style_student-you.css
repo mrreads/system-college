@@ -44,7 +44,6 @@
     color: white;
 }
 
-
 #content #profile img
 {
     position: absolute;
@@ -106,13 +105,15 @@
 
 #content #profile .info-background a
 {
-    color: blue;
-    text-decoration: none;   
     transition: .2s linear;
+    text-decoration: none;
+
+    color: blue;
 }
 
 #content #profile .info-background a:hover
 {
-    color: red;
     transition: .2s linear;
+
+    color: red;
 }

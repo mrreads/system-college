@@ -78,7 +78,6 @@ html, head, body, #main-wrapper
     text-shadow: 2px 2px 0 rgba(0,0,0,.2);
 }
 
-
 .hm-menu
 {
     display: flex;
@@ -156,6 +155,7 @@ html, head, body, #main-wrapper
 .hm-logo a
 {
     text-decoration: none;
+
     color: black;
 }
 

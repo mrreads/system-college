@@ -48,7 +48,6 @@ html, head, body, #main-wrapper
     height: 100%;
 }
 
-
 #wrapper-one
 {
     float: left;
@@ -63,7 +62,6 @@ html, head, body, #main-wrapper
 
     width: 80%;
 }
-
 
 #side-bar
 {
@@ -255,6 +253,7 @@ html, head, body, #main-wrapper
 .hm-logo a
 {
     text-decoration: none;
+
     color: black;
 }
 
@@ -310,10 +309,3 @@ html, head, body, #main-wrapper
 
     background-color: #cecece;
 }
-
-/*
-input
-{
-    background-image: linear-gradient(120deg, #ebedee 0%, #fdfbfb 100%);
-}
-*/

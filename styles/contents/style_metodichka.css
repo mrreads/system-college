@@ -119,7 +119,6 @@
     box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
 }
 
-
 .items-search .p-button a
 {
     font-size: 26px;
@@ -181,8 +180,6 @@
     margin: 0 50px 0 0;
 }
 
-
-
 #content .items-search
 {
     display: flex;
@@ -224,19 +221,10 @@
     border: none;
 }
 
-
-
-
-
-
-
 .is-items
 {
     background-color: white;
 }
-
-
-
 
 .is-items .is-p-button
 {

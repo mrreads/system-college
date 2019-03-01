@@ -136,8 +136,6 @@
     margin: 0 50px 0 0;
 }
 
-
-
 #content .items-search
 {
     display: flex;
@@ -186,8 +184,6 @@
 }
 
 
-
-
 .is-items .is-p-button
 {
     transition: .2s linear;
@@ -226,7 +222,6 @@
 
     text-indent: 15px;
 }
-
 
 table
 {
