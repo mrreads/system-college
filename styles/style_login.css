@@ -67,11 +67,6 @@
     height: 25%;
 }
 
-#login-popup .button p
-{
-    height: 100%;
-}
-
 #login-popup .button input
 {
     font-family: 'Oswald', sans-serif;
