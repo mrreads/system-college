@@ -40,13 +40,13 @@
 #content .search
 {
     display: flex;
+    flex-direction: row;
 
     margin-bottom: 50px;
 
     background-color: white;
     box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
 
-    flex-direction: row;
     justify-content: space-between;
 }
 

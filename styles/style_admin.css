@@ -101,21 +101,19 @@ html, head, body, #main-wrapper
 .sb-menu
 {
     display: flex;
+    flex-direction: column;
 
     padding: 100px 0;
-
-    flex-direction: column;
 }
 
 .sb-menu ul
 {
     display: flex;
+    flex-direction: column;
 
     width: 100%;
 
     list-style-type: none;
-
-    flex-direction: column;
 }
 
 .sb-menu a
@@ -283,3 +281,4 @@ html, head, body, #main-wrapper
 {
     padding: 50px;
 }
+
