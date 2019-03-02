@@ -48,14 +48,13 @@ html, head, body, #main-wrapper
 
     background-color: white;
 
-    flex-flow: row wrap;
+    flex-wrap: wrap;
 }
 
 .hm-logo
 {
     display: block;
 
-    min-width: 20%;
     padding: 10px 0;
 
     background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
@@ -77,7 +76,7 @@ html, head, body, #main-wrapper
 {
     display: flex;
 
-    flex-flow: row wrap;
+    flex-wrap: wrap;
 }
 
 .hm-menu ul
@@ -88,7 +87,7 @@ html, head, body, #main-wrapper
 
     list-style-type: none;
 
-    flex-flow: row wrap;
+    flex-wrap: wrap;
 }
 
 .hm-menu a
@@ -97,7 +96,6 @@ html, head, body, #main-wrapper
 
     display: block;
 
-    width: 100%;
     min-width: 200px;
     padding: 15px 0 15px 0;
 
@@ -128,7 +126,6 @@ html, head, body, #main-wrapper
 
     display: block;
 
-    width: 100%;
     min-width: 200px;
     padding: 15px 0 15px 0;
 
@@ -157,11 +154,9 @@ html, head, body, #main-wrapper
 #header-picture
 {
     height: 28%;
-    min-height: 150px;
 
     background-image: url('../images/header-bg.png');
     background-repeat: no-repeat;
-    background-position: left center;
     background-size: cover;
 }
 
@@ -171,7 +166,6 @@ form
 
     margin-left: auto;
 
-    flex-flow: row nowrap;
     align-items: center;
 }
 
@@ -219,7 +213,7 @@ form
 
     background-color: #cecece;
 
-    flex-flow: row wrap;
+    flex-wrap: wrap;
 }
 
 #nav-menu ul
