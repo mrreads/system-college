@@ -252,10 +252,3 @@ form
     background-color: #bdbdbd;
     box-shadow: 0 -75px 85px -130px rgba(0,0,0,.85) inset;
 }
-
-#content
-{
-    height: auto;
-
-    background-color: #cecece;
-}
