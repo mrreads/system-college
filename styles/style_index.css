@@ -154,10 +154,12 @@ html, head, body, #main-wrapper
 #header-picture
 {
     height: 28%;
+    min-height: 150px;
 
     background-image: url('../images/header-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-
 }
 
 form
@@ -224,7 +226,7 @@ form
 
     list-style-type: none;
 
-    flex-flow: row wrap;
+    flex-wrap: wrap;
 }
 
 #nav-menu a
@@ -233,9 +235,8 @@ form
 
     display: block;
 
-    width: 100%;
     min-width: 200px;
-    padding: 15px 0 15px 0;
+    padding: 15px 0;
 
     transition: .3s linear;
     text-align: center;
