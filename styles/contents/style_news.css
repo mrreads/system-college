@@ -2,16 +2,13 @@
 {
     display: flex;
 
-    padding: 25px 50px 0 50px;
+    padding: 25px 50px;
 
-    background-color: #cecece;
-
-    flex-flow: column nowrap;
+    flex-direction: column;
 }
 
 #content div
 {
-    width: auto;
     margin: 5 auto;
     margin-bottom: 25px;
     padding: 20px 40px;
