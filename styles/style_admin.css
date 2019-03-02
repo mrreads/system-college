@@ -95,8 +95,6 @@ html, head, body, #main-wrapper
 {
     font-size: 21px;
 
-    margin: 5px auto;
-
     text-align: center;
 }
 
@@ -117,7 +115,7 @@ html, head, body, #main-wrapper
 
     list-style-type: none;
 
-    flex-flow: column nowrap;
+    flex-direction: column;
 }
 
 .sb-menu a
@@ -127,7 +125,6 @@ html, head, body, #main-wrapper
     display: block;
 
     width: 100%;
-    min-width: 200px;
     padding: 15px 0 15px 0;
 
     transition: .3s linear;
@@ -152,14 +149,14 @@ html, head, body, #main-wrapper
 
     background-color: white;
 
-    flex-flow: row wrap;
+    flex-wrap: wrap;
 }
 
 .hm-menu
 {
     display: flex;
 
-    flex-flow: row wrap;
+    flex-wrap: wrap;
 }
 
 .hm-menu ul
@@ -170,7 +167,7 @@ html, head, body, #main-wrapper
 
     list-style-type: none;
 
-    flex-flow: row wrap;
+    flex-wrap: wrap;
 }
 
 .hm-menu a
