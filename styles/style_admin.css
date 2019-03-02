@@ -75,8 +75,8 @@ html, head, body, #main-wrapper
 {
     display: block;
 
-    width: 40%;
-    height: 40%;
+    width: 150px;
+    height: 150px;
     margin: 75px auto 15px auto;
 
     border-radius: 100%;
@@ -87,8 +87,6 @@ html, head, body, #main-wrapper
 {
     font-family: 'Roboto', sans-serif;
     font-size: 28px;
-
-    margin: 0 auto;
 
     text-align: center;
 }
@@ -108,7 +106,7 @@ html, head, body, #main-wrapper
 
     padding: 100px 0;
 
-    flex-flow: column nowrap;
+    flex-direction: column;
 }
 
 .sb-menu ul
@@ -212,7 +210,6 @@ html, head, body, #main-wrapper
 
     display: block;
 
-    width: 100%;
     min-width: 200px;
     padding: 15px 0 15px 0;
 
@@ -245,7 +242,7 @@ html, head, body, #main-wrapper
 
     background-color: #cecece;
 
-    flex-flow: row wrap;
+    flex-wrap: wrap;
 }
 
 #nav-menu ul
@@ -258,7 +255,7 @@ html, head, body, #main-wrapper
 
     list-style-type: none;
 
-    flex-flow: row wrap;
+    flex-wrap: wrap;
 }
 
 #nav-menu a
@@ -287,7 +284,5 @@ html, head, body, #main-wrapper
 
 #content
 {
-    padding: 50px 50px 50px 50px;
-
-    background-color: #cecece;
+    padding: 50px;
 }
