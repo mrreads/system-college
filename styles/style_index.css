@@ -11,6 +11,8 @@ html, head, body, #main-wrapper
     height: 100%;
 
     background-color: #cecece;
+
+    min-width: 800px;
 }
 
 @media screen and (max-width: 1210px)
