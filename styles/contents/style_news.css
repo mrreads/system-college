@@ -58,8 +58,8 @@
 
     float: right;
 
-    margin: 15px;
-    padding: 15px 15px;
+    margin: 15px 0 0 15px;
+    padding: 15px;
 
     transition: .2s linear;
     text-decoration: none;
@@ -69,8 +69,8 @@
 
 #news .с-link a:hover
 {
-    margin: 15px;
-    padding: 15px 15px;
+    margin: 15px 0 0 15px;
+    padding: 15px;
 
     transition: .2s linear;
 
