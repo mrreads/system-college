@@ -32,12 +32,9 @@
 
 #content .items hr
 {
-    width: 100%;
     margin: 0 5px;
 
     border: 0;
-    border-bottom: 1px solid #ccc;
-    background: #999;
 }
 
 #content .items
