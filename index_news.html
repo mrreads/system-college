@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="styles/style_index.css">
     <link rel="stylesheet" href="styles/contents/style_news.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style_login.css">
 </head>
 <style>
-        #news .с-link
+    #news .с-link
         {
             top: 0;
         }
@@ -43,6 +44,18 @@
         </div>
         <div id="header-picture">
         </div>
+        <form id="login-popup">
+            <div class="quit">
+                <a href=""> <img src="images/icons/close-icon.png"> </a>
+            </div>
+            <div class="inputs">
+                <input type="email" placeholder="ВВЕДИТЕ ПОЧТУ">
+                <input type="password" placeholder="ВВЕДИТЕ ПАРОЛЬ">
+            </div>
+            <div class="button">
+                <input type="submit" value="ЗАЛОГИНИТЬСЯ!">
+            </div>
+        </form>
         <div id="nav-menu">
             <ul>
                 <li> <a href="index.html" id="nav-menu_active"> Новости </a> </li>
