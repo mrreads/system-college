@@ -49,9 +49,20 @@ html, head, body, #main-wrapper
     width: 80%;
 }
 
+#wrapper-one
+{
+
+}
+
 #side-bar
 {
     position: fixed;
+
+    overflow: scroll;
+    overflow-y: hide;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
     width: 20%;
     height: 100%;
