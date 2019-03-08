@@ -58,10 +58,10 @@ html, head, body, #main-wrapper
 {
     position: fixed;
 
-    overflow-y: scroll;
-
+    overflow: hidden
     scrollbar-width: none;
     -ms-overflow-style: none;
+    overflow-y: scroll;
 
     width: 20%;
     height: 100%;
