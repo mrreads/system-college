@@ -58,8 +58,7 @@ html, head, body, #main-wrapper
 {
     position: fixed;
 
-    overflow: scroll;
-    overflow-y: hide;
+    overflow-y: scroll;
 
     scrollbar-width: none;
     -ms-overflow-style: none;
