@@ -49,24 +49,26 @@ html, head, body, #main-wrapper
     width: 80%;
 }
 
-#wrapper-one
-{
 
+#side-bar::-webkit-scrollbar
+{
+    display: none;
 }
 
 #side-bar
 {
     position: fixed;
 
-    overflow: hidden
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    overflow: hidden;
     overflow-y: scroll;
 
     width: 20%;
     height: 100%;
 
     background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .hm-logo h2
