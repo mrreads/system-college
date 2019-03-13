@@ -44,15 +44,20 @@
     margin: 2px 4px;
     padding: 15px 20px;
 
+    transition: .3s linear;
     text-decoration: none;
 
     color: black;
     background-color: white;
     box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
 }
-
-.pages .active-pages
+.pages .active-pages,
+.pages a:hover
 {
+    font-weight: bold;
+
+    transition: .3s linear;
+
     color: white;
     background-color: black;
 }
