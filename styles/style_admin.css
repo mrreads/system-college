@@ -6,40 +6,107 @@
 
 html, head, body, #main-wrapper
 {
-    font-family: 'PT Sans Narrow', sans-serif, 'Roboto', sans-serif, 'Oswald', sans-serif;
+    font-family: "PT Sans Narrow", sans-serif, "Roboto", sans-serif, "Oswald", sans-serif;
 
-    height: 100%;
+    height: 100% !important;
 
-    background-color: #cecece;
+    background-color: #CECECE;
 }
 
 @media screen and (max-width: 1210px)
 {
-    .hm-logo { width: 100%; }
+    .hm-logo
+    {
+        width: 100%;
+    }
 
-    .hm-menu { justify-content: center; align-items: center; }
+    .hm-menu
+    {
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width: 960px)
 {
-    .hm-login { margin: 0 auto; }
+    .sb-name, .sb-role, .hm-logo h2
+    {
+        font-size: 16px !important;
+    }
 
-    .hm-menu { margin: 0 auto; }
-    .hm-menu ul { justify-content: center; align-items: center; }
+    .sb-profile img
+    {
+        width: 100px !important;
+        height: 100px !important;
+    }
 
-    #nav-menu ul{ justify-content: center; align-items: center; }
+    .hm-login
+    {
+        margin: 0 auto;
+    }
 
-    .с-link { text-align: center; }
+    .hm-menu
+    {
+        margin: 0 auto;
+    }
+    .hm-menu ul
+    {
+        align-items: center;
+        justify-content: center;
+    }
+
+    #nav-menu ul
+    {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .с-link
+    {
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 500px)
 {
-    .hm-login { width: 100%; }
+    .sb-menu ul li a
+    {
+        font-size: 11px;
+    }
+    #wrapper-two
+    {
+        width: 90% !important;
+    }
 
-    .hm-menu { width: 100%; }
-    .hm-menu li { width: 100%; }
+    #side-bar
+    {
+        width: 10%;
+        min-width: 90px !important;
+    }
 
-    #nav-menu li { width: 100%;}
+    .hm-logo, .sb-profile
+    {
+        display: none;
+    }
+
+    .hm-login
+    {
+        width: 100%;
+    }
+
+    .hm-menu
+    {
+        width: 100%;
+    }
+    .hm-menu li
+    {
+        width: 100%;
+    }
+
+    #nav-menu li
+    {
+        width: 100%;
+    }
 }
 
 #wrapper-two
@@ -58,29 +125,32 @@ html, head, body, #main-wrapper
 #side-bar
 {
     position: fixed;
+    z-index: 15;
 
     overflow: hidden;
     overflow-y: scroll;
 
-    width: 20%;
+/* width: 20%; */
+
+    min-width: 20%;
     height: 100%;
 
-    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    background-image: linear-gradient(to right, #6A11CB 0%, #2575FC 100%);
 
-    scrollbar-width: none;
     -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .hm-logo h2
 {
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
     font-size: 26px;
 
     padding: 10px 0;
 
     text-align: center;
 
-    text-shadow: 2px 2px 0 rgba(0,0,0,.2);
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
 }
 
 .sb-profile img
@@ -92,12 +162,12 @@ html, head, body, #main-wrapper
     margin: 75px auto 15px auto;
 
     border-radius: 100%;
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.5);
 }
 
 .sb-profile .sb-name
 {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 28px;
 
     text-align: center;
@@ -137,20 +207,19 @@ html, head, body, #main-wrapper
     width: 100%;
     padding: 15px 0 15px 0;
 
-    transition: .3s linear;
+    transition: 0.3s linear;
     text-align: center;
     text-decoration: none;
 
     color: black;
 }
 
-.sb-menu a:hover,
-#sb-menu_active
+.sb-menu a:hover, #sb-menu_active
 {
-    transition: .2s linear;
+    transition: 0.2s linear;
 
-    background-color: rgba(255,255,255,.2);
-    box-shadow: 0 -75px 85px -130px rgba(0,0,0,.85) inset;
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
 }
 
 #header-menu
@@ -190,20 +259,19 @@ html, head, body, #main-wrapper
     min-width: 200px;
     padding: 15px 0 15px 0;
 
-    transition: .3s linear;
+    transition: 0.3s linear;
     text-align: center;
     text-decoration: none;
 
     color: black;
 }
 
-.hm-menu a:hover,
-#hm-menu_active
+.hm-menu a:hover, #hm-menu_active
 {
-    transition: .2s linear;
+    transition: 0.2s linear;
 
-    background-color: #cecece;
-    box-shadow: 0 -75px 85px -130px rgba(0,0,0,.85) inset;
+    background-color: #CECECE;
+    box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
 }
 
 .hm-login
@@ -220,7 +288,7 @@ html, head, body, #main-wrapper
     min-width: 200px;
     padding: 15px 0 15px 0;
 
-    transition: .3s linear;
+    transition: 0.3s linear;
     text-align: center;
     text-decoration: none;
 
@@ -230,10 +298,10 @@ html, head, body, #main-wrapper
 
 .hm-login a:hover
 {
-    transition: .2s linear;
+    transition: 0.2s linear;
 
-    background-color: #cecece;
-    box-shadow: 0 -75px 85px -130px rgba(0,0,0,.85) inset;
+    background-color: #CECECE;
+    box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
 }
 
 .hm-logo a
@@ -247,7 +315,7 @@ html, head, body, #main-wrapper
 {
     display: flex;
 
-    background-color: #cecece;
+    background-color: #CECECE;
 
     flex-wrap: wrap;
 }
@@ -273,20 +341,19 @@ html, head, body, #main-wrapper
     min-width: 200px;
     padding: 15px 0 15px 0;
 
-    transition: .3s linear;
+    transition: 0.3s linear;
     text-align: center;
     text-decoration: none;
 
     color: black;
 }
 
-#nav-menu a:hover,
-#nav-menu_active
+#nav-menu a:hover, #nav-menu_active
 {
-    transition: .2s linear;
+    transition: 0.2s linear;
 
-    background-color: #bdbdbd;
-    box-shadow: 0 -75px 85px -130px rgba(0,0,0,.85) inset;
+    background-color: #BDBDBD;
+    box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
 }
 
 #content
