@@ -1,3 +1,32 @@
+<?
+session_start();
+
+if (isset($_SESSION['id_user']))
+{
+?>
+    <script async>
+        document.addEventListener("DOMContentLoaded", function()
+        {
+            console.log('Вы войденны');
+
+            var auth_button = document.querySelector('#auth-button');
+            auth_button.textContent = 'Выйти';
+
+            auth_button.href = 'php/logout.php';
+        });
+    </script>
+<?
+}
+else
+{
+?>
+    <script>
+        console.log('Вы не авторизованны!');
+    </script>
+<?
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -40,23 +69,11 @@
                 </ul>
             </div>
             <div class="hm-login">
-                <a href="#login-popup"> Войти </a>
+                <a href="login.php"  id="auth-button"> Войти </a>
             </div>
         </div>
         <div id="header-picture">
         </div>
-        <form id="login-popup">
-            <div class="quit">
-                <a href=""> <img src="images/icons/close-icon.png"> </a>
-            </div>
-            <div class="inputs">
-                <input type="email" placeholder="ВВЕДИТЕ ПОЧТУ">
-                <input type="password" placeholder="ВВЕДИТЕ ПАРОЛЬ">
-            </div>
-            <div class="button">
-                <input type="submit" value="ЗАЛОГИНИТЬСЯ!">
-            </div>
-        </form>
         <div id="nav-menu">
             <ul>
                 <li> <a href="index.php" id="nav-menu_active"> Новости </a> </li>
