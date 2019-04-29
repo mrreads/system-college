@@ -2,6 +2,11 @@
 require_once 'connection.php';
 session_start();
 
+if (isset($_SESSION['id_user'])) 
+{
+    header('Location: ../student_you.php');
+}
+
 $email_auth = $_POST['email-auth'];
 $password_auth = $_POST['password-auth'];
 $button_auth = $_POST['button-auth'];
@@ -17,3 +22,9 @@ while ($row = mysqli_fetch_row($result_login))
         header('Location: ../index.php');
     }
 }
+
+if (empty($_SESSION['id_user'])) 
+{
+    header('Location: ../login.php');
+}
+?>

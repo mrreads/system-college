@@ -1,3 +1,13 @@
+<?
+session_start();
+
+if (empty($_SESSION['id_user'])) 
+{
+    header('Location: index.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -44,7 +54,7 @@
                     </ul>
                 </div>
                 <div class="hm-login">
-                    <a href="index.php"> Выйти </a>
+                    <a href="php/logout.php"> Выйти </a>
                 </div>
             </div>
             <div id="nav-menu">
