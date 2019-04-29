@@ -31,12 +31,12 @@
     <div id="main-wrapper">
         <div id="header-menu">
             <div class="hm-logo">
-                <h2> <a href="index.html"> ЩЕЛКОВСКИЙ КОЛЛЕДЖ </a> </h2>
+                <h2> <a href="index.php"> ЩЕЛКОВСКИЙ КОЛЛЕДЖ </a> </h2>
             </div>
             <div class="hm-menu">
                 <ul>
-                    <li> <a href="index.html" id="hm-menu_active"> Главная </a> </li>
-                    <li> <a href="student_you.html"> Личный кабинет</a> </li>
+                    <li> <a href="index.php" id="hm-menu_active"> Главная </a> </li>
+                    <li> <a href="student_you.php"> Личный кабинет</a> </li>
                 </ul>
             </div>
             <div class="hm-login">
@@ -59,9 +59,9 @@
         </form>
         <div id="nav-menu">
             <ul>
-                <li> <a href="index.html" id="nav-menu_active"> Новости </a> </li>
-                <li> <a href="vneurochka_meropriyatia.html"> Мероприятия</a> </li>
-                <li> <a href="schedule.html"> Расписание </a> </li>
+                <li> <a href="index.php" id="nav-menu_active"> Новости </a> </li>
+                <li> <a href="vneurochka_meropriyatia.php"> Мероприятия</a> </li>
+                <li> <a href="schedule.php"> Расписание </a> </li>
             </ul>
         </div>
         <div id="content">
@@ -81,7 +81,7 @@
                     <p class="c-text">
                         Pellentesque tristique et felis dignissim luctus. Aliquam erat volutpat. Aliquam facilisis sapien enim, vitae posuere dolor vehicula a. Fusce ultrices pulvinar erat, nec sodales nulla laoreet non. Nulla vehicula quam odio, id aliquet neque tempor sed. Aliquam erat volutpat. Suspendisse tortor ipsum, vestibulum sit amet erat eget, imperdiet dapibus sapien. Nulla accumsan ultricies massa, ut tincidunt elit mattis at. Curabitur ac mauris porta, eleifend diam vel, vestibulum orci. Morbi ornare finibus massa, nec molestie purus viverra in. Phasellus dignissim, diam at scelerisque sollicitudin, purus felis lobortis mauris, gravida aliquam magna lacus nec lorem. Proin sem sem, hendrerit in lectus sit amet, consectetur cursus turpis.
                     </p>
-                    <p class="с-link"> <a href="index.html"> Вернуться назад </a> </p>
+                    <p class="с-link"> <a href="index.php"> Вернуться назад </a> </p>
                 </div>
             </div>
         </div>

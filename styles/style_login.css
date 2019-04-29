@@ -1,30 +1,35 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: "PT Sans Narrow", sans-serif, "Roboto", sans-serif, "Oswald", sans-serif;
+}
+
+html, body, #particles-js
+{
+    height: 100%;
+    width: 100%;
+}
+
+#particles-js
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #login-popup
 {
-    position: fixed;
-    z-index: 5;
-    top: 50%;
-    left: 50%;
-
     display: block;
-    overflow: hidden;
 
     width: 500px;
     min-width: 30%;
     height: 400px;
     min-height: 30%;
 
-    transform: translate(-50%, -50%);
 
-    border-radius: 2%;
     background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    box-shadow: 0 0 55px 35px rgba(0,0,0,.7);
-
-    display: none;
-}
-
-#login-popup:target
-{
-    display: block;
+    box-shadow: 0 0 25px 0px rgba(0,0,0,.5);
 }
 
 #login-popup .quit

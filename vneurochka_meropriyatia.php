@@ -16,7 +16,7 @@
         <div id="wrapper-one">
             <div id="side-bar">
                 <div class="hm-logo">
-                    <h2> <a href="index.html"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
+                    <h2> <a href="index.php"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
                 </div>
                 <div class="sb-profile">
                     <img src="images/avatar.jpg">
@@ -25,12 +25,12 @@
                 </div>
                 <div class="sb-menu">
                     <ul>
-                        <li> <a href="administration.html"> Администрация </a> </li>
-                        <li> <a href="subject.html"> Предметы </a> </li>
-                        <li> <a href="student_you.html"> Студент </a> </li>
-                        <li> <a href="schedule.html"> Расписание </a> </li>
-                        <li> <a href="metodichka.html"> Методичка </a> </li>
-                        <li> <a href="vneurochka.html" id="sb-menu_active"> Внеурочка </a> </li>
+                        <li> <a href="administration.php"> Администрация </a> </li>
+                        <li> <a href="subject.php"> Предметы </a> </li>
+                        <li> <a href="student_you.php"> Студент </a> </li>
+                        <li> <a href="schedule.php"> Расписание </a> </li>
+                        <li> <a href="metodichka.php"> Методичка </a> </li>
+                        <li> <a href="vneurochka.php" id="sb-menu_active"> Внеурочка </a> </li>
                     </ul>
                 </div>
             </div>
@@ -39,18 +39,18 @@
             <div id="header-menu">
                 <div class="hm-menu">
                     <ul>
-                        <li> <a href="index.html"> Главная </a> </li>
-                        <li> <a href="student_you.html" id="hm-menu_active"> Личный кабинет</a> </li>
+                        <li> <a href="index.php"> Главная </a> </li>
+                        <li> <a href="student_you.php" id="hm-menu_active"> Личный кабинет</a> </li>
                     </ul>
                 </div>
                 <div class="hm-login">
-                    <a href="index.html"> Выйти </a>
+                    <a href="index.php"> Выйти </a>
                 </div>
             </div>
             <div id="nav-menu">
                 <ul>
-                    <li> <a href="vneurochka.html"> Курсы </a> </li>
-                    <li> <a href="vneurochka_meropriyatia.html" id="nav-menu_active"> Мероприятия </a> </li>
+                    <li> <a href="vneurochka.php"> Курсы </a> </li>
+                    <li> <a href="vneurochka_meropriyatia.php" id="nav-menu_active"> Мероприятия </a> </li>
                 </ul>
             </div>
             <div id="content">
@@ -59,15 +59,15 @@
                         <input id="enter" type="text" placeholder="Название мероприятия.">
                         <input id="search" type="submit" value="ПОИСК">
                     </form>
-                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.html"> Название мероприятия <span> [дата]</span> </a></p>
+                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.php"> Название мероприятия <span> [дата]</span> </a></p>
                     <hr>
-                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.html"> Название мероприятия <span> [дата]</span> </a></p>
+                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.php"> Название мероприятия <span> [дата]</span> </a></p>
                     <hr>
-                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.html"> Название мероприятия <span> [дата]</span> </a></p>
+                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.php"> Название мероприятия <span> [дата]</span> </a></p>
                     <hr>
-                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.html"> Название мероприятия <span> [дата]</span> </a></p>
+                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.php"> Название мероприятия <span> [дата]</span> </a></p>
                     <hr>
-                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.html"> Название мероприятия <span> [дата] </span> </a></p>
+                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.php"> Название мероприятия <span> [дата] </span> </a></p>
                     <hr>
                 </div>
             </div>

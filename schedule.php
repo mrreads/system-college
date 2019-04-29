@@ -16,7 +16,7 @@
         <div id="wrapper-one">
             <div id="side-bar">
                 <div class="hm-logo">
-                    <h2> <a href="index.html"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
+                    <h2> <a href="index.php"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
                 </div>
                 <div class="sb-profile">
                     <img src="images/avatar.jpg">
@@ -25,12 +25,12 @@
                 </div>
                 <div class="sb-menu">
                     <ul>
-                        <li> <a href="administration.html"> Администрация </a> </li>
-                        <li> <a href="subject.html"> Предметы </a> </li>
-                        <li> <a href="student_you.html"> Студент </a> </li>
-                        <li> <a href="schedule.html" id="sb-menu_active"> Расписание </a> </li>
-                        <li> <a href="metodichka.html"> Методичка </a> </li>
-                        <li> <a href="vneurochka.html"> Внеурочка </a> </li>
+                        <li> <a href="administration.php"> Администрация </a> </li>
+                        <li> <a href="subject.php"> Предметы </a> </li>
+                        <li> <a href="student_you.php"> Студент </a> </li>
+                        <li> <a href="schedule.php" id="sb-menu_active"> Расписание </a> </li>
+                        <li> <a href="metodichka.php"> Методичка </a> </li>
+                        <li> <a href="vneurochka.php"> Внеурочка </a> </li>
                     </ul>
                 </div>
             </div>
@@ -39,12 +39,12 @@
             <div id="header-menu">
                 <div class="hm-menu">
                     <ul>
-                        <li> <a href="index.html"> Главная </a> </li>
-                        <li> <a href="student_you.html" id="hm-menu_active"> Личный кабинет</a> </li>
+                        <li> <a href="index.php"> Главная </a> </li>
+                        <li> <a href="student_you.php" id="hm-menu_active"> Личный кабинет</a> </li>
                     </ul>
                 </div>
                 <div class="hm-login">
-                    <a href="index.html"> Выйти </a>
+                    <a href="index.php"> Выйти </a>
                 </div>
             </div>
             <div id="content">
