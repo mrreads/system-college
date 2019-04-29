@@ -39,6 +39,11 @@ $user_formstudy = $data_user_info[3];
 $user_email = $data_user_info[4];
 $user_phone = $data_user_info[5];
 $user_role = $data_user_info[6];
+
+$user_fi = explode(' ', $user_name);
+#$user_fi[1] = ИМЯ
+#$user_fi[0] = ФАМИЛИЯ
+#$user_fi[0] = ОЧЕСТВО
 ?>
 
 <!DOCTYPE html>
@@ -63,8 +68,8 @@ $user_role = $data_user_info[6];
                 </div>
                 <div class="sb-profile">
                     <img src="images/avatar.jpg">
-                    <p class="sb-name"> Имя Фамилия </p>
-                    <p class="sb-role"> Студент </p>
+<? echo "           <p class='sb-name'> $user_fi[1] $user_fi[0] </p>"; ?>
+<? echo "           <p class='sb-role'> $user_role </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
@@ -101,7 +106,7 @@ $user_role = $data_user_info[6];
                 <div id="profile">
                     <img src="images/avatar.jpg">
                     <div class='p-background'>
-            <? echo "<h2 class='b-name'> $user_name </h2>"; ?>
+            <? echo "<h2 class='b-name'> $user_fi[1] $user_fi[0] </h2>"; ?>
             <? echo "<p class='b-info'> $user_role </p>"; ?>
                     </div>
                     <div class='info-background'>
