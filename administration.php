@@ -6,6 +6,10 @@ if (empty($_SESSION['id_user']))
     header('Location: index.php');
 }
 
+require_once 'php/connection.php';
+$query_administration_list = "SELECT id_administration, fio FROM administration_info;";
+$result_administration_list = mysqli_query($link, $query_administration_list);
+
 ?>
 
 <!DOCTYPE html>
@@ -73,16 +77,17 @@ if (empty($_SESSION['id_user']))
                             <label for="gsp"> ПСП </label>
                         </div>
                     </form>
-                    <p class=p-button> <a href="administration_pofile.php"> Имя администрации </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="administration_pofile.php"> Имя администрации </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="administration_pofile.php"> Имя администрации </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="administration_pofile.php"> Имя администрации </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="administration_pofile.php"> Имя администрации </a> </p>
-                    <hr>
+
+                    <form method="GET" action="administration_pofile.php">
+                    <?
+                    while ($data_administration_list = mysqli_fetch_row($result_administration_list))
+                    {
+                        echo "
+                        <p class='text-p'> $data_administration_list[1] <input class='p-button' type='submit' name='id' value='$data_administration_list[0]'> </p>";
+                        echo "<hr>";
+                    }
+                    ?>
+                    </form>
                 </div>
             </div>
         </div>

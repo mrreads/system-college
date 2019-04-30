@@ -1,11 +1,42 @@
 <?
 session_start();
 
-if (empty($_SESSION['id_user'])) 
+if (empty($_SESSION['id_user']) or empty($_GET['id'])) 
 {
     header('Location: index.php');
 }
 
+$administration_id = $_GET['id'];
+
+require_once 'php/connection.php';
+$query_administration_info = "SELECT
+                        fio,
+                        number_SP,
+                        position,
+                        email,
+                        phone_number,
+                        addres,
+                        name_role
+                    FROM
+                        administration_info,
+                        roles
+                    WHERE 
+                        roles.id_role = administration_info.id_role
+                    AND
+                        id_administration = '$administration_id';";
+
+$result_administration_info = mysqli_query($link, $query_administration_info);
+$data_administration_info = mysqli_fetch_row($result_administration_info);
+
+$admin_name = $data_administration_info[0];
+$admin_numbersp = $data_administration_info[1];
+$admin_position = $data_administration_info[2];
+$admin_email = $data_administration_info[3];
+$admin_phone = $data_administration_info[4];
+$admin_address = $data_administration_info[5];
+$admin_role = $data_administration_info[6];
+
+$admin_fi = explode(' ', $admin_name);
 ?>
 
 <!DOCTYPE html>
@@ -61,32 +92,30 @@ if (empty($_SESSION['id_user']))
                 <div id="profile">
                     <img src="https://konata.namikoi.com/characters/5f245464-91c4-4597-b7a2-f4e5397740fa/b88e507d-9053-44b4-8198-aa1961eca6c0.jpg">
                     <div class='p-background'>
-                        <h2 class="b-name"> Имя Фамилия </h2>
-                        <p class="b-info"> Администрация </p>
+<?  echo "              <h2 class='b-name'> $admin_fi[1] $admin_fi[0] </h2>"; ?>
+<?  echo "              <p class='b-info'> $admin_role </p>"; ?>
                     </div>
                     <div class='info-background'>
+
                         <div class="user-info">
                             <p> Имя администрации: </p>
-                            <p> [фио] </p>
+                            <? echo "<p> $admin_name </p>"; ?>
                             <hr>
                             <p> Отделение: </p>
-                            <p> [отделение] </p>
+                            <? echo "<p> $admin_numbersp </p>"; ?>
                             <hr>
                             <p> Должность: </p>
-                            <p> [должность] </p>
-                            <hr>
-                            <p> Дни работы: </p>
-                            <p> [список дней] </p>
+                            <? echo "<p> $admin_position </p>"; ?>
                         </div>
                         <div class="profile-info">
                             <p> Почта администрации: </p>
-                            <p> [почта администрации] </p>
+                            <? echo "<p> $admin_email </p>"; ?>
                             <hr>
                             <p> Номер: </p>
-                            <p> [номер администрации </p>
+                            <? echo "<p> $admin_phone </p>"; ?>
                             <hr>
-                            <p> Социальные сети: </p>
-                            <p> <a href="#"> [ссылка] </a> </p>
+                            <p> Адрес: </p>
+                            <? echo "<p> $admin_address </p>"; ?>
                         </div>
                     </div>
                 </div>
