@@ -6,6 +6,21 @@ if (empty($_SESSION['id_user']))
     header('Location: index.php');
 }
 
+require_once 'php/connection.php';
+$query_taecher_list = "SELECT id_teacher, fio FROM teacher_info ";
+
+if (isset($_GET['search-button']))
+{
+    if (isset($_GET['search-field'])) 
+    {
+        $search = $_GET['search-field'];
+        $where = "WHERE fio LIKE '%$search%'";
+        $query_taecher_list = $query_taecher_list.$where;
+        #echo $query_taecher_list;
+    }
+}
+
+$result_teacher_list = mysqli_query($link, $query_taecher_list);
 ?>
 
 <!DOCTYPE html>
@@ -65,24 +80,36 @@ if (empty($_SESSION['id_user']))
             </div>
             <div id="content">
                 <div class="items">
-                    <form>
-                        <input id="enter" type="text" placeholder="Введите код группы или специальность.">
-                        <input id="search" type="submit" value="ПОИСК">
+
+                <form id="search-form" method="GET">
+                    <div class="s-b">
+                        <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
+                        <input id="search" type="submit" value="ПОИСК" name="search-button">
+                    </div>
+                </form>
+
+                    <form method="GET" action="subject_teacher_profile.php">
+                    <?
+                    while ($data_teacher_list = mysqli_fetch_row($result_teacher_list))
+                    {
+                        echo "
+                        <p class='text-p'> $data_teacher_list[1] <input class='p-button' type='submit' name='id' value='$data_teacher_list[0]'> </p>";
+                        echo "<hr>";
+                    }
+                    ?>
                     </form>
-                    <p class=p-button> <a href="subject_teacher_profile.php"> Преподавател </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="subject_teacher_profile.php"> Преподавател </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="subject_teacher_profile.php"> Преподавател </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="subject_teacher_profile.php"> Преподавател </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="subject_teacher_profile.php"> Преподавател </a> </p>
-                    <hr>
                 </div>
             </div>
         </div>
     </div>
+    <?
+    echo "
+    <script>
+        var searchInput = document.querySelector('#enter');
+        searchInput.value = '$search';
+    </script>
+    ";
+    ?>
 </body>
 
 </html>

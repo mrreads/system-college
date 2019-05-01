@@ -6,7 +6,42 @@ if (empty($_SESSION['id_user']))
     header('Location: index.php');
 }
 
+$teacher_id = $_GET['id'];
+
+require_once 'php/connection.php';
+
+$query_teacher_info = "SELECT
+                            fio, 
+                            email, 
+                            phone_number, 
+                            category, 
+                            date_birth, 
+                            name_role
+                        FROM
+                            teacher_info, 
+                            roles
+                        WHERE
+                            roles.id_role = teacher_info.id_role
+                        AND
+                            id_teacher = '$teacher_id';";
+
+$result_teacher_info = mysqli_query($link, $query_teacher_info);
+$data_teacher_info = mysqli_fetch_row($result_teacher_info);
+
+$teacher_name = $data_teacher_info[0];
+$teacher_email = $data_teacher_info[1];
+$teacher_phone = $data_teacher_info[2];
+$teacher_category = $data_teacher_info[3];
+$teacher_birth = $data_teacher_info[4];
+$teacher_role = $data_teacher_info[5];
+
+$teacher_fi = explode(' ',  $teacher_name);
+#$teacher_fi[1] = ИМЯ
+#$teacher_fi[0] = ФАМИЛИЯ
+#$teacher_fi[0] = ОЧЕСТВО
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -74,31 +109,22 @@ if (empty($_SESSION['id_user']))
                     <div class='info-background'>
                         <div class="user-info">
                             <p> Имя преподавателя: </p>
-                            <p> [фио препода] </p>
-                            <hr>
-                            <p> Номер отделение: </p>
-                            <p> [отделение] </p>
-                            <hr>
-                            <p> Основное направление: </p>
-                            <p> [название специальности] </p>
+                            <? echo "<p> $teacher_name </p>"; ?>
                             <hr>
                             <p> Категория: </p>
-                            <p> [уровень квалификации] </p>
+                            <? echo "<p> $teacher_category </p>"; ?>
                             <hr>
-                            <p> Кабинет: </p>
-                            <p> [номер кабинета] </p>
+                            <p> Дата рождения: </p>
+                            <? echo "<p> $teacher_birth </p>"; ?>
                         </div>
                         <div class="profile-info">
                             <p> Почта преподавателя: </p>
-                            <p> [почтовый адрес] </p>
+                            <? echo "<p> $teacher_email </p>"; ?>
                             <hr>
                             <p> Номер: </p>
-                            <p> [номер телефона] </p>
-                            <hr>
-                            <p> Вконтакте: </p>
-                            <p> <a href="#"> [если имеется] </a> </p>
+                            <? echo "<p> $teacher_phone </p>"; ?>
                         </div>
-                        <div class="items">
+                        <!-- <div class="items">
                             <p class=p-button> <a href="subject_subject_profile.php"> Предмет, который ведёт препод </a> </p>
                             <hr>
                             <p class=p-button> <a href="subject_subject_profile.php"> Предмет, который ведёт препод </a> </p>
@@ -109,7 +135,7 @@ if (empty($_SESSION['id_user']))
                             <hr>
                             <p class=p-button> <a href="subject_subject_profile.php"> Предмет, который ведёт препод </a> </p>
                             <hr>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

@@ -80,12 +80,13 @@ $result_subject_list = mysqli_query($link, $query_subject_list);
             </div>
             <div id="content">
                 <div class="items">
+                    
                 <form id="search-form" method="GET">
-                        <div class="s-b">
-                            <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
-                            <input id="search" type="submit" value="ПОИСК" name="search-button">
-                        </div>
-                    </form>
+                    <div class="s-b">
+                        <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
+                        <input id="search" type="submit" value="ПОИСК" name="search-button">
+                    </div>
+                </form>
                     
                     <form method="GET" action="subject_subject_profile.php">
                     <?
