@@ -8,6 +8,22 @@ if (empty($_SESSION['id_user']))
 
 require_once 'php/connection.php';
 
+$query_group_list  = "SELECT id_group, number_group FROM groups ";
+
+if (isset($_GET['search-button']))
+{
+    if (isset($_GET['search-field'])) 
+    {
+        $search = $_GET['search-field'];
+        $where = "WHERE number_group LIKE '%$search%'";
+        $query_group_list = $query_group_list.$where;
+        #echo $query_group_list;
+    }
+}
+
+$result_group_list = mysqli_query($link, $query_group_list);
+
+
 $user_id = $_SESSION['id_user'];
 $query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
 $result_user_info = mysqli_query($link, $query_user_info);
@@ -74,24 +90,36 @@ $user_fio = explode(' ', $user_fio);
             </div>
             <div id="content">
                 <div class="items">
-                    <form>
-                        <input id="enter" type="text" placeholder="Введите код группы или специальность.">
-                        <input id="search" type="submit" value="ПОИСК">
+                <form id="search-form" method="GET">
+                    <div class="s-b">
+                        <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
+                        <input id="search" type="submit" value="ПОИСК" name="search-button">
+                    </div>
+                </form>
+                    
+
+                    <form method="GET" action="student_group_profile.php">
+                    <?
+                    while ($data_group_list = mysqli_fetch_row($result_group_list))
+                    {
+                        echo "
+                        <p class='text-p'> $data_group_list[1] <input class='p-button' type='submit' name='id' value='$data_group_list[0]'> </p>";
+                        echo "<hr>";
+                    }
+                    ?>
                     </form>
-                    <p class=p-button> <a href="student_group_profile.php"> Группа </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="student_group_profile.php"> Группа </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="student_group_profile.php"> Группа </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="student_group_profile.php"> Группа </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="student_group_profile.php"> Группа </a> </p>
-                    <hr>
                 </div>
             </div>
         </div>
     </div>
+    <?
+    echo "
+    <script>
+        var searchInput = document.querySelector('#enter');
+        searchInput.value = '$search';
+    </script>
+    ";
+    ?>
 </body>
 
 </html>
