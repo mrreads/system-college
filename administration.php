@@ -79,9 +79,6 @@ $result_administration_list = mysqli_query($link, $query_administration_list);
                         <div class="s-b">
                             <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
                             <input id="search" type="submit" value="ПОИСК" name="search-button">
-                            <?
-
-                            ?>
                         </div>
                         <!-- <div class="checkbox">
                             <input type="checkbox">

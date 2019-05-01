@@ -1,11 +1,26 @@
 <?
 session_start();
 
-if (empty($_SESSION['id_user'])) 
+if (empty($_SESSION['id_user']) or empty($_GET['id'])) 
 {
     header('Location: index.php');
 }
 
+$subject_id = $_GET['id'];
+
+require_once 'php/connection.php';
+$query_subject_info = "SELECT
+                        subject_name, quantity_hour
+                    FROM
+                        subjects
+                    WHERE 
+                    id_subject = '$subject_id'";
+
+$result_subject_info = mysqli_query($link, $query_subject_info);
+$data_subject_info = mysqli_fetch_row($result_subject_info);
+
+$subject_name = $data_subject_info[0];
+$subject_hours = $data_subject_info[1];
 ?>
 
 <!DOCTYPE html>
@@ -67,20 +82,17 @@ if (empty($_SESSION['id_user']))
             <div id="content">
                 <div id="profile">
                     <div class='p-background'>
-                        <h2 class="b-name"> Название предмета </h2>
+                    <? echo "<h2 class='b-name'> $subject_name </h2>"; ?>
                     </div>
                     <div class='info-background'>
                         <div class="item-info">
                             <p> Название предмета: </p>
-                            <p> [название предмета] </p>
+                    <? echo "<p> $subject_name </p>"; ?>
                             <hr>
-                            <p> Профильность: </p>
-                            <p> [база 10-11 или специальность] </p>
-                            <hr>
-                            <p> Минимальное кол-во часов: </p>
-                            <p> [часики] </p>
+                            <p> Кол-во часов: </p>
+                    <? echo "<p> $subject_hours </p>"; ?>
                         </div>
-                        <div class="items">
+                        <!-- <div class="items">
                             <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
                             <hr>
                             <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
@@ -91,7 +103,7 @@ if (empty($_SESSION['id_user']))
                             <hr>
                             <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
                             <hr>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

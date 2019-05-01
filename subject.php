@@ -7,7 +7,19 @@ if (empty($_SESSION['id_user']))
 }
 
 require_once 'php/connection.php';
-$query_subject_list = "SELECT id_subject, subject_name";
+$query_subject_list = "SELECT id_subject, subject_name FROM subjects ";
+
+if (isset($_GET['search-button']))
+{
+    if (isset($_GET['search-field'])) 
+    {
+        $search = $_GET['search-field'];
+        $where = "WHERE subject_name LIKE '%$search%'";
+        $query_subject_list = $query_subject_list.$where;
+        #echo $query_subject_list;
+    }
+}
+
 $result_subject_list = mysqli_query($link, $query_subject_list);
 ?>
 
@@ -68,24 +80,36 @@ $result_subject_list = mysqli_query($link, $query_subject_list);
             </div>
             <div id="content">
                 <div class="items">
-                    <form>
-                        <input id="enter" type="text" placeholder="Название предмета или учителя.">
-                        <input id="search" type="submit" value="ПОИСК">
+                <form id="search-form" method="GET">
+                        <div class="s-b">
+                            <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
+                            <input id="search" type="submit" value="ПОИСК" name="search-button">
+                        </div>
                     </form>
-                    <p class=p-button> <a href="subject_subject_profile.php"> Предмет </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="subject_subject_profile.php"> Предмет </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="subject_subject_profile.php"> Предмет </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="subject_subject_profile.php"> Предмет </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="subject_subject_profile.php"> Предмет </a> </p>
-                    <hr>
+                    
+                    <form method="GET" action="subject_subject_profile.php">
+                    <?
+                    while ($data_subject_list = mysqli_fetch_row($result_subject_list))
+                    {
+                        echo "
+                        <p class='text-p'> $data_subject_list[1] <input class='p-button' type='submit' name='id' value='$data_subject_list[0]'> </p>";
+                        echo "<hr>";
+                    }
+                    ?>
+                    </form>
+
                 </div>
             </div>
         </div>
     </div>
+    <?
+    echo "
+    <script>
+        var searchInput = document.querySelector('#enter');
+        searchInput.value = '$search';
+    </script>
+    ";
+    ?>
 </body>
 
 </html>
