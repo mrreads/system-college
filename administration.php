@@ -22,6 +22,12 @@ if (isset($_GET['search-button']))
 
 $result_administration_list = mysqli_query($link, $query_administration_list);
 
+$user_id = $_SESSION['id_user'];
+$query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
+$result_user_info = mysqli_query($link, $query_user_info);
+$data_user_info = mysqli_fetch_row($result_user_info);
+$user_fio = $data_user_info[0];
+$user_fio = explode(' ', $user_fio);
 ?>
 
 <!DOCTYPE html>
@@ -46,8 +52,8 @@ $result_administration_list = mysqli_query($link, $query_administration_list);
                 </div>
                 <div class="sb-profile">
                     <img src="images/avatar.jpg">
-                    <p class="sb-name"> Имя Фамилия </p>
-                    <p class="sb-role"> Студент </p>
+                    <? echo" <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
+                    <? echo"<p class='sb-role'> $data_user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>

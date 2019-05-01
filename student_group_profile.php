@@ -6,6 +6,14 @@ if (empty($_SESSION['id_user']))
     header('Location: index.php');
 }
 
+require_once 'php/connection.php';
+
+$user_id = $_SESSION['id_user'];
+$query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
+$result_user_info = mysqli_query($link, $query_user_info);
+$data_user_info = mysqli_fetch_row($result_user_info);
+$user_fio = $data_user_info[0];
+$user_fio = explode(' ', $user_fio);
 ?>
 
 <!DOCTYPE html>
