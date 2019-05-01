@@ -103,8 +103,8 @@ $teacher_fi = explode(' ',  $teacher_name);
                 <div id="profile">
                     <img src="https://vignette.wikia.nocookie.net/bokunoheroacademia/images/9/94/Eraser.png/revision/latest?cb=20181002192225&path-prefix=pt-br">
                     <div class='p-background'>
-                        <h2 class="b-name"> Имя Фамилия </h2>
-                        <p class="b-info"> Преподаватель </p>
+                        <? echo "<h2 class='b-name'> $teacher_fi[1] $teacher_fi[2] </h2>"; ?>
+                        <? echo "<p class='b-info'> $teacher_role </p>"; ?>
                     </div>
                     <div class='info-background'>
                         <div class="user-info">
