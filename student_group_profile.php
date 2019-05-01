@@ -105,7 +105,7 @@ $user_fio = explode(' ', $user_fio);
             <div id="content">
                 <div id="profile">
                     <div class='p-background'>
-                    <? echo "<h2 class='b-name'> $group_name </h2>"; ?>
+                        <? echo "<h2 class='b-name'> $group_name </h2>"; ?>
                     </div>
                     <div class='info-background'>
                         <div class="item-info">

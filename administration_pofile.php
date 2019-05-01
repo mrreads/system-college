@@ -68,8 +68,8 @@ $user_fio = explode(' ', $user_fio);
                 </div>
                 <div class="sb-profile">
                     <img src="images/avatar.jpg">
-                    <? echo" <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo"<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo " <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $data_user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
@@ -99,8 +99,8 @@ $user_fio = explode(' ', $user_fio);
                 <div id="profile">
                     <img src="https://konata.namikoi.com/characters/5f245464-91c4-4597-b7a2-f4e5397740fa/b88e507d-9053-44b4-8198-aa1961eca6c0.jpg">
                     <div class='p-background'>
-<?  echo "              <h2 class='b-name'> $admin_fi[1] $admin_fi[0] </h2>"; ?>
-<?  echo "              <p class='b-info'> $admin_role </p>"; ?>
+                        <? echo "              <h2 class='b-name'> $admin_fi[1] $admin_fi[0] </h2>"; ?>
+                        <? echo "              <p class='b-info'> $admin_role </p>"; ?>
                     </div>
                     <div class='info-background'>
 

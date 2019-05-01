@@ -53,8 +53,8 @@ $user_fio = explode(' ', $user_fio);
                 </div>
                 <div class="sb-profile">
                     <img src="images/avatar.jpg">
-                    <? echo" <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo"<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo " <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $data_user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
@@ -89,15 +89,15 @@ $user_fio = explode(' ', $user_fio);
             <div id="content">
                 <div id="profile">
                     <div class='p-background'>
-                    <? echo "<h2 class='b-name'> $subject_name </h2>"; ?>
+                        <? echo "<h2 class='b-name'> $subject_name </h2>"; ?>
                     </div>
                     <div class='info-background'>
                         <div class="item-info">
                             <p> Название предмета: </p>
-                    <? echo "<p> $subject_name </p>"; ?>
+                            <? echo "<p> $subject_name </p>"; ?>
                             <hr>
                             <p> Кол-во часов: </p>
-                    <? echo "<p> $subject_hours </p>"; ?>
+                            <? echo "<p> $subject_hours </p>"; ?>
                         </div>
                         <!-- <div class="items">
                             <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>

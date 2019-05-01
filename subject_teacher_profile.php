@@ -73,8 +73,8 @@ $user_fio = explode(' ', $user_fio);
                 </div>
                 <div class="sb-profile">
                     <img src="images/avatar.jpg">
-                    <? echo" <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo"<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo " <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $data_user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>

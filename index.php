@@ -1,11 +1,11 @@
 <?
 session_start();
 
-if (isset($_SESSION['id_user']))
+if (isset($_SESSION['id_user'])) 
 {
 ?>
     <script async>
-        document.addEventListener("DOMContentLoaded", function()
+        document.addEventListener("DOMContentLoaded", function() 
         {
             console.log('Вы войденны');
 
@@ -16,8 +16,8 @@ if (isset($_SESSION['id_user']))
         });
     </script>
 <?
-}
-else
+} 
+else 
 {
 ?>
     <script>
@@ -26,6 +26,7 @@ else
 <?
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 

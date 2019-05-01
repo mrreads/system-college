@@ -9,13 +9,12 @@ if (empty($_SESSION['id_user']))
 require_once 'php/connection.php';
 $query_administration_list = "SELECT id_administration, fio FROM administration_info ";
 
-if (isset($_GET['search-button']))
-{
+if (isset($_GET['search-button'])) {
     if (isset($_GET['search-field'])) 
     {
         $search = $_GET['search-field'];
         $where = "WHERE fio LIKE '%$search%'";
-        $query_administration_list = $query_administration_list.$where;
+        $query_administration_list = $query_administration_list . $where;
         #echo $query_administration_list;
     }
 }
@@ -52,8 +51,8 @@ $user_fio = explode(' ', $user_fio);
                 </div>
                 <div class="sb-profile">
                     <img src="images/avatar.jpg">
-                    <? echo" <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo"<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo " <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $data_user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
@@ -97,14 +96,13 @@ $user_fio = explode(' ', $user_fio);
                     </form>
 
                     <form method="GET" action="administration_pofile.php">
-                    <?
-                    while ($data_administration_list = mysqli_fetch_row($result_administration_list))
-                    {
-                        echo "
-                        <p class='text-p'> $data_administration_list[1] <input class='p-button' type='submit' name='id' value='$data_administration_list[0]'> </p>";
-                        echo "<hr>";
-                    }
-                    ?>
+                        <?
+                        while ($data_administration_list = mysqli_fetch_row($result_administration_list)) 
+                        {
+                            echo "<p class='text-p'> $data_administration_list[1] <input class='p-button' type='submit' name='id' value='$data_administration_list[0]'> </p>";
+                            echo "<hr>";
+                        }
+                        ?>
                     </form>
                 </div>
             </div>

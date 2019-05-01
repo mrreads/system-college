@@ -32,6 +32,8 @@ $query_user_info = "SELECT
 $result_user_info = mysqli_query($link, $query_user_info);
 $data_user_info = mysqli_fetch_row($result_user_info);
 
+$user_id_group = mysqli_fetch_row(mysqli_query($link, "SELECT id_group FROM students WHERE id_student = '$user_id'"));
+
 $user_name = $data_user_info[0];
 $user_birth = $data_user_info[1];
 $user_group = $data_user_info[2];
@@ -118,7 +120,7 @@ $user_fi = explode(' ', $user_name);
                     <? echo "<p> $user_birth </p>"; ?>
                             <hr>
                             <p> Группа: </p>
-                    <? echo "<p> <a href='student_group_profile.php'> $user_group </a> </p>"; ?> 
+                    <? echo "<p> <a href='student_group_profile.php?id=$user_id_group[0]'> $user_group </a> </p>"; ?> 
                             <hr>
                             <p> Форма обучения: </p>
                     <? echo "<p> $user_formstudy </p>"; ?>

@@ -1,12 +1,11 @@
 <?
 session_start();
 
-if (isset($_SESSION['id_user']))
+if (isset($_SESSION['id_user'])) 
 {
 ?>
     <script async>
-        document.addEventListener("DOMContentLoaded", function()
-        {
+        document.addEventListener("DOMContentLoaded", function() {
             console.log('Вы войденны');
 
             var auth_button = document.querySelector('#auth-button');
@@ -16,9 +15,8 @@ if (isset($_SESSION['id_user']))
         });
     </script>
 <?
-}
-else
-{
+} 
+else {
 ?>
     <script>
         console.log('Вы не авторизованны!');
@@ -40,20 +38,20 @@ else
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <style>
-    #news .с-link
-        {
-            top: 0;
-        }
+    #news .с-link 
+    {
+        top: 0;
+    }
 
-        #news .с-link a
-        {
-            margin: 0 0 15px 15px;
-        }
+    #news .с-link a 
+    {
+        margin: 0 0 15px 15px;
+    }
 
-        #news .с-link a:hover
-        {
-            margin: 0 0 15px 15px;
-        }
+    #news .с-link a:hover 
+    {
+        margin: 0 0 15px 15px;
+    }
 </style>
 
 <body>
@@ -69,7 +67,7 @@ else
                 </ul>
             </div>
             <div class="hm-login">
-                <a href="login.php"  id="auth-button"> Войти </a>
+                <a href="login.php" id="auth-button"> Войти </a>
             </div>
         </div>
         <div id="header-picture">

@@ -17,13 +17,13 @@ if (isset($_SESSION['id_user']))
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="styles/style_login.css">
-        <script src="scripts\particles.js"></script>
+    <script src="scripts\particles.js"></script>
     <script src="scripts\app.js"></script>
 </head>
 
 <body>
     <div id="particles-js">
-     <form id="login-popup" method="POST" action="php/auth.php">
+        <form id="login-popup" method="POST" action="php/auth.php">
             <div class="quit">
                 <a href="../index.php"> <img src="images/icons/close-icon.png"> </a>
             </div>
@@ -34,8 +34,8 @@ if (isset($_SESSION['id_user']))
             <div class="button">
                 <input type="submit" value="ЗАЛОГИНИТЬСЯ!" name='button-auth'>
             </div>
-    </form>
-        </div>
+        </form>
+    </div>
     </div>
 
 </body>

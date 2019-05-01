@@ -9,13 +9,11 @@ if (empty($_SESSION['id_user']))
 require_once 'php/connection.php';
 $query_taecher_list = "SELECT id_teacher, fio FROM teacher_info ";
 
-if (isset($_GET['search-button']))
-{
-    if (isset($_GET['search-field'])) 
-    {
+if (isset($_GET['search-button'])) {
+    if (isset($_GET['search-field'])) {
         $search = $_GET['search-field'];
         $where = "WHERE fio LIKE '%$search%'";
-        $query_taecher_list = $query_taecher_list.$where;
+        $query_taecher_list = $query_taecher_list . $where;
         #echo $query_taecher_list;
     }
 }
@@ -52,8 +50,8 @@ $user_fio = explode(' ', $user_fio);
                 </div>
                 <div class="sb-profile">
                     <img src="images/avatar.jpg">
-                    <? echo" <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo"<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo " <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $data_user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
@@ -88,22 +86,21 @@ $user_fio = explode(' ', $user_fio);
             <div id="content">
                 <div class="items">
 
-                <form id="search-form" method="GET">
-                    <div class="s-b">
-                        <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
-                        <input id="search" type="submit" value="ПОИСК" name="search-button">
-                    </div>
-                </form>
+                    <form id="search-form" method="GET">
+                        <div class="s-b">
+                            <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
+                            <input id="search" type="submit" value="ПОИСК" name="search-button">
+                        </div>
+                    </form>
 
                     <form method="GET" action="subject_teacher_profile.php">
-                    <?
-                    while ($data_teacher_list = mysqli_fetch_row($result_teacher_list))
-                    {
-                        echo "
-                        <p class='text-p'> $data_teacher_list[1] <input class='p-button' type='submit' name='id' value='$data_teacher_list[0]'> </p>";
-                        echo "<hr>";
-                    }
-                    ?>
+                        <?
+                        while ($data_teacher_list = mysqli_fetch_row($result_teacher_list)) 
+                        {
+                            echo "<p class='text-p'> $data_teacher_list[1] <input class='p-button' type='submit' name='id' value='$data_teacher_list[0]'> </p>";
+                            echo "<hr>";
+                        }
+                        ?>
                     </form>
                 </div>
             </div>
