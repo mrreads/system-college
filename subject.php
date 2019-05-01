@@ -6,6 +6,9 @@ if (empty($_SESSION['id_user']))
     header('Location: index.php');
 }
 
+require_once 'php/connection.php';
+$query_subject_list = "SELECT id_subject, subject_name";
+$result_subject_list = mysqli_query($link, $query_subject_list);
 ?>
 
 <!DOCTYPE html>

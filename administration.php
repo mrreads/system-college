@@ -7,7 +7,19 @@ if (empty($_SESSION['id_user']))
 }
 
 require_once 'php/connection.php';
-$query_administration_list = "SELECT id_administration, fio FROM administration_info;";
+$query_administration_list = "SELECT id_administration, fio FROM administration_info ";
+
+if (isset($_GET['search-button']))
+{
+    if (isset($_GET['search-field'])) 
+    {
+        $search = $_GET['search-field'];
+        $where = "WHERE fio LIKE '%$search%'";
+        $query_administration_list = $query_administration_list.$where;
+        #echo $query_administration_list;
+    }
+}
+
 $result_administration_list = mysqli_query($link, $query_administration_list);
 
 ?>
@@ -63,19 +75,22 @@ $result_administration_list = mysqli_query($link, $query_administration_list);
             </div>
             <div id="content">
                 <div class="items">
-                    <form>
+                    <form id="search-form" method="GET">
                         <div class="s-b">
-                            <input id="enter" type="text" placeholder="Введите имя администрации.">
-                            <input id="search" type="submit" value="ПОИСК">
+                            <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
+                            <input id="search" type="submit" value="ПОИСК" name="search-button">
+                            <?
+
+                            ?>
                         </div>
-                        <div class="checkbox">
+                        <!-- <div class="checkbox">
                             <input type="checkbox">
                             <label for="gsp"> ГСП </label>
                             <input type="checkbox">
                             <label for="gsp"> ОСП </label>
                             <input type="checkbox">
                             <label for="gsp"> ПСП </label>
-                        </div>
+                        </div> -->
                     </form>
 
                     <form method="GET" action="administration_pofile.php">
@@ -92,6 +107,14 @@ $result_administration_list = mysqli_query($link, $query_administration_list);
             </div>
         </div>
     </div>
+    <?
+    echo "
+    <script>
+        var searchInput = document.querySelector('#enter');
+        searchInput.value = '$search';
+    </script>
+    ";
+    ?>
 </body>
 
 </html>
