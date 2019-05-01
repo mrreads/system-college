@@ -10,7 +10,31 @@ require_once 'php/connection.php';
 
 $group_id = $_GET['id'];
 
+
 $user_id = $_SESSION['id_user'];
+
+$query_group_info = "SELECT
+                        number_group,
+                        name_specialization,
+                        date_zachislenia,
+                        classroom_teacher,
+                        form_of_study
+                    FROM
+                        groups,
+                        specialnost
+                    WHERE
+                        groups.id_specialization = specialnost.id_specialization
+                    AND
+                        id_group = '$group_id'";
+$result_group_info = mysqli_query($link, $query_group_info);
+$data_group_info = mysqli_fetch_row($result_group_info);
+
+$group_name = $data_group_info[0];
+$group_secialization = $data_group_info[1];
+$group_date = $data_group_info[2];
+$group_class = $data_group_info[3];
+$group_formstudy = $data_group_info[4];
+
 $query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
 $result_user_info = mysqli_query($link, $query_user_info);
 $data_user_info = mysqli_fetch_row($result_user_info);
@@ -78,21 +102,24 @@ $user_fio = explode(' ', $user_fio);
             <div id="content">
                 <div id="profile">
                     <div class='p-background'>
-                        <h2 class="b-name"> Номер группы </h2>
+                    <? echo "<h2 class='b-name'> $group_name </h2>"; ?>
                     </div>
                     <div class='info-background'>
                         <div class="item-info">
                             <p> Номер группы: </p>
-                            <p> [номер группы] </p>
+                            <? echo "<p> $group_name </p>" ?>
                             <hr>
                             <p> Специальность: </p>
-                            <p> <a href ="student_sceciality_profile.php"> [специальность группы] </a> </p>
+                            <? echo "<p> <a href ='student_sceciality_profile.php'> $group_secialization </a> </p>"; ?>
+                            <hr>
+                            <p> Дата зачисления: </p>
+                            <? echo "<p> $group_date </p>" ?>
                             <hr>
                             <p> Форма обучения: </p>
-                            <p> [форма обучения] </p>
+                            <? echo "<p> $group_formstudy </p>" ?>
                             <hr>
                             <p> Классный руководитель: </p>
-                            <p> <a href="subject_teacher_profile.php"> [фио руководителя] </a> </p>
+                            <? echo "<p> $group_class </p>" ?>
                         </div>
                     </div>
                 </div>
