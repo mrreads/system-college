@@ -1,12 +1,23 @@
 <?
 session_start();
 
-if (empty($_SESSION['id_user'])) 
-{
+if (empty($_SESSION['id_user'])) {
     header('Location: index.php');
 }
 
 require_once 'php/connection.php';
+
+$speciality_id = $_GET['id'];
+
+$query_speciality_info = "SELECT name_specialization, srok_obycheniya FROM specialnost WHERE id_specialization = '$speciality_id';";
+$result_speciality_info = mysqli_query($link, $query_speciality_info);
+$data_speciality_info = mysqli_fetch_row($result_speciality_info);
+
+$speciality_name = $data_speciality_info[0];
+$speciality_srok = $data_speciality_info[1];
+
+$query_group_list  = "SELECT id_group, number_group FROM groups WHERE id_specialization = '$speciality_id'";
+$result_group_list = mysqli_query($link, $query_group_list);
 
 $user_id = $_SESSION['id_user'];
 $query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
@@ -23,11 +34,11 @@ $user_fio = explode(' ', $user_fio);
     <meta charset="utf-8">
     <title> О специальности!</title>
     <link rel="stylesheet" href="styles/style_admin.css">
-    <link rel="stylesheet" href="styles/contents/style_student-speciality_profile.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="styles/style_adaptability.css">
     <link rel="stylesheet" href="styles/contents/style_profile.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/contents/style_student-speciality_profile.css">
 </head>
 
 <body>
@@ -39,8 +50,8 @@ $user_fio = explode(' ', $user_fio);
                 </div>
                 <div class="sb-profile">
                     <img src="images/avatar.jpg">
-                    <? echo" <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo"<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo " <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $data_user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
@@ -76,26 +87,33 @@ $user_fio = explode(' ', $user_fio);
             <div id="content">
                 <div id="profile">
                     <div class='p-background'>
-                        <h2 class="b-name"> Название специальности </h2>
+                        <? echo "<h2 class='b-name'> $speciality_name </h2>"; ?>
                     </div>
+
                     <div class='info-background'>
                         <div class="item-info">
-                            <p> Наименование: </p>
-                            <p> [название специальности] </p>
+                            <p> Название: </p>
+                            <? echo "<p> $speciality_name </p>" ?>
                             <hr>
-                            <p> Код специальности: </p>
-                            <p> [код специальности] </p>
-                            <hr>
-                            <p> Срок обучения: </p>
-                            <p> [срок обучения] </p>
-                            <hr>
-                            <p> Форма обучния: </p>
-                            <p> [форма обучения] </p>
-                            <hr>
-                            <p> План обучения: </p>
-                            <p> <a href="#"> [план занятий] </a> </p>
+                            <p> Кол-во часов: </p>
+                            <? echo "<p> $speciality_srok </p>" ?>
                         </div>
+
+                        <div class="items">
+                            <form method="GET" action="student_group_profile.php">
+                                <?
+                                while ($data_group_list = mysqli_fetch_row($result_group_list))
+                                {
+                                    echo "
+                                    <p class='text-p'> $data_group_list[1] <input class='p-button' type='submit' name='id' value='$data_group_list[0]'> </p>";
+                                    echo "<hr>";
+                                }
+                                ?>
+                            </form>
+                        </div>
+
                     </div>
+
                 </div>
             </div>
         </div>

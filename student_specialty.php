@@ -8,6 +8,21 @@ if (empty($_SESSION['id_user']))
 
 require_once 'php/connection.php';
 
+$query_specialty_list = "SELECT id_specialization, name_specialization FROM specialnost ";
+
+if (isset($_GET['search-button']))
+{
+    if (isset($_GET['search-field'])) 
+    {
+        $search = $_GET['search-field'];
+        $where = "WHERE name_specialization LIKE '%$search%'";
+        $query_specialty_list = $query_specialty_list.$where;
+        #echo $query_specialty_list;
+    }
+}
+
+$result_specialty_list = mysqli_query($link, $query_specialty_list);
+
 $user_id = $_SESSION['id_user'];
 $query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
 $result_user_info = mysqli_query($link, $query_user_info);
@@ -74,24 +89,36 @@ $user_fio = explode(' ', $user_fio);
             </div>
             <div id="content">
                 <div class="items">
-                    <form>
-                        <input id="enter" type="text" placeholder="Введите специальность или ключевые слова.">
-                        <input id="search" type="submit" value="ПОИСК">
+                <form id="search-form" method="GET">
+                    <div class="s-b">
+                        <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
+                        <input id="search" type="submit" value="ПОИСК" name="search-button">
+                    </div>
+                </form>
+                    
+
+                    <form method="GET" action="student_speciality_profile.php">
+                    <?
+                    while ($data_specialty_list = mysqli_fetch_row($result_specialty_list))
+                    {
+                        echo "
+                        <p class='text-p'> $data_specialty_list[1] <input class='p-button' type='submit' name='id' value='$data_specialty_list[0]'> </p>";
+                        echo "<hr>";
+                    }
+                    ?>
                     </form>
-                    <p class=p-button> <a href="student_sceciality_profile.php"> Специальность </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="student_sceciality_profile.php"> Специальность </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="student_sceciality_profile.php"> Специальность </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="student_sceciality_profile.php"> Специальность </a> </p>
-                    <hr>
-                    <p class=p-button> <a href="student_sceciality_profile.php"> Специальность </a> </p>
-                    <hr>
                 </div>
             </div>
         </div>
     </div>
+    <?
+    echo "
+    <script>
+        var searchInput = document.querySelector('#enter');
+        searchInput.value = '$search';
+    </script>
+    ";
+    ?>
 </body>
 
 </html>

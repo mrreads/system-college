@@ -29,11 +29,14 @@ $query_group_info = "SELECT
 $result_group_info = mysqli_query($link, $query_group_info);
 $data_group_info = mysqli_fetch_row($result_group_info);
 
+
 $group_name = $data_group_info[0];
 $group_secialization = $data_group_info[1];
 $group_date = $data_group_info[2];
 $group_class = $data_group_info[3];
 $group_formstudy = $data_group_info[4];
+
+$group_id_secialization = mysqli_fetch_row(mysqli_query($link, "SELECT id_specialization FROM groups WHERE id_group = '$group_id'"));
 
 $query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
 $result_user_info = mysqli_query($link, $query_user_info);
@@ -110,7 +113,7 @@ $user_fio = explode(' ', $user_fio);
                             <? echo "<p> $group_name </p>" ?>
                             <hr>
                             <p> Специальность: </p>
-                            <? echo "<p> <a href ='student_sceciality_profile.php'> $group_secialization </a> </p>"; ?>
+                            <? echo "<p> <a href ='student_speciality_profile.php?id=$group_id_secialization[0]'> $group_secialization </a> </p>"; ?>
                             <hr>
                             <p> Дата зачисления: </p>
                             <? echo "<p> $group_date </p>" ?>
