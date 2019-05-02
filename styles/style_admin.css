@@ -314,3 +314,13 @@ html, head, body, #main-wrapper
 
     transition: 0.2s linear;
 }
+
+.s-b
+{
+    display: flex;
+}
+
+.s-b input
+{
+    flex-grow: 1;
+}

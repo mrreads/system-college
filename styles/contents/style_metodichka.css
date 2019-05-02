@@ -13,12 +13,12 @@
     text-indent: 25px;
 
     border: none;
-    border-bottom: 1px solid rgba(0,0,0,.2);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
 #search
 {
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
     font-size: 16px;
 
     float: right;
@@ -26,7 +26,7 @@
     width: 19%;
     height: 55px;
 
-    transition: .2s linear;
+    transition: 0.2s linear;
     text-align: center;
 
     border: none;
@@ -36,7 +36,7 @@
 #search:hover
 {
     cursor: pointer;
-    transition: .2s linear;
+    transition: 0.2s linear;
 
     color: white;
     background-color: black;
@@ -47,7 +47,7 @@
     margin-bottom: 50px;
 
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 
     flex-flow: column nowrap;
     justify-content: space-between;
@@ -84,7 +84,7 @@
     width: 150px;
     padding: 16px;
 
-    transition: .2s linear;
+    transition: 0.2s linear;
     text-align: center;
     text-decoration: none;
 
@@ -95,28 +95,27 @@
 {
     padding: 16px;
 
-    transition: .2s linear;
+    transition: 0.2s linear;
 
     color: white;
     background-color: black;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content hr
 {
-    width: 100%;
     margin: 0 5px;
 
     border: 0;
-    border-bottom: 1px solid #ccc;
-    background: #999;
+    border-bottom: 1px solid #CCCCCC;
+    background: #999999;
 }
 
 
 #content .items
 {
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 .items-search .p-button a
@@ -127,7 +126,7 @@
 
     padding: 16px;
 
-    transition: .2s linear;
+    transition: 0.2s linear;
     text-align: left;
     text-decoration: none;
     text-indent: 50px;
@@ -137,7 +136,7 @@
 
 .items-search .p-button
 {
-    transition: .2s linear;
+    transition: 0.2s linear;
 }
 
 .items-search .p-button:hover
@@ -146,10 +145,10 @@
 
     padding: 20px 0;
 
-    transition: .2s linear;
+    transition: 0.2s linear;
 
     color: black;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content .items p
@@ -175,7 +174,7 @@
 
 #content .checkbox label
 {
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
 
     margin: 0 50px 0 0;
 }
@@ -204,7 +203,7 @@
     text-align: 100%;
 
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content .is-search input
@@ -228,7 +227,7 @@
 
 .is-items .is-p-button
 {
-    transition: .2s linear;
+    transition: 0.2s linear;
 }
 
 .is-items .is-p-button a
@@ -240,7 +239,7 @@
     width: auto;
     padding: 16px;
 
-    transition: .2s linear;
+    transition: 0.2s linear;
     text-decoration: none;
 
     color: black;
@@ -252,10 +251,10 @@
 
     padding: 3px;
 
-    transition: .2s linear;
+    transition: 0.2s linear;
 
     color: black;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 .is-items p
