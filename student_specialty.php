@@ -101,8 +101,7 @@ $user_fio = explode(' ', $user_fio);
                     <?
                     while ($data_specialty_list = mysqli_fetch_row($result_specialty_list))
                     {
-                        echo "
-                        <p class='text-p'> $data_specialty_list[1] <input class='p-button' type='submit' name='id' value='$data_specialty_list[0]'> </p>";
+                        echo "<p class='text-p'> $data_specialty_list[1] <input class='p-button' type='submit' name='id' value='$data_specialty_list[0]'> </p>";
                         echo "<hr>";
                     }
                     ?>

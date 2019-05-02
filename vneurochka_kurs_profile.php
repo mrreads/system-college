@@ -8,6 +8,33 @@ if (empty($_SESSION['id_user']))
 
 require_once 'php/connection.php';
 
+$course_id = $_GET['id'];
+
+$query_course_info = "SELECT 
+                            name_course, 
+                            time_of_hours, 
+                            price,
+                            fio,
+                            courses_and_teachers.id_teacher 
+                        FROM 
+                            courses,
+                            teacher_info,
+                            courses_and_teachers
+                        WHERE
+                            teacher_info.id_teacher = courses_and_teachers.id_teacher
+                        AND
+                            courses_and_teachers.id_course = courses.id_course
+                        AND
+                            courses.id_course = '$course_id'";
+$result_course_info = mysqli_query($link, $query_course_info);
+$data_course_info = mysqli_fetch_row($result_course_info);
+
+$course_name = $data_course_info[0];
+$course_hours = $data_course_info[1];
+$course_price = $data_course_info[2];
+$course_teacher = $data_course_info[3];
+$course_id_teacher = $data_course_info[4];
+
 $user_id = $_SESSION['id_user'];
 $query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
 $result_user_info = mysqli_query($link, $query_user_info);
@@ -75,23 +102,23 @@ $user_fio = explode(' ', $user_fio);
             <div id="content">
                 <div id="profile">
                     <div class='p-background'>
-                        <h2 class="b-name"> Название курса </h2>
+                    <? echo "<h2 class='b-name'> $course_name </h2>"; ?>
                     </div>
                     <div class='info-background'>
                         <div class="item-info">
                             <p> Названин: </p>
-                            <p> [название курса] </p>
+                            <? echo "<p> $course_name </p>"; ?>
                             <hr>
-                            <p> Рекомендуются знания: </p>
-                            <p> <a href="student_sceciality_profile.php"> [из такой специальности] </a> </p>
-                            <hr>
-                            <p> Дата проведения: </p>
-                            <p> [дата - дата] </p>
+                            <p> Ведёт курс: </p>
+                            <? echo "<p> <a href='subject_teacher_profile.php?id=$course_id_teacher'> $course_teacher </a> </p>"; ?>
                             <hr>
                             <p> Цена: </p>
-                            <p> [цена] </p>
+                            <? echo "<p> $course_price </p>"; ?>
+                            <hr>
+                            <p> Длительность: </p>
+                            <? echo "<p> $course_hours </p>"; ?>
                         </div>
-                        <div class="item-opisanie">
+                        <!-- <div class="item-opisanie">
                             <p> Записавшись на нас курс по [название курса], вы научитесь [описание курса], [описание курса], [описание курса], а так же [описание курса]! <br> <br>
                             В ходе нашего курса вы научитесь: <br>
                             - [вот этому] <br>
@@ -102,7 +129,7 @@ $user_fio = explode(' ', $user_fio);
                         <div class="items">
                             <p class=p-button> <a href="subject_teacher_profile.php"> Ведущий курса </a> </p>
                             <hr>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
