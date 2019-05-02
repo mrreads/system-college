@@ -16,12 +16,16 @@ $query_administration_info = "SELECT
                         email,
                         phone_number,
                         addres,
-                        name_role
+                        name_role,
+                        classrooms.number
                     FROM
                         administration_info,
-                        roles
+                        roles,
+                        classrooms
                     WHERE 
                         roles.id_role = administration_info.id_role
+                    AND
+                        administration_info.id_classroom = classrooms.id_classrooms
                     AND
                         id_administration = '$administration_id';";
 
@@ -35,6 +39,7 @@ $admin_email = $data_administration_info[3];
 $admin_phone = $data_administration_info[4];
 $admin_address = $data_administration_info[5];
 $admin_role = $data_administration_info[6];
+$admin_classroom = $data_administration_info[7];
 
 $admin_fi = explode(' ', $admin_name);
 
@@ -113,6 +118,9 @@ $user_fio = explode(' ', $user_fio);
                             <hr>
                             <p> Должность: </p>
                             <? echo "<p> $admin_position </p>"; ?>
+                            <hr>
+                            <p> Кабинет: </p>
+                            <? echo "<p> $admin_classroom </p>"; ?>
                         </div>
                         <div class="profile-info">
                             <p> Почта администрации: </p>

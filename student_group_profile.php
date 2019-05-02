@@ -17,13 +17,16 @@ $query_group_info = "SELECT
                         number_group,
                         name_specialization,
                         date_zachislenia,
-                        classroom_teacher,
+                        classrooms.number,
                         form_of_study
                     FROM
                         groups,
-                        specialnost
+                        specialnost,
+                        classrooms
                     WHERE
                         groups.id_specialization = specialnost.id_specialization
+                    AND
+                        groups.classroom_teacher = classrooms.id_classrooms
                     AND
                         id_group = '$group_id'";
 $result_group_info = mysqli_query($link, $query_group_info);
@@ -121,7 +124,7 @@ $user_fio = explode(' ', $user_fio);
                             <p> Форма обучения: </p>
                             <? echo "<p> $group_formstudy </p>" ?>
                             <hr>
-                            <p> Классный руководитель: </p>
+                            <p> Кабинет класс. руководителя: </p>
                             <? echo "<p> $group_class </p>" ?>
                         </div>
                     </div>

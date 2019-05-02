@@ -6,7 +6,7 @@ $data_group_info = mysqli_fetch_row($result_group_info);
 $group = $data_group_info[0];
 
 
-if ($group == 37123)
+if ($group == 3719)
 { ?>
 <table border="1">
     <tr>
@@ -57,9 +57,9 @@ if ($group == 37123)
 </table>
 <?
 }
-else
-if ($group == 3719)
-{ ?>
+else if ($group == 3619)
+{ 
+?>
 <table border="1">
     <tr>
         <th></th>
@@ -104,58 +104,6 @@ if ($group == 3719)
         <td>ячсм</td>
         <td>фыва</td>
         <td>МАТАН</td>
-        <td></td>
-    </tr>
-</table>
-<?
-}
-else
-if ($group == '3 чёто там')
-{ ?>
-<table border="1">
-    <tr>
-        <th></th>
-        <th>ПН<br></th>
-        <th>ВТ</th>
-        <th>СР</th>
-        <th>ЧТ</th>
-        <th>ПТ</th>
-        <th>СБ</th>
-    </tr>
-    <tr>
-        <td>9:00<br>10:35<br></td>
-        <td>sgj<br></td>
-        <td>asf<br></td>
-        <td>xcvb</td>
-        <td>nvbnc</td>
-        <td>sdfg</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>10:45<br>12:20<br></td>
-        <td>fghj</td>
-        <td>ioup</td>
-        <td>qwer</td>
-        <td>asdf</td>
-        <td>zxcv</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>13:00<br>14:35<br></td>
-        <td>wer</td>
-        <td>erty</td>
-        <td>dfgh</td>
-        <td>dj</td>
-        <td>sgh</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>14:35<br>16:20</td>
-        <td>МАТАН</td>
-        <td>sdfg</td>
-        <td>sdfg</td>
-        <td>sdfg</td>
-        <td>sdfg</td>
         <td></td>
     </tr>
 </table>

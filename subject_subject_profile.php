@@ -10,17 +10,23 @@ $subject_id = $_GET['id'];
 
 require_once 'php/connection.php';
 $query_subject_info = "SELECT
-                        subject_name, quantity_hour
+                        subject_name, quantity_hour, teacher_info.fio, teacher_info.id_teacher
                     FROM
-                        subjects
+                        subjects, teacher_info, subject_teacher
                     WHERE 
-                    id_subject = '$subject_id'";
+                        teacher_info.id_teacher = subject_teacher.id_teacher
+                    AND
+                        subject_teacher.id_subject = subjects.id_subject
+                    AND
+                        subjects.id_subject = '$subject_id'";
 
 $result_subject_info = mysqli_query($link, $query_subject_info);
 $data_subject_info = mysqli_fetch_row($result_subject_info);
 
 $subject_name = $data_subject_info[0];
 $subject_hours = $data_subject_info[1];
+$subject_teacher = $data_subject_info[2];
+$subject_id_teacher = $data_subject_info[3];
 
 $user_id = $_SESSION['id_user'];
 $query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
@@ -98,6 +104,9 @@ $user_fio = explode(' ', $user_fio);
                             <hr>
                             <p> Кол-во часов: </p>
                             <? echo "<p> $subject_hours </p>"; ?>
+                            <hr>
+                            <p> Ведёт: </p>
+                            <? echo "<p> <a href='subject_teacher_profile.php?id=$subject_id_teacher'> $subject_teacher </a> </p>"; ?>
                         </div>
                         <!-- <div class="items">
                             <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
