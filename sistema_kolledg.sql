@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 02, 2019 at 04:08 PM
+-- Generation Time: May 02, 2019 at 11:03 PM
 -- Server version: 5.7.25
 -- PHP Version: 7.2.10
 
@@ -37,16 +37,16 @@ CREATE TABLE `administration_info` (
   `phone_number` int(11) NOT NULL,
   `email` varchar(60) NOT NULL,
   `date_of_birth` date NOT NULL,
-  `id_role` int(11) NOT NULL
+  `id_role` int(11) NOT NULL,
+  `id_classroom` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `administration_info`
 --
 
-INSERT INTO `administration_info` (`id_administration`, `fio`, `position`, `number_SP`, `addres`, `phone_number`, `email`, `date_of_birth`, `id_role`) VALUES
-(1, 'Комова Татьяна Ивановна', 'Зам. директора', '3', 'Пример1', 589087645, 'example_mail3@mail.ru', '2018-12-12', 3),
-(2, 'Зудилина Елена Александровна', 'Зам. директора', '3', 'адресс', 8123812, 'exmam@mail.ru', '2001-10-17', 3);
+INSERT INTO `administration_info` (`id_administration`, `fio`, `position`, `number_SP`, `addres`, `phone_number`, `email`, `date_of_birth`, `id_role`, `id_classroom`) VALUES
+(1, 'Зудилина Елена Александровна', 'Зам. директора', '3', 'г. Москва, и так далее', 712345678, 'example@mail.ru', '2000-05-15', 4, 2);
 
 -- --------------------------------------------------------
 
@@ -61,14 +61,6 @@ CREATE TABLE `articles` (
   `year` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `articles`
---
-
-INSERT INTO `articles` (`id_subject`, `name_article`, `author_article`, `year`) VALUES
-(1, 'Как найти вероятность?', 'Вероятновичев Матан Алгоритмович', '2015-02-19'),
-(2, 'Решаем кривые задачи', 'Кривоногов Задачник Сергеевич', '2016-01-05');
-
 -- --------------------------------------------------------
 
 --
@@ -76,28 +68,19 @@ INSERT INTO `articles` (`id_subject`, `name_article`, `author_article`, `year`) 
 --
 
 CREATE TABLE `classrooms` (
-  `id_classroom` int(11) NOT NULL
+  `id_classrooms` int(11) NOT NULL,
+  `number` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `classrooms`
 --
 
-INSERT INTO `classrooms` (`id_classroom`) VALUES
-(101),
-(102),
-(103),
-(104),
-(105),
-(106),
-(107),
-(205),
-(305),
-(307),
-(309),
-(405),
-(406),
-(411);
+INSERT INTO `classrooms` (`id_classrooms`, `number`) VALUES
+(1, 401),
+(2, 406),
+(3, 302),
+(4, 403);
 
 -- --------------------------------------------------------
 
@@ -117,9 +100,8 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id_course`, `name_course`, `time_of_hours`, `price`) VALUES
-(1, 'Архитектура компьютера', 72, 11200),
-(2, 'Квадрокоптеры', 100, 23200),
-(3, 'Водитель категории \"В\"', 25, 23200);
+(1, 'Гирокоптеры', 64, 96000),
+(2, 'Сетевое и системное администрирование', 72, 9600);
 
 -- --------------------------------------------------------
 
@@ -137,9 +119,7 @@ CREATE TABLE `courses_and_students` (
 --
 
 INSERT INTO `courses_and_students` (`id_course`, `id_student`) VALUES
-(2, 1),
-(3, 1),
-(1, 4);
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -157,9 +137,8 @@ CREATE TABLE `courses_and_teachers` (
 --
 
 INSERT INTO `courses_and_teachers` (`id_course`, `id_teacher`) VALUES
-(2, 1),
-(1, 2),
-(3, 3);
+(1, 1),
+(2, 2);
 
 -- --------------------------------------------------------
 
@@ -181,7 +160,8 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id_event`, `name_of_event`, `place`, `date`, `duration`, `id_teacher`) VALUES
-(1, 'Празднование дня Конституции', 'Актовый зал', '2018-12-04', 2, 3);
+(1, 'Субботник', 'Улица', '2019-05-17', 1, 2),
+(2, 'Полёты на квадртокоптере', 'Воздух', '2029-10-10', 999, 1);
 
 -- --------------------------------------------------------
 
@@ -194,7 +174,7 @@ CREATE TABLE `groups` (
   `number_group` varchar(13) NOT NULL,
   `id_specialization` int(11) NOT NULL,
   `date_zachislenia` date NOT NULL,
-  `classroom_teacher` varchar(50) NOT NULL,
+  `classroom_teacher` int(11) NOT NULL,
   `form_of_study` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -203,9 +183,8 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`id_group`, `number_group`, `id_specialization`, `date_zachislenia`, `classroom_teacher`, `form_of_study`) VALUES
-(1, '3719', 1, '2018-12-21', 'Зудилина Елена Александровна', 'очная'),
-(2, '3 чёто там', 1, '2016-07-12', '4', 'очная'),
-(3, '37123', 2, '2019-05-06', '123', 'asdas');
+(1, '3719', 1, '2017-09-01', 1, 'Очная'),
+(2, '3619', 1, '2016-09-01', 2, 'Очная');
 
 -- --------------------------------------------------------
 
@@ -220,15 +199,6 @@ CREATE TABLE `monographs` (
   `year` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `monographs`
---
-
-INSERT INTO `monographs` (`id_subject`, `name_monograph`, `author_monograph`, `year`) VALUES
-(2, 'Изучение хз чего, но всё-таки чего-то', 'Почемучкин Чего-то Тамович', '2016-07-12'),
-(4, 'Как сдать базу данных вовремя и не обосраться?', 'Базаданнович Антон Викторович', '2018-12-20'),
-(5, 'Правописание всех слов. Задроты слов и другие животные ЭЖИИИ ЭЭЭ', 'Аржикерчановичь Маджахет Михайлович', '2017-08-17');
-
 -- --------------------------------------------------------
 
 --
@@ -242,14 +212,6 @@ CREATE TABLE `notes_of_lectures` (
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `notes_of_lectures`
---
-
-INSERT INTO `notes_of_lectures` (`id_subject`, `theme_of_lecture`, `content`, `date`) VALUES
-(3, 'Залезаем в программирование, но лучше не надо, страшно очень', 'Решение очень сложных задач, которые направленны хз куда.', '2018-03-03'),
-(5, 'Учим английский язык, так как русский, это русский', 'Русский вместо английского, это же ведь так просто!', '2017-07-20');
-
 -- --------------------------------------------------------
 
 --
@@ -262,13 +224,6 @@ CREATE TABLE `presentations` (
   `theme_presentation` varchar(70) NOT NULL,
   `author_presentation` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `presentations`
---
-
-INSERT INTO `presentations` (`id_subject`, `name_presentation`, `theme_presentation`, `author_presentation`) VALUES
-(1, '\"Ковалева\"', 'Выдающиеся русские ученые', 'Погулина Лада Геннадьевна');
 
 -- --------------------------------------------------------
 
@@ -286,9 +241,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id_role`, `name_role`) VALUES
-(1, 'Студент'),
-(2, 'Преподаватель'),
-(3, 'Член адмнистрации');
+(2, 'Студент'),
+(3, 'Учитель'),
+(4, 'Администрация');
 
 -- --------------------------------------------------------
 
@@ -326,8 +281,8 @@ CREATE TABLE `specialnost` (
 --
 
 INSERT INTO `specialnost` (`id_specialization`, `name_specialization`, `srok_obycheniya`) VALUES
-(1, 'Информационные системы и программирование', '3 года 10 месяцев'),
-(2, 'Банковское дело', '8 лет');
+(1, 'Информационные системы', '3 года и 9 месяцев'),
+(2, 'Банковское дело', '20 лет');
 
 -- --------------------------------------------------------
 
@@ -356,8 +311,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id_student`, `fio`, `id_group`, `date_of_birth`, `phone_number`, `address`, `email`, `password`, `form_study`, `number_of_studencheskly`, `phone_numder_parents`, `f.i.o_parents`, `id_role`) VALUES
-(1, 'Антонов Максим Алексеевич', 1, '2018-12-12', 2147483647, 'Ивантеевка', 'example@mail.ru', '123', 'очная', 1111111111, '11111111111', 'паврапрапра', 1),
-(4, 'Попов Александр Дмитриевич', 1, '2001-04-13', 792500000, 'Россия', 'mrreads@yandex.com', '123', 'Очная', 12391239, '792600000', 'Попова Попова Попова', 1);
+(1, 'Попов Александр Дмитриевич', 1, '2001-04-13', 712345678, 'г. Россия, и т.д.', 'mrreads@yandex.com', '123', 'Очная', 923718, '+712345678', 'Попова Попова Попова', 2);
 
 -- --------------------------------------------------------
 
@@ -371,14 +325,6 @@ CREATE TABLE `student_books` (
   `author_student_book` varchar(70) NOT NULL,
   `year` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `student_books`
---
-
-INSERT INTO `student_books` (`id_subject`, `name_student_book`, `author_student_book`, `year`) VALUES
-(3, 'Дискретная математика и не только.', 'Дискретик Уважай Васильевич', '2018-06-04'),
-(4, 'Создаём базу данных в MySQL.', 'Табличник Данных Сделавич', '2017-06-06');
 
 -- --------------------------------------------------------
 
@@ -397,11 +343,8 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`id_subject`, `quantity_hour`, `subject_name`) VALUES
-(1, 100, 'ТВ и МС'),
-(2, 100, 'ЭВМ'),
-(3, 100, 'Дискретная математика'),
-(4, 100, 'ОПБД'),
-(5, 100, 'Русский язык');
+(1, 256, 'Архитектура компьютера'),
+(2, 128, 'Разработка баз-данных');
 
 -- --------------------------------------------------------
 
@@ -419,10 +362,8 @@ CREATE TABLE `subject_teacher` (
 --
 
 INSERT INTO `subject_teacher` (`id_teacher`, `id_subject`) VALUES
-(4, 1),
-(4, 2),
-(4, 3),
-(1, 4);
+(2, 1),
+(1, 2);
 
 -- --------------------------------------------------------
 
@@ -437,18 +378,17 @@ CREATE TABLE `teacher_info` (
   `phone_number` int(11) NOT NULL,
   `category` varchar(15) NOT NULL,
   `date_birth` date NOT NULL,
-  `id_role` int(11) NOT NULL
+  `id_role` int(11) NOT NULL,
+  `id_classroom` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `teacher_info`
 --
 
-INSERT INTO `teacher_info` (`id_teacher`, `fio`, `email`, `phone_number`, `category`, `date_birth`, `id_role`) VALUES
-(1, 'Овчинников Антон Викторович', 'example2@mail.ru', 789087656, 'МАКСМАЛОЧКА', '2018-12-19', 2),
-(2, 'Гайдуков Игорь Михайлович ', 'example2@mail.ru', 678908754, 'Высшая', '2018-12-27', 2),
-(3, 'Соларева Юлия Сергеевна', 'example3@mail.ru', 4543534, 'Высшая', '2018-12-26', 2),
-(4, 'Погулина Лада Геннадьевна', 'example3@mail.ru', 56567567, 'Высшая', '2018-12-05', 2);
+INSERT INTO `teacher_info` (`id_teacher`, `fio`, `email`, `phone_number`, `category`, `date_birth`, `id_role`, `id_classroom`) VALUES
+(1, 'Овчинников Антон Викторович', 'example@mail.ru', 712345678, 'МАКСМАЛОЧКА', '2005-05-09', 3, 2),
+(2, 'Гайдуков Игорь Михайлович', 'example@mail.ru', 712345678, 'Высная', '2019-05-13', 3, 4);
 
 -- --------------------------------------------------------
 
@@ -464,14 +404,6 @@ CREATE TABLE `tutorial` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tutorial`
---
-
-INSERT INTO `tutorial` (`id_subject`, `name_tutorial`, `theme_tutorial`, `author_tutorial`) VALUES
-(1, 'Всё о теории вероятности и математической статистике.', 'Формулы вероятностей и другие формулы.', 'Статистик Теорий Вероятнович'),
-(4, 'Помощь людям, у которых IQ равно 0.', 'Помогаем тем, кто не понимает и ничего не хочет.', 'Помогайкин Красава Антонович');
-
---
 -- Indexes for dumped tables
 --
 
@@ -480,6 +412,7 @@ INSERT INTO `tutorial` (`id_subject`, `name_tutorial`, `theme_tutorial`, `author
 --
 ALTER TABLE `administration_info`
   ADD PRIMARY KEY (`id_administration`),
+  ADD UNIQUE KEY `unq_administration_info_id_classroom` (`id_classroom`),
   ADD KEY `id_role` (`id_role`);
 
 --
@@ -493,7 +426,7 @@ ALTER TABLE `articles`
 -- Indexes for table `classrooms`
 --
 ALTER TABLE `classrooms`
-  ADD PRIMARY KEY (`id_classroom`);
+  ADD PRIMARY KEY (`id_classrooms`);
 
 --
 -- Indexes for table `courses`
@@ -527,6 +460,7 @@ ALTER TABLE `events`
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`id_group`),
+  ADD UNIQUE KEY `unq_groups_classroom_teacher` (`classroom_teacher`),
   ADD KEY `FOREIGN` (`id_specialization`),
   ADD KEY `id_group` (`id_group`);
 
@@ -608,6 +542,7 @@ ALTER TABLE `subject_teacher`
 --
 ALTER TABLE `teacher_info`
   ADD PRIMARY KEY (`id_teacher`),
+  ADD UNIQUE KEY `unq_teacher_info_id_classroom` (`id_classroom`),
   ADD KEY `id_role` (`id_role`),
   ADD KEY `id_teacher` (`id_teacher`);
 
@@ -627,19 +562,25 @@ ALTER TABLE `tutorial`
 -- AUTO_INCREMENT for table `administration_info`
 --
 ALTER TABLE `administration_info`
-  MODIFY `id_administration` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_administration` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `classrooms`
+--
+ALTER TABLE `classrooms`
+  MODIFY `id_classrooms` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id_group` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_group` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `specializatoin_lesson`
@@ -657,7 +598,7 @@ ALTER TABLE `specialnost`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id_student` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_student` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -667,7 +608,8 @@ ALTER TABLE `students`
 -- Constraints for table `administration_info`
 --
 ALTER TABLE `administration_info`
-  ADD CONSTRAINT `administration_info_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id_role`);
+  ADD CONSTRAINT `administration_info_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id_role`),
+  ADD CONSTRAINT `fk_administration_info` FOREIGN KEY (`id_classroom`) REFERENCES `classrooms` (`id_classrooms`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `articles`
@@ -699,6 +641,7 @@ ALTER TABLE `events`
 -- Constraints for table `groups`
 --
 ALTER TABLE `groups`
+  ADD CONSTRAINT `fk_groups_classrooms` FOREIGN KEY (`classroom_teacher`) REFERENCES `classrooms` (`id_classrooms`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `groups_ibfk_1` FOREIGN KEY (`id_specialization`) REFERENCES `specialnost` (`id_specialization`);
 
 --
@@ -750,6 +693,7 @@ ALTER TABLE `subject_teacher`
 -- Constraints for table `teacher_info`
 --
 ALTER TABLE `teacher_info`
+  ADD CONSTRAINT `fk_teacher_info_classrooms` FOREIGN KEY (`id_classroom`) REFERENCES `classrooms` (`id_classrooms`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `teacher_info_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id_role`);
 
 --
