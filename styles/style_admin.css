@@ -9,7 +9,9 @@ html, head, body, #main-wrapper
 {
     font-family: "PT Sans Narrow", sans-serif, "Roboto", sans-serif, "Oswald", sans-serif;
 
-    height: 100vh !important;
+    overflow-y: hidden;
+
+    height: 100% !important;
     min-height: 100%;
 
     background-color: #CECECE;
@@ -26,6 +28,7 @@ html, head, body, #main-wrapper
 #wrapper-two
 {
     float: right;
+    overflow-y: scroll;
 
     width: 80%;
     min-height: 100%;
@@ -39,12 +42,12 @@ html, head, body, #main-wrapper
 
 #wrapper-one
 {
-    position: fixed;
+    position: relative;
     z-index: 15;
 
     float: left;
     overflow: hidden;
-    overflow-y: scroll;
+    overflow: scroll;
 
     width: 20%;
     height: 100%;

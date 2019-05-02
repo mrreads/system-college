@@ -32,7 +32,7 @@
 
 #content #profile img
 {
-    position: absolute;
+    position: relative;
     z-index: 10;
 
     float: left;
@@ -42,7 +42,7 @@
     margin: 100px 20px 0 50px;
 
     border-radius: 5%;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content #profile .info-background
@@ -51,7 +51,7 @@
 
     height: 50%;
 
-    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    background-image: linear-gradient(to top, #E6E9F0 0%, #EEF1F5 100%);
 }
 
 #content #profile .info-background
@@ -61,18 +61,16 @@
     padding: 50px 50px 50px 50px;
 }
 
-#content #profile .info-background .user-info,
-#content #profile .info-background .profile-info
+#content #profile .info-background .user-info, #content #profile .info-background .profile-info
 {
     margin-top: 50px;
     padding: 50px;
 
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
-#content #profile .info-background .user-info p,
-#content #profile .info-background .profile-info p
+#content #profile .info-background .user-info p, #content #profile .info-background .profile-info p
 {
     font-size: 26px;
 
@@ -81,15 +79,14 @@
     width: 300px;
 }
 
-#content #profile .info-background .user-info hr,
-#content #profile .info-background .profile-info hr
+#content #profile .info-background .user-info hr, #content #profile .info-background .profile-info hr
 {
     width: 100%;
     margin: 25px 5px;
 
     border: 0;
-    border-bottom: 1px solid #ccc;
-    background: #999;
+    border-bottom: 1px solid #CCCCCC;
+    background: #999999;
 }
 
 #content #profile .p-background
@@ -100,7 +97,7 @@
 
     animation: anime 5s ease infinite;
 
-    background: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+    background: linear-gradient(45deg, #874DA2 0%, #C43A30 100%);
     background-size: 400% 400%;
 }
 
