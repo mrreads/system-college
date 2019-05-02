@@ -14,7 +14,7 @@
 {
     height: auto;
 
-    background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+    background-image: linear-gradient(45deg, #874DA2 0%, #C43A30 100%);
 }
 
 #content #profile .p-background .b-name
@@ -30,9 +30,8 @@
 #content #profile .info-background
 {
     height: 50%;
-    margin: 0 0 50px 0;
 
-    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    background-image: linear-gradient(to top, #E6E9F0 0%, #EEF1F5 100%);
 }
 
 #content #profile .info-background
@@ -46,7 +45,7 @@
     padding: 50px;
 
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content #profile .info-background p
@@ -64,6 +63,6 @@
     margin: 25px 5px;
 
     border: 0;
-    border-bottom: 1px solid #ccc;
-    background: #999;
+    border-bottom: 1px solid #CCCCCC;
+    background: #999999;
 }

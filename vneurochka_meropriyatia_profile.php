@@ -8,6 +8,32 @@ if (empty($_SESSION['id_user']))
 
 require_once 'php/connection.php';
 
+$event_id = $_GET['id'];
+
+$query_event_info = "SELECT
+                        name_of_event, 
+                        place,
+                        events.date,
+                        duration,
+                        teacher_info.fio,
+                        teacher_info.id_teacher
+                    FROM
+                        events,
+                        teacher_info
+                    WHERE
+                        teacher_info.id_teacher = events.id_teacher
+                    AND
+                        id_event = '$event_id'";
+$result_event_info = mysqli_query($link, $query_event_info);
+$data_event_info = mysqli_fetch_row($result_event_info);
+
+$event_name = $data_event_info[0];
+$event_place = $data_event_info[1];
+$event_date = $data_event_info[2];
+$event_duration = $data_event_info[3];
+$event_teacher = $data_event_info[4];
+$event_id_teacher = $data_event_info[5];
+
 $user_id = $_SESSION['id_user'];
 $query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
 $result_user_info = mysqli_query($link, $query_user_info);
@@ -75,29 +101,32 @@ $user_fio = explode(' ', $user_fio);
             <div id="content">
                 <div id="profile">
                     <div class='p-background'>
-                        <h2 class="b-name"> Название мероприятия </h2>
+                    <? echo "<h2 class='b-name'> $event_name </h2>"; ?>
                     </div>
                     <div class='info-background'>
                         <div class="item-info">
                             <p> Название мероприятия: </p>
-                            <p> [название] </p>
+                            <? echo "<p> $event_name </p>"; ?>
                             <hr>
-                            <p> Место проведения: </p>
-                            <p> [адрес] </p>
+                            <p> Место мероприятия: </p>
+                            <? echo "<p> $event_place </p>"; ?>
                             <hr>
-                            <p> Дата: </p>
-                            <p> [полная дата] </p>
+                            <p> Организатор: </p>
+                            <? echo "<p> <a href='subject_teacher_profile.php?id=$event_id_teacher'> $event_teacher </a> </p>"; ?>
                             <hr>
-                            <p> Продолжительность: </p>
-                            <p> [приблизительное время] </p>
+                            <p> Дата мероприятия: </p>
+                            <? echo "<p> $event_date </p>"; ?>
+                            <hr>
+                            <p> Длительность: </p>
+                            <? echo "<p> $event_duration </p>"; ?>
                         </div>
-                        <div class="item-opisanie">
+                        <!-- <div class="item-opisanie">
                             <p> [фотографии с мероприятия, если оно уже было] </p>
                         </div>
                         <div class="items">
                             <p class=p-button> <a href="subject_teacher_profile.php"> Огранизатор мероприятия </a> </p>
                             <hr>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

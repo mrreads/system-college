@@ -52,7 +52,7 @@ $user_fio = explode(' ', $user_fio);
     <meta charset="utf-8">
     <title> О группе!</title>
     <link rel="stylesheet" href="styles/style_admin.css">
-    <link rel="stylesheet" href="styles/contents/style_student-speciality_profile.css">
+    <link rel="stylesheet" href="styles/contents/style_student-group_profile.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="styles/style_adaptability.css">
     <link rel="stylesheet" href="styles/contents/style_profile.css">

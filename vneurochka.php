@@ -16,7 +16,7 @@ if (isset($_GET['search-button']))
         $search = $_GET['search-field'];
         $where = "WHERE name_course LIKE '%$search%'";
         $query_course_list = $query_course_list.$where;
-        echo $query_course_list;
+        #echo $query_course_list;
     }
 }
 
@@ -97,7 +97,8 @@ $user_fio = explode(' ', $user_fio);
 
                     <form method="GET" action="vneurochka_kurs_profile.php">
                         <?
-                        while ($data_course_list = mysqli_fetch_row($result_course_list)) {
+                        while ($data_course_list = mysqli_fetch_row($result_course_list)) 
+                        {
                             echo "<p class='text-p'> $data_course_list[1] <input class='p-button' type='submit' name='id' value='$data_course_list[0]'> </p>";
                             echo "<hr>";
                         }

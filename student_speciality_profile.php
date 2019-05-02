@@ -34,11 +34,12 @@ $user_fio = explode(' ', $user_fio);
     <meta charset="utf-8">
     <title> О специальности!</title>
     <link rel="stylesheet" href="styles/style_admin.css">
+    <link rel="stylesheet" href="styles/contents/style_student-speciality_profile.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="styles/style_adaptability.css">
     <link rel="stylesheet" href="styles/contents/style_profile.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles/contents/style_student-speciality_profile.css">
+
 </head>
 
 <body>
@@ -105,7 +106,7 @@ $user_fio = explode(' ', $user_fio);
                                 while ($data_group_list = mysqli_fetch_row($result_group_list))
                                 {
                                     echo "
-                                    <p class='text-p'> $data_group_list[1] <input class='p-button' type='submit' name='id' value='$data_group_list[0]'> </p>";
+                                    <p class='text-p' style='width: 100%;'> $data_group_list[1] <input class='p-button' type='submit' name='id' value='$data_group_list[0]'> </p>";
                                     echo "<hr>";
                                 }
                                 ?>

@@ -1,12 +1,26 @@
 <?
 session_start();
 
-if (empty($_SESSION['id_user'])) 
-{
+if (empty($_SESSION['id_user'])) {
     header('Location: index.php');
 }
 
 require_once 'php/connection.php';
+
+$query_event_list = "SELECT id_event, name_of_event FROM events ";
+
+if (isset($_GET['search-button']))
+{
+    if (isset($_GET['search-field'])) 
+    {
+        $search = $_GET['search-field'];
+        $where = "WHERE name_of_event LIKE '%$search%'";
+        $query_event_list = $query_event_list.$where;
+        #echo $query_event_list;
+    }
+}
+
+$result_event_list = mysqli_query($link, $query_event_list);
 
 $user_id = $_SESSION['id_user'];
 $query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
@@ -38,8 +52,8 @@ $user_fio = explode(' ', $user_fio);
                 </div>
                 <div class="sb-profile">
                     <img src="images/avatar.jpg">
-                    <? echo" <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo"<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo " <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $data_user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
@@ -73,24 +87,35 @@ $user_fio = explode(' ', $user_fio);
             </div>
             <div id="content">
                 <div class="items">
-                    <form>
-                        <input id="enter" type="text" placeholder="Название мероприятия.">
-                        <input id="search" type="submit" value="ПОИСК">
+                    <form id="search-form" method="GET">
+                        <div class="s-b">
+                            <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
+                            <input id="search" type="submit" value="ПОИСК" name="search-button">
+                        </div>
                     </form>
-                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.php"> Название мероприятия <span> [дата]</span> </a></p>
-                    <hr>
-                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.php"> Название мероприятия <span> [дата]</span> </a></p>
-                    <hr>
-                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.php"> Название мероприятия <span> [дата]</span> </a></p>
-                    <hr>
-                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.php"> Название мероприятия <span> [дата]</span> </a></p>
-                    <hr>
-                    <p class=p-button> <a href="vneurochka_meropriyatia_profile.php"> Название мероприятия <span> [дата] </span> </a></p>
-                    <hr>
+
+
+                    <form method="GET" action="vneurochka_meropriyatia_profile.php">
+                        <?
+                        while ($data_event_list = mysqli_fetch_row($result_event_list)) 
+                        {
+                            echo "<p class='text-p'> $data_event_list[1] <input class='p-button' type='submit' name='id' value='$data_event_list[0]'> </p>";
+                            echo "<hr>";
+                        }
+                        ?>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+    <?
+    echo "
+    <script>
+        var searchInput = document.querySelector('#enter');
+        searchInput.value = '$search';
+    </script>
+    ";
+    ?>
 </body>
 
 </html>
