@@ -8,6 +8,9 @@ if (empty($_SESSION['id_user']))
 
 require_once 'php/connection.php';
 
+$query_group_list  = "SELECT id_group, number_group FROM groups ";
+$result_group_list = mysqli_query($link, $query_group_list);
+
 $user_id = $_SESSION['id_user'];
 $query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
 $result_user_info = mysqli_query($link, $query_user_info);
@@ -67,69 +70,18 @@ $user_fio = explode(' ', $user_fio);
             </div>
             <div id="content">
                 <div id="rasp">
-                    <table border="1">
-                        <tr>
-                            <th></th>
-                            <th>ПН<br></th>
-                            <th>ВТ</th>
-                            <th>СР</th>
-                            <th>ЧТ</th>
-                            <th>ПТ</th>
-                            <th>СБ</th>
-                        </tr>
-                        <tr>
-                            <td>9:00<br>10:35<br></td>
-                            <td>РУССКИЙ<br></td>
-                            <td>МАТАН<br></td>
-                            <td>РУССКИЙ</td>
-                            <td>МАТАН</td>
-                            <td>РУССКИ</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>10:45<br>12:20<br></td>
-                            <td>МАТАН</td>
-                            <td>РУССКИЙ</td>
-                            <td>МАТАН</td>
-                            <td>РУССКИЙ</td>
-                            <td>МАТАН</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>13:00<br>14:35<br></td>
-                            <td>РУССКИЙ</td>
-                            <td>МАТАН</td>
-                            <td>РУССКИЙ</td>
-                            <td>МАТАН</td>
-                            <td>РУССКИЙ</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>14:35<br>16:20</td>
-                            <td>МАТАН</td>
-                            <td>РУССКИЙ</td>
-                            <td>МАТАН</td>
-                            <td>РУССКИЙ</td>
-                            <td>МАТАН</td>
-                            <td></td>
-                        </tr>
-                    </table>
+                    <? include "php/shedule_table.php"; ?>
                 </div>
-                <form class="is-search">
+                <form class="is-search" method="GET" action='schedule.php'>
                     <input type="text" placeholder="Введите группу.">
                     <div class="is-items">
-                        <p class=is-p-button> <a href="#"> Группа </a> </p>
-                        <hr>
-                        <p class=is-p-button> <a href="#"> Группа </a> </p>
-                        <hr>
-                        <p class=is-p-button> <a href="#"> Группа </a> </p>
-                        <hr>
-                        <p class=is-p-button> <a href="#"> Группа </a> </p>
-                        <hr>
-                        <p class=is-p-button> <a href="#"> Группа </a> </p>
-                        <hr>
-                        <p class=is-p-button> <a href="#"> Группа </a> </p>
-                        <hr>
+                    <?
+                        while ($data_group_list = mysqli_fetch_row($result_group_list)) 
+                        {
+                            echo "<p class='text-p'> $data_group_list[1] <input class='p-button' type='submit' name='id' value='$data_group_list[0]'> </p>";
+                            echo "<hr>";
+                        }
+                    ?>
                     </div>
                 </form>
             </div>
