@@ -20,7 +20,7 @@ $query_group_info = "SELECT
                         classrooms.number,
                         form_of_study
                     FROM
-                        groups,
+                        `groups`,
                         specialnost,
                         classrooms
                     WHERE
@@ -39,7 +39,7 @@ $group_date = $data_group_info[2];
 $group_class = $data_group_info[3];
 $group_formstudy = $data_group_info[4];
 
-$group_id_secialization = mysqli_fetch_row(mysqli_query($link, "SELECT id_specialization FROM groups WHERE id_group = '$group_id'"));
+$group_id_secialization = mysqli_fetch_row(mysqli_query($link, "SELECT id_specialization FROM `groups` WHERE id_group = '$group_id'"));
 
 $query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
 $result_user_info = mysqli_query($link, $query_user_info);

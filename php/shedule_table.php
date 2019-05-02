@@ -1,7 +1,7 @@
 <?
 $group_id = $_GET['id'];
 
-$result_group_info = mysqli_query($link, "SELECT number_group FROM groups WHERE id_group = '$group_id'");
+$result_group_info = mysqli_query($link, "SELECT number_group FROM `groups` WHERE id_group = '$group_id'");
 $data_group_info = mysqli_fetch_row($result_group_info);
 $group = $data_group_info[0];
 

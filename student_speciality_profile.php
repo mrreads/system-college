@@ -16,7 +16,7 @@ $data_speciality_info = mysqli_fetch_row($result_speciality_info);
 $speciality_name = $data_speciality_info[0];
 $speciality_srok = $data_speciality_info[1];
 
-$query_group_list  = "SELECT id_group, number_group FROM groups WHERE id_specialization = '$speciality_id'";
+$query_group_list  = "SELECT id_group, number_group FROM `groups` WHERE id_specialization = '$speciality_id'";
 $result_group_list = mysqli_query($link, $query_group_list);
 
 $user_id = $_SESSION['id_user'];

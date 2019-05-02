@@ -8,7 +8,7 @@ if (empty($_SESSION['id_user']))
 
 require_once 'php/connection.php';
 
-$query_group_list  = "SELECT id_group, number_group FROM groups ";
+$query_group_list  = "SELECT id_group, number_group FROM `groups` ";
 
 if (isset($_GET['search-button'])) 
 {

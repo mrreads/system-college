@@ -20,7 +20,7 @@ $query_user_info = "SELECT
                             name_role
                     FROM 
                             students,
-                            groups,
+                            `groups`,
                             roles
                     WHERE 
                             students.id_group = groups.id_group
