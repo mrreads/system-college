@@ -45,6 +45,11 @@
         justify-content: center;
     }
 
+    #nav-menu ul li, #header-menu div, #header-menu div ul, #header-menu div ul li
+    {
+        flex-grow: 1;
+    }
+
     #nav-menu ul
     {
         align-items: center;
