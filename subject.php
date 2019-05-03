@@ -7,7 +7,7 @@ if (empty($_SESSION['id_user']))
 }
 
 require_once 'php/connection.php';
-$query_subject_list = "SELECT id_subject, subject_name FROM subjects ";
+$query_subject_list = "SELECT id_subject, subjects.name FROM subjects ";
 
 if (isset($_GET['search-button'])) {
     if (isset($_GET['search-field'])) {

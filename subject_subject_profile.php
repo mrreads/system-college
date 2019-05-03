@@ -10,23 +10,30 @@ $subject_id = $_GET['id'];
 
 require_once 'php/connection.php';
 $query_subject_info = "SELECT
-                        subject_name, quantity_hour, teacher_info.fio, teacher_info.id_teacher
-                    FROM
-                        subjects, teacher_info, subject_teacher
-                    WHERE 
-                        teacher_info.id_teacher = subject_teacher.id_teacher
-                    AND
-                        subject_teacher.id_subject = subjects.id_subject
-                    AND
-                        subjects.id_subject = '$subject_id'";
+                            subjects.name,
+                            specialities.name,
+                            specialities.id_speciality,
+                            teachers.name,
+                            teachers.id_teacher
+                        FROM
+                            subjects,
+                            specialities,
+                            teachers
+                        WHERE
+                            subjects.id_speciality = specialities.id_speciality
+                        AND
+                            subjects.id_teacher = teachers.id_teacher
+                        AND
+                            id_subject = '$subject_id'";
 
 $result_subject_info = mysqli_query($link, $query_subject_info);
 $data_subject_info = mysqli_fetch_row($result_subject_info);
 
 $subject_name = $data_subject_info[0];
-$subject_hours = $data_subject_info[1];
-$subject_teacher = $data_subject_info[2];
-$subject_id_teacher = $data_subject_info[3];
+$subject_speciality = $data_subject_info[1];
+$subject_id_speciality = $data_subject_info[2];
+$subject_teacher = $data_subject_info[3];
+$subject_id_teacher = $data_subject_info[4];
 
 $user_id = $_SESSION['id_user'];
 $query_user_info = "SELECT students.name, roles.name FROM students, roles WHERE students.id_role = roles.id_role AND students.id_user = '$user_id'";
@@ -102,24 +109,12 @@ $user_fio = explode(' ', $user_fio);
                             <p> Название предмета: </p>
                             <? echo "<p> $subject_name </p>"; ?>
                             <hr>
-                            <p> Кол-во часов: </p>
-                            <? echo "<p> $subject_hours </p>"; ?>
+                            <p> Специальность: </p>
+                            <? echo "<p> <a href='student_speciality_profile.php?id=$subject_id_speciality'> $subject_speciality </a> </p>"; ?>
                             <hr>
-                            <p> Ведёт: </p>
+                            <p> Учитель: </p>
                             <? echo "<p> <a href='subject_teacher_profile.php?id=$subject_id_teacher'> $subject_teacher </a> </p>"; ?>
                         </div>
-                        <!-- <div class="items">
-                            <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
-                            <hr>
-                            <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
-                            <hr>
-                            <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
-                            <hr>
-                            <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
-                            <hr>
-                            <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
-                            <hr>
-                        </div> -->
                     </div>
                 </div>
             </div>
