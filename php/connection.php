@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$database = 'sistema_kolledg';
+$database = 'system_college';
 $user = 'root';
 $password = '';
 

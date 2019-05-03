@@ -10,41 +10,37 @@ $administration_id = $_GET['id'];
 
 require_once 'php/connection.php';
 $query_administration_info = "SELECT
-                        fio,
-                        number_SP,
-                        position,
-                        email,
-                        phone_number,
-                        addres,
-                        name_role,
-                        classrooms.number
-                    FROM
-                        administration_info,
-                        roles,
-                        classrooms
-                    WHERE 
-                        roles.id_role = administration_info.id_role
-                    AND
-                        administration_info.id_classroom = classrooms.id_classrooms
-                    AND
-                        id_administration = '$administration_id';";
+                                administrations.name,
+                                administrations.birth,
+                                administrations.email,
+                                administrations.number,
+                                roles.name,
+                                classrooms.name
+                            FROM
+                                administrations,
+                                classrooms,
+                                roles
+                            WHERE
+                                administrations.id_role = roles.id_role
+                            AND
+                                administrations.id_classroom = classrooms.id_classroom
+                            AND 
+                                id_administration = '$administration_id';";
 
 $result_administration_info = mysqli_query($link, $query_administration_info);
 $data_administration_info = mysqli_fetch_row($result_administration_info);
 
 $admin_name = $data_administration_info[0];
-$admin_numbersp = $data_administration_info[1];
-$admin_position = $data_administration_info[2];
-$admin_email = $data_administration_info[3];
-$admin_phone = $data_administration_info[4];
-$admin_address = $data_administration_info[5];
-$admin_role = $data_administration_info[6];
-$admin_classroom = $data_administration_info[7];
+$admin_birth = $data_administration_info[1];
+$admin_email = $data_administration_info[2];
+$admin_phone = $data_administration_info[3];
+$admin_role = $data_administration_info[4];
+$admin_classroom = $data_administration_info[5];
 
 $admin_fi = explode(' ', $admin_name);
 
 $user_id = $_SESSION['id_user'];
-$query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
+$query_user_info = "SELECT students.name, roles.name FROM students, roles WHERE students.id_role = roles.id_role AND students.id_user = '$user_id'";
 $result_user_info = mysqli_query($link, $query_user_info);
 $data_user_info = mysqli_fetch_row($result_user_info);
 $user_fio = $data_user_info[0];
@@ -113,24 +109,19 @@ $user_fio = explode(' ', $user_fio);
                             <p> Имя администрации: </p>
                             <? echo "<p> $admin_name </p>"; ?>
                             <hr>
-                            <p> Отделение: </p>
-                            <? echo "<p> $admin_numbersp </p>"; ?>
-                            <hr>
-                            <p> Должность: </p>
-                            <? echo "<p> $admin_position </p>"; ?>
+                            <p> День рождения: </p>
+                            <? echo "<p> $admin_birth </p>"; ?>
                             <hr>
                             <p> Кабинет: </p>
                             <? echo "<p> $admin_classroom </p>"; ?>
                         </div>
                         <div class="profile-info">
-                            <p> Почта администрации: </p>
-                            <? echo "<p> $admin_email </p>"; ?>
-                            <hr>
                             <p> Номер: </p>
                             <? echo "<p> $admin_phone </p>"; ?>
                             <hr>
-                            <p> Адрес: </p>
-                            <? echo "<p> $admin_address </p>"; ?>
+                            <p> Почта администрации: </p>
+                            <? echo "<p> $admin_email </p>"; ?>
+
                         </div>
                     </div>
                 </div>

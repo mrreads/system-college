@@ -9,7 +9,7 @@ if (empty($_SESSION['id_user']))
 require_once 'php/connection.php';
 
 $user_id = $_SESSION['id_user'];
-$query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
+$query_user_info = "SELECT students.name, roles.name FROM students, roles WHERE students.id_role = roles.id_role AND students.id_user = '$user_id'";
 $result_user_info = mysqli_query($link, $query_user_info);
 $data_user_info = mysqli_fetch_row($result_user_info);
 $user_fio = $data_user_info[0];

@@ -7,27 +7,27 @@ if (empty($_SESSION['id_user']))
 }
 
 $user_id = $_SESSION['id_user'];
+$role_id = $_SESSION['id_role'];
 
-//ВОЗЬМЁМ ИНФОРМАЦИ О СТУДЕНТЕ, ЧТОБЫ ПОЗЖЕ ЕЁ ВЫВЕСТИ.
 require_once 'php/connection.php';
 $query_user_info = "SELECT
-                            fio,
-                            date_of_birth,
-                            number_group,
-                            form_study,
-                            email,
-                            phone_number,
-                            name_role
-                    FROM 
-                            students,
-                            `groups`,
-                            roles
-                    WHERE 
-                            students.id_group = groups.id_group
+                        students.name,
+                        students.birth,
+                        groups.name,
+                        groups.formstudy,
+                        students.email,
+                        students.number,
+                        roles.name
+                    FROM
+                        students,
+                        `groups`,
+                        roles
+                    WHERE
+                        students.id_role = roles.id_role
                     AND
-                            students.id_role = roles.id_role
+                        students.id_group = groups.id_group
                     AND
-                            id_student = '$user_id';";
+                        id_student = '$user_id'";
 
 $result_user_info = mysqli_query($link, $query_user_info);
 $data_user_info = mysqli_fetch_row($result_user_info);
