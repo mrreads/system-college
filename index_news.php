@@ -27,7 +27,7 @@ else {
 $news_id = $_GET['id'];
 
 require_once 'php/connection.php';
-$query_news_info = "SELECT title, min_text, full_text,`date`,image_url FROM news WHERE id_news = '$news_id'";
+$query_news_info = "SELECT title, textmin, textfull,`date`,image_url FROM news WHERE id_news = '$news_id'";
 $result_news_info = mysqli_query($link, $query_news_info);
 $data_news_info = mysqli_fetch_row($result_news_info);
 

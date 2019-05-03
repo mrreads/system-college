@@ -11,29 +11,32 @@ $teacher_id = $_GET['id'];
 require_once 'php/connection.php';
 
 $query_teacher_info = "SELECT
-                            fio, 
-                            email, 
-                            phone_number, 
-                            category, 
-                            date_birth, 
-                            name_role
+                            teachers.name,
+                            teachers.birth,
+                            teachers.email,
+                            teachers.number,
+                            roles.name,
+                            classrooms.name
                         FROM
-                            teacher_info, 
+                            teachers,
+                            classrooms,
                             roles
                         WHERE
-                            roles.id_role = teacher_info.id_role
+                            teachers.id_role = roles.id_role
                         AND
-                            id_teacher = '$teacher_id';";
+                            teachers.id_classroom = classrooms.id_classroom
+                        AND 
+                            id_teacher = '$teacher_id'";
 
 $result_teacher_info = mysqli_query($link, $query_teacher_info);
 $data_teacher_info = mysqli_fetch_row($result_teacher_info);
 
 $teacher_name = $data_teacher_info[0];
-$teacher_email = $data_teacher_info[1];
-$teacher_phone = $data_teacher_info[2];
-$teacher_category = $data_teacher_info[3];
-$teacher_birth = $data_teacher_info[4];
-$teacher_role = $data_teacher_info[5];
+$teacher_birth = $data_teacher_info[1];
+$teacher_email = $data_teacher_info[2];
+$teacher_phone = $data_teacher_info[3];
+$teacher_role = $data_teacher_info[4];
+$teacher_classroom = $data_teacher_info[5];
 
 $teacher_fi = explode(' ',  $teacher_name);
 #$teacher_fi[1] = ИМЯ
@@ -41,7 +44,7 @@ $teacher_fi = explode(' ',  $teacher_name);
 #$teacher_fi[0] = ОЧЕСТВО
 
 $user_id = $_SESSION['id_user'];
-$query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
+$query_user_info = "SELECT students.name, roles.name FROM students, roles WHERE students.id_role = roles.id_role AND students.id_user = '$user_id'";
 $result_user_info = mysqli_query($link, $query_user_info);
 $data_user_info = mysqli_fetch_row($result_user_info);
 $user_fio = $data_user_info[0];
@@ -118,11 +121,11 @@ $user_fio = explode(' ', $user_fio);
                             <p> Имя преподавателя: </p>
                             <? echo "<p> $teacher_name </p>"; ?>
                             <hr>
-                            <p> Категория: </p>
-                            <? echo "<p> $teacher_category </p>"; ?>
-                            <hr>
                             <p> Дата рождения: </p>
                             <? echo "<p> $teacher_birth </p>"; ?>
+                            <hr>
+                            <p> Кабинет: </p>
+                            <? echo "<p> $teacher_classroom </p>"; ?>
                         </div>
                         <div class="profile-info">
                             <p> Почта преподавателя: </p>
