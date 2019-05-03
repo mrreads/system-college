@@ -7,13 +7,13 @@ if (empty($_SESSION['id_user']))
 }
 
 require_once 'php/connection.php';
-$query_administration_list = "SELECT id_administration, administrations.name FROM administrations";
+$query_administration_list = "SELECT id_administration, administrations.name FROM administrations ";
 
 if (isset($_GET['search-button'])) {
     if (isset($_GET['search-field'])) 
     {
         $search = $_GET['search-field'];
-        $where = "WHERE fio LIKE '%$search%'";
+        $where = "WHERE administrations.name LIKE '%$search%'";
         $query_administration_list = $query_administration_list . $where;
         #echo $query_administration_list;
     }
