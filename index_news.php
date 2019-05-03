@@ -23,6 +23,19 @@ else {
     </script>
 <?
 }
+
+$news_id = $_GET['id'];
+
+require_once 'php/connection.php';
+$query_news_info = "SELECT title, min_text, full_text,`date`,image_url FROM news WHERE id_news = '$news_id'";
+$result_news_info = mysqli_query($link, $query_news_info);
+$data_news_info = mysqli_fetch_row($result_news_info);
+
+$news_title = $data_news_info[0];
+$news_mintext = $data_news_info[1];
+$news_fulltext = $data_news_info[2];
+$news_date = $data_news_info[3];
+$news_image = $data_news_info[4];
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +54,7 @@ else {
     #news .с-link 
     {
         top: 0;
+        height: 50px;
     }
 
     #news .с-link a 
@@ -82,21 +96,12 @@ else {
         <div id="content">
             <div id="news">
                 <div class="news_block">
-                    <h2 class="c-h"> День открытых дверей в СП №2 </h2>
-                    <p class="c-text"> <img src="https://schelcol.ru/media/k2/items/cache/ce93b7c97ea8831859bbe17c36b83648_L.jpg">
-                        02 марта 2019 г. в СП №2 состоялся День открытых дверей. <br>
-                        На мероприятии школьники и родители ознакомились со специальностями отделения и колледжа в целом, по которым планируется набор на 2019-2020 учебный год, их спецификой, а так же с общественной и культурной жизнью отделения и колледжа.
-                    </p>
-                    <p class="c-text">
-                        Преподаватели спецдисциплин рассказали о своих специальностях, чтобы сформировать наиболее полное представление о видах профессиональной деятельности по каждому из направлений. Мероприятие получилось познавательным и полезным!
-                    </p>
-                    <p class="c-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere vehicula tellus at viverra. Nulla vulputate ante a purus bibendum, vel interdum turpis tincidunt. Integer tincidunt justo sed lacus dictum condimentum. Nam ullamcorper mollis augue, ac fermentum lacus vulputate quis. Sed ex quam, pretium non sodales ultrices, consectetur ut ex. Proin bibendum dictum neque, vel aliquam arcu congue eget. Pellentesque ut nunc ante. Donec consectetur orci sit amet lectus bibendum, ut pellentesque lectus aliquam. In ac nunc orci. Etiam non nisl dui. Aliquam finibus diam vel egestas dignissim. Pellentesque sit amet lacus vitae quam sodales hendrerit ac vitae ante. Nulla accumsan nisi a lacus fermentum mattis. Morbi dapibus eget magna et finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque porttitor gravida tortor.
-                    </p>
-                    <p class="c-text">
-                        Pellentesque tristique et felis dignissim luctus. Aliquam erat volutpat. Aliquam facilisis sapien enim, vitae posuere dolor vehicula a. Fusce ultrices pulvinar erat, nec sodales nulla laoreet non. Nulla vehicula quam odio, id aliquet neque tempor sed. Aliquam erat volutpat. Suspendisse tortor ipsum, vestibulum sit amet erat eget, imperdiet dapibus sapien. Nulla accumsan ultricies massa, ut tincidunt elit mattis at. Curabitur ac mauris porta, eleifend diam vel, vestibulum orci. Morbi ornare finibus massa, nec molestie purus viverra in. Phasellus dignissim, diam at scelerisque sollicitudin, purus felis lobortis mauris, gravida aliquam magna lacus nec lorem. Proin sem sem, hendrerit in lectus sit amet, consectetur cursus turpis.
-                    </p>
-                    <p class="с-link"> <a href="index.php"> Вернуться назад </a> </p>
+                    <? echo"<h2 class='c-h'> $news_title </h2>"; ?>
+                    <? echo"<p class='c-text'> <img src='$news_image'>
+                        $news_mintext
+                    </p>"; ?>
+                    <? echo "<p class='c-text'> $news_fulltext </p>"; ?>
+                    <? echo " <p class='с-link'> <a href='index.php'> Вернуться назад </a> </p>"; ?>
                 </div>
             </div>
         </div>

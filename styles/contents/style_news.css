@@ -15,13 +15,13 @@
     padding: 20px 40px;
 
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 
 #news .c-h
 {
-    font-family: 'PT Sans Narrow', sans-serif;
+    font-family: "PT Sans Narrow", sans-serif;
     font-size: 36px;
 
     margin-bottom: 25px;
@@ -37,26 +37,25 @@
 
 .pages a
 {
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
 
     float: right;
 
     margin: 2px 4px;
     padding: 15px 20px;
 
-    transition: .3s linear;
+    transition: 0.3s linear;
     text-decoration: none;
 
     color: black;
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
-.pages .active-pages,
-.pages a:hover
+.pages .active-pages, .pages a:hover
 {
     font-weight: bold;
 
-    transition: .3s linear;
+    transition: 0.3s linear;
 
     color: white;
     background-color: black;
@@ -64,10 +63,10 @@
 
 #news .c-text
 {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 23px;
 
-    padding: 5px 5px 35px 0;
+    padding: 5px 5px 55px 0;
 }
 
 #news .c-text img
@@ -76,41 +75,65 @@
 
     height: 250px;
     margin-right: 35px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
-#news .с-link
+#news .с-link, .input-link, .p-link
 {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+
     position: absolute;
     right: 0;
     bottom: 0;
+
+    text-align: center;
+
+    border: 0;
+    background-color: white;
 }
 
-#news .с-link a
+#news .news-date
 {
+    font-family: "Roboto", sans-serif;
     font-size: 23px;
 
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    margin: 30px;
+}
+#news .с-link a, .input-link, .p-link
+{
     float: right;
 
     margin: 15px 0 0 15px;
-    padding: 15px;
+    padding: 15px 20px 15px 15px;
 
-    transition: .2s linear;
+    transition: 0.2s linear;
     text-decoration: none;
 
     color: black;
 }
 
-#news .с-link a:hover
+#news .с-link a:hover, .input-link:hover, .p-link:hover
 {
     margin: 15px 0 0 15px;
-    padding: 15px;
+    padding: 15px 30px 15px 15px;
 
-    transition: .2s linear;
+    transition: 0.2s linear;
 
     color: white;
     background-color: black;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+}
+
+.input-link
+{
+    width: 100%;
+
+    opacity: 0;
 }
