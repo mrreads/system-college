@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 03, 2019 at 11:28 PM
+-- Generation Time: May 03, 2019 at 11:51 PM
 -- Server version: 8.0.15
 -- PHP Version: 7.2.10
 
@@ -223,17 +223,18 @@ INSERT INTO `students` (`id_student`, `name`, `id_group`, `birth`, `number`, `id
 CREATE TABLE `subjects` (
   `id_subject` int(11) NOT NULL,
   `name` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `id_speciality` int(11) NOT NULL
+  `id_speciality` int(11) NOT NULL,
+  `id_teacher` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `subjects`
 --
 
-INSERT INTO `subjects` (`id_subject`, `name`, `id_speciality`) VALUES
-(1, 'Программирование', 1),
-(2, 'Экономика', 2),
-(3, 'Архитектура компьютера', 1);
+INSERT INTO `subjects` (`id_subject`, `name`, `id_speciality`, `id_teacher`) VALUES
+(1, 'Программирование', 1, 1),
+(2, 'Экономика', 2, 2),
+(3, 'Архитектура компьютера', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -359,7 +360,8 @@ ALTER TABLE `students`
 --
 ALTER TABLE `subjects`
   ADD PRIMARY KEY (`id_subject`),
-  ADD KEY `id_speciality` (`id_speciality`);
+  ADD KEY `id_speciality` (`id_speciality`),
+  ADD KEY `id_teacher` (`id_teacher`);
 
 --
 -- Indexes for table `teachers`
@@ -490,7 +492,8 @@ ALTER TABLE `students`
 -- Constraints for table `subjects`
 --
 ALTER TABLE `subjects`
-  ADD CONSTRAINT `subjects_ibfk_1` FOREIGN KEY (`id_speciality`) REFERENCES `specialities` (`id_speciality`);
+  ADD CONSTRAINT `subjects_ibfk_1` FOREIGN KEY (`id_speciality`) REFERENCES `specialities` (`id_speciality`),
+  ADD CONSTRAINT `subjects_ibfk_2` FOREIGN KEY (`id_teacher`) REFERENCES `teachers` (`id_teacher`);
 
 --
 -- Constraints for table `teachers`
