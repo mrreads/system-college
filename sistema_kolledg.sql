@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 02, 2019 at 11:03 PM
--- Server version: 5.7.25
+-- Generation Time: May 03, 2019 at 01:29 PM
+-- Server version: 8.0.15
 -- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -198,6 +198,29 @@ CREATE TABLE `monographs` (
   `author_monograph` varchar(70) NOT NULL,
   `year` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id_news` int(11) NOT NULL,
+  `title` varchar(55) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `min_text` text NOT NULL,
+  `full_text` text NOT NULL,
+  `date` date NOT NULL,
+  `image_url` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id_news`, `title`, `min_text`, `full_text`, `date`, `image_url`) VALUES
+(1, 'Конкурсы поделок', '22 апреля СП № 3 предметно-цикловой комиссией экономических дисциплин были проведены два конкурса «Моя копилка» и «Мой рубль». ', '\r\n\r\nВ конкурсах поделок активно участвовали студенты 1 и 2 курса, а также школьники, обучающиеся банковскому делу.\r\n\r\nОбучающиеся удивили своими необычными идеями и умением их осуществить. Поделки получились очень креативные и красивые.\r\n\r\nИтоги конкурса «Моя копилка»:\r\n\r\n    1 место. Лемешев Данил, группа «Агент банка» (школьники);\r\n    2 место. Гулагина Екатерина, группа 3721в (Банковское дело);\r\n    3 место. Мардавина Гюльдете и Гертье Екатерина, группа «Агент банка» (школьники).\r\n\r\nИтоги конкурса «Мой рубль»:\r\n\r\n    1 место. Обухова Виктория, группа «Агент банка» (школьники);\r\n    2 место. Никанорова Екатерина и Исаева Ирина, группа 3718 (Земельно-имущественные отношения);\r\n    3 место. Алмаева Анастасия , группа 3821в (Банковское дело).\r\n\r\nСпасибо всем студентам и школьникам, которые участвовали конкурсах поделок в рамках недели финансовой грамотности и порадовали своими творческими способностями!\r\n', '2019-04-23', 'https://schelcol.ru/media/k2/items/cache/09b87d8495c8cf32b64735c816312dfe_L.jpg'),
+(2, 'Выставка «Мир стекла» ', '2 апреля 2019 года преподаватель Юдина Т.А. и студенты группы № 6708 посетили 21-ю Международную выставку «Мир стекла».', '\r\n\r\nНа выставке были представлены стенды из 20-ти стран, рассказывающие о химическом производстве стекла, сырье, о технологиях варки стекла.\r\n\r\nСтуденты познакомились с системами загрузки и удаления шихты, увидели печи отжига, формование листового стекла, ламп накаливания и зеркал, производство художественного, декоративного стекла и витражи.\r\n', '2019-04-04', 'https://schelcol.ru/media/k2/items/cache/e1479c60fc7d7f4f708d42f869f837c8_L.jpg');
 
 -- --------------------------------------------------------
 
@@ -472,6 +495,12 @@ ALTER TABLE `monographs`
   ADD KEY `id_subject` (`id_subject`);
 
 --
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id_news`);
+
+--
 -- Indexes for table `notes_of_lectures`
 --
 ALTER TABLE `notes_of_lectures`
@@ -577,6 +606,12 @@ ALTER TABLE `groups`
   MODIFY `id_group` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
@@ -609,7 +644,7 @@ ALTER TABLE `students`
 --
 ALTER TABLE `administration_info`
   ADD CONSTRAINT `administration_info_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id_role`),
-  ADD CONSTRAINT `fk_administration_info` FOREIGN KEY (`id_classroom`) REFERENCES `classrooms` (`id_classrooms`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_administration_info` FOREIGN KEY (`id_classroom`) REFERENCES `classrooms` (`id_classrooms`);
 
 --
 -- Constraints for table `articles`
@@ -641,7 +676,7 @@ ALTER TABLE `events`
 -- Constraints for table `groups`
 --
 ALTER TABLE `groups`
-  ADD CONSTRAINT `fk_groups_classrooms` FOREIGN KEY (`classroom_teacher`) REFERENCES `classrooms` (`id_classrooms`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_groups_classrooms` FOREIGN KEY (`classroom_teacher`) REFERENCES `classrooms` (`id_classrooms`),
   ADD CONSTRAINT `groups_ibfk_1` FOREIGN KEY (`id_specialization`) REFERENCES `specialnost` (`id_specialization`);
 
 --
@@ -693,7 +728,7 @@ ALTER TABLE `subject_teacher`
 -- Constraints for table `teacher_info`
 --
 ALTER TABLE `teacher_info`
-  ADD CONSTRAINT `fk_teacher_info_classrooms` FOREIGN KEY (`id_classroom`) REFERENCES `classrooms` (`id_classrooms`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_teacher_info_classrooms` FOREIGN KEY (`id_classroom`) REFERENCES `classrooms` (`id_classrooms`),
   ADD CONSTRAINT `teacher_info_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id_role`);
 
 --
