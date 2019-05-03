@@ -12,7 +12,7 @@ $query_subject_list = "SELECT id_subject, subjects.name FROM subjects ";
 if (isset($_GET['search-button'])) {
     if (isset($_GET['search-field'])) {
         $search = $_GET['search-field'];
-        $where = "WHERE subject_name LIKE '%$search%'";
+        $where = "WHERE subjects.name LIKE '%$search%'";
         $query_subject_list = $query_subject_list . $where;
         #echo $query_subject_list;
     }
