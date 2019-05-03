@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 03, 2019 at 01:29 PM
+-- Generation Time: May 03, 2019 at 02:25 PM
 -- Server version: 8.0.15
 -- PHP Version: 7.2.10
 
@@ -326,15 +326,16 @@ CREATE TABLE `students` (
   `number_of_studencheskly` int(11) NOT NULL,
   `phone_numder_parents` varchar(15) NOT NULL,
   `f.i.o_parents` varchar(50) NOT NULL,
-  `id_role` int(11) NOT NULL
+  `id_role` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id_student`, `fio`, `id_group`, `date_of_birth`, `phone_number`, `address`, `email`, `password`, `form_study`, `number_of_studencheskly`, `phone_numder_parents`, `f.i.o_parents`, `id_role`) VALUES
-(1, 'Попов Александр Дмитриевич', 1, '2001-04-13', 712345678, 'г. Россия, и т.д.', 'mrreads@yandex.com', '123', 'Очная', 923718, '+712345678', 'Попова Попова Попова', 2);
+INSERT INTO `students` (`id_student`, `fio`, `id_group`, `date_of_birth`, `phone_number`, `address`, `email`, `password`, `form_study`, `number_of_studencheskly`, `phone_numder_parents`, `f.i.o_parents`, `id_role`, `id_user`) VALUES
+(1, 'Попов Александр Дмитриевич', 1, '2001-04-13', 712345678, 'г. Россия, и т.д.', 'mrreads@yandex.com', '123', 'Очная', 923718, '+712345678', 'Попова Попова Попова', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -425,6 +426,27 @@ CREATE TABLE `tutorial` (
   `theme_tutorial` varchar(70) NOT NULL,
   `author_tutorial` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id_users` int(11) NOT NULL,
+  `login` varchar(15) NOT NULL,
+  `email` varchar(35) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `id_role` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id_users`, `login`, `email`, `password`, `id_role`) VALUES
+(1, 'mrreads', 'mrreads@yandex.com', '123', 2);
 
 --
 -- Indexes for dumped tables
@@ -540,6 +562,7 @@ ALTER TABLE `specialnost`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id_student`),
+  ADD UNIQUE KEY `unq_students_id_user` (`id_user`),
   ADD KEY `FOREIGN` (`id_group`),
   ADD KEY `id_role` (`id_role`),
   ADD KEY `id_student` (`id_student`);
@@ -582,6 +605,13 @@ ALTER TABLE `tutorial`
   ADD PRIMARY KEY (`id_subject`),
   ADD KEY `id_subject` (`id_subject`),
   ADD KEY `id_subject_2` (`id_subject`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_users`),
+  ADD UNIQUE KEY `unq_users_id_role` (`id_role`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -634,6 +664,12 @@ ALTER TABLE `specialnost`
 --
 ALTER TABLE `students`
   MODIFY `id_student` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -708,6 +744,7 @@ ALTER TABLE `specializatoin_lesson`
 -- Constraints for table `students`
 --
 ALTER TABLE `students`
+  ADD CONSTRAINT `fk_students_users` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_users`),
   ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id_role`),
   ADD CONSTRAINT `students_ibfk_2` FOREIGN KEY (`id_group`) REFERENCES `groups` (`id_group`);
 
@@ -736,6 +773,12 @@ ALTER TABLE `teacher_info`
 --
 ALTER TABLE `tutorial`
   ADD CONSTRAINT `tutorial_ibfk_1` FOREIGN KEY (`id_subject`) REFERENCES `subjects` (`id_subject`);
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `fk_users_roles` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id_role`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
