@@ -22,7 +22,7 @@ if (isset($_SESSION['id_user']))
 </head>
 
 <body>
-    <div id="particles-js">
+    <div id="main">
         <form id="login-popup" method="POST" action="php/auth.php">
             <div class="quit">
                 <a href="../index.php"> <img src="images/icons/close-icon.png"> </a>

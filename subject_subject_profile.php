@@ -3,7 +3,7 @@ session_start();
 
 if (empty($_SESSION['id_user']) or empty($_GET['id'])) 
 {
-    header('Location: index.php');
+    header('Location: login.php');
 }
 
 $subject_id = $_GET['id'];

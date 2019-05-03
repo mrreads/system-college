@@ -3,7 +3,7 @@ session_start();
 
 if (empty($_SESSION['id_user'])) 
 {
-    header('Location: index.php');
+    header('Location: login.php');
 }
 
 $user_id = $_SESSION['id_user'];
