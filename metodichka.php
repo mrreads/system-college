@@ -93,7 +93,7 @@ $result_group_list = mysqli_query($link, $query_group_list);
                     </form>
                 </div>
                 
-                <div class="items">
+                <div class="items" style="width: 100%;">
                     <form method="GET" action="metodichka_profile.php">
                             <?
                             while ($data_tutorial_list = mysqli_fetch_row($result_tutorial_list)) 
