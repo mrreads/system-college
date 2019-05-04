@@ -6,6 +6,10 @@ if (empty($_SESSION['id_user'])) {
 }
 
 require_once 'php/connection.php';
+$administration_id = $_GET['id'];
+$user_info = $_SESSION['user_info'];
+$user_fio = explode(' ', $user_info[0]);
+$user_info[0] = $user_fio[1].' '.$user_fio[2];
 
 $query_course_list = "SELECT id_course, courses.name FROM courses ";
 
@@ -21,13 +25,6 @@ if (isset($_GET['search-button']))
 }
 
 $result_course_list = mysqli_query($link, $query_course_list);
-
-$user_id = $_SESSION['id_user'];
-$query_user_info = "SELECT students.name, roles.name FROM students, roles WHERE students.id_role = roles.id_role AND students.id_user = '$user_id'";
-$result_user_info = mysqli_query($link, $query_user_info);
-$data_user_info = mysqli_fetch_row($result_user_info);
-$user_fio = $data_user_info[0];
-$user_fio = explode(' ', $user_fio);
 ?>
 
 <!DOCTYPE html>
@@ -52,8 +49,8 @@ $user_fio = explode(' ', $user_fio);
                 </div>
                 <div class="sb-profile">
                     <img src="images/avatar.jpg">
-                    <? echo " <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo "<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo " <p class='sb-name'> $user_info[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
