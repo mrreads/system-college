@@ -6,7 +6,33 @@ if (empty($_SESSION['id_user']))
     header('Location: login.php');
 }
 
+$tutorial_id = $_GET['id'];
+
 require_once 'php/connection.php';
+
+$query_tutorial_info = "SELECT	
+                            tutorials.name,
+                            tutorials.author,
+                            tutorials.type,
+                            tutorials.fileurl,
+                            subjects.name,
+                            tutorials.id_subject
+                        FROM
+                            tutorials,
+                            subjects
+                        WHERE
+                            tutorials.id_subject = subjects.id_subject
+                        AND
+                            id_tutorial = '$tutorial_id'";
+$result_tutorial_info = mysqli_query($link, $query_tutorial_info);
+$data_tutorial_info = mysqli_fetch_row($result_tutorial_info);
+
+$tutorial_name = $data_tutorial_info[0];
+$tutorial_author = $data_tutorial_info[1];
+$tutorial_type = $data_tutorial_info[2];
+$stutorial_url = $data_tutorial_info[3];
+$tutorial_subject = $data_tutorial_info[4];
+$tutorial_id_subject = $data_tutorial_info[5];
 
 $user_id = $_SESSION['id_user'];
 $query_user_info = "SELECT students.name, roles.name FROM students, roles WHERE students.id_role = roles.id_role AND students.id_user = '$user_id'";
@@ -69,25 +95,24 @@ $user_fio = explode(' ', $user_fio);
             <div id="content">
                 <div id="profile">
                     <div class='p-background'>
-                        <h2 class="b-name"> Название методички </h2>
+                    <? echo "<h2 class='b-name'> $tutorial_name </h2>"; ?>
                     </div>
                     <div class='info-background'>
                         <div class="item-info">
                             <p> Название: </p>
-                            <p> [название материала] </p>
+                            <? echo "<p> $tutorial_name </p>"; ?>
                             <hr>
-                            <p> Предмет методички: </p>
-                            <p> <a href="subject_subject_profile.php"> [название предмета] </a> </p>
+                            <p> Автор: </p>
+                            <? echo "<p> $tutorial_author </p>"; ?>
                             <hr>
-                            <p> Преподаватель методички: </p>
-                            <p> <a href="subject_teacher_profile.php"> [фио преподавателя] </a> </p>
+                            <p> Тип: </p>
+                            <? echo "<p> $tutorial_type </p>"; ?>
                             <hr>
-                            <p> Загрузка методички: </p>
-                            <p> <a href=""> [ссылка на скачку] </a> </p>
-                        </div>
-                        <div class="items">
-                            <p class=p-button> <a href="#">Предпросмотр методички. </a> </p>
+                            <p> Предмет: </p>
+                            <? echo " <p> <a href='subject_subject_profile.php?id=$tutorial_id_subject'> $tutorial_subject </a> </p>"; ?>
                             <hr>
+                            <p> Ссылка: </p>
+                            <p> <a href="#"> [ссылка на скачку] </a> </p>
                         </div>
                     </div>
                 </div>

@@ -79,20 +79,13 @@ $user_fio = explode(' ', $user_fio);
                 </div>
             </div>
             <div id="content">
+                
                 <div class="items">
                     <form id="search-form" method="GET">
                         <div class="s-b">
                             <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
                             <input id="search" type="submit" value="ПОИСК" name="search-button">
                         </div>
-                        <!-- <div class="checkbox">
-                            <input type="checkbox">
-                            <label for="gsp"> ГСП </label>
-                            <input type="checkbox">
-                            <label for="gsp"> ОСП </label>
-                            <input type="checkbox">
-                            <label for="gsp"> ПСП </label>
-                        </div> -->
                     </form>
 
                     <form method="GET" action="administration_pofile.php">

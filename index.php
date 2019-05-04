@@ -27,7 +27,7 @@ else
 }
 
 require_once 'php/connection.php';
-$query_news_list = "SELECT id_news, title, textmin,`date`, image_url FROM news";
+$query_news_list = "SELECT id_news, title, textmin,`date`, imageurl FROM news";
 $result_news_list = mysqli_query($link, $query_news_list);
 ?>
 
