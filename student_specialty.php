@@ -34,7 +34,7 @@ $result_specialty_list = mysqli_query($link, $query_specialty_list);
 
 <head>
     <meta charset="utf-8">
-    <title> Поиск специальности!</title>
+    <title> Специальности </title>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_student-specialty.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">

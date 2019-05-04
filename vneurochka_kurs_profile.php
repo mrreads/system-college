@@ -42,7 +42,7 @@ $course_id_teacher = $data_course_info[4];
 
 <head>
     <meta charset="utf-8">
-    <title> Курсы!</title>
+    <? echo "<title> $course_name </title>"; ?>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_vneurochka_kurs_profile.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">

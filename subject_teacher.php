@@ -32,7 +32,7 @@ $result_teacher_list = mysqli_query($link, $query_taecher_list);
 
 <head>
     <meta charset="utf-8">
-    <title> Поиск учителя!</title>
+    <title> Преподаватли </title>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_subject_teachery.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
