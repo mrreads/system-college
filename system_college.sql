@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 04, 2019 at 01:25 PM
+-- Generation Time: May 04, 2019 at 03:23 PM
 -- Server version: 8.0.15
 -- PHP Version: 7.2.10
 
@@ -174,7 +174,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id_role`, `name`) VALUES
 (1, 'Администрация'),
-(2, 'Учитель'),
+(2, 'Преподаватель'),
 (3, 'Студент');
 
 -- --------------------------------------------------------
