@@ -30,7 +30,7 @@ $data_tutorial_info = mysqli_fetch_row($result_tutorial_info);
 $tutorial_name = $data_tutorial_info[0];
 $tutorial_author = $data_tutorial_info[1];
 $tutorial_type = $data_tutorial_info[2];
-$stutorial_url = $data_tutorial_info[3];
+$tutorial_url = $data_tutorial_info[3];
 $tutorial_subject = $data_tutorial_info[4];
 $tutorial_id_subject = $data_tutorial_info[5];
 
@@ -109,10 +109,10 @@ $user_fio = explode(' ', $user_fio);
                             <? echo "<p> $tutorial_type </p>"; ?>
                             <hr>
                             <p> Предмет: </p>
-                            <? echo " <p> <a href='subject_subject_profile.php?id=$tutorial_id_subject'> $tutorial_subject </a> </p>"; ?>
+                            <? echo "<p> <a href='subject_subject_profile.php?id=$tutorial_id_subject'> $tutorial_subject </a> </p>"; ?>
                             <hr>
                             <p> Ссылка: </p>
-                            <p> <a href="#"> [ссылка на скачку] </a> </p>
+                            <? echo "<p> <a href='$tutorial_url'> [ссылка на скачку] </a> </p>"; ?>
                         </div>
                     </div>
                 </div>
