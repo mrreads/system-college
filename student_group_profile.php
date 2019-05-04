@@ -75,7 +75,7 @@ $group_classroom = $data_group_info[5];
                     <ul>
                         <li> <a href="administration.php"> Администрация </a> </li>
                         <li> <a href="subject.php"> Предметы </a> </li>
-                        <li> <a href="student_you.php" id="sb-menu_active"> Студент </a> </li>
+                        <li> <a href="student_you.php" id="sb-menu_active"> Профиль </a> </li>
                         <li> <a href="schedule.php"> Расписание </a> </li>
                         <li> <a href="metodichka.php"> Методичка </a> </li>
                         <li> <a href="vneurochka.php"> Внеурочка </a> </li>
