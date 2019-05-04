@@ -39,7 +39,7 @@ $user_fio = explode(' ', $user_fio);
 
 <head>
     <meta charset="utf-8">
-    <title> Мероприятия!</title>
+    <title> Мероприятия </title>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_vneurochka_meropriyatia.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">

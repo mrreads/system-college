@@ -36,7 +36,7 @@ $result_news_list = mysqli_query($link, $query_news_list);
 
 <head>
     <meta charset="utf-8">
-    <title> Новости!</title>
+    <title> Новости </title>
     <link rel="stylesheet" href="styles/style_index.css">
     <link rel="stylesheet" href="styles/contents/style_news.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">

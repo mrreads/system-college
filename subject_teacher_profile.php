@@ -55,7 +55,7 @@ $teacher_fi = explode(' ',  $teacher_name);
 
 <head>
     <meta charset="utf-8">
-    <title> О преподаватеел!</title>
+    <? echo "<title> $teacher_name </title>"; ?>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_subject_teacher_profile.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">

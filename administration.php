@@ -32,7 +32,7 @@ $result_administration_list = mysqli_query($link, $query_administration_list);
 
 <head>
     <meta charset="utf-8">
-    <title> Администрация!</title>
+    <title> Администрация </title>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_administration.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">

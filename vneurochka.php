@@ -32,7 +32,7 @@ $result_course_list = mysqli_query($link, $query_course_list);
 
 <head>
     <meta charset="utf-8">
-    <title> Поиск группы!</title>
+    <title> Курсы </title>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_vneurochka.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">

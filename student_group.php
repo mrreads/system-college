@@ -33,7 +33,7 @@ $result_group_list = mysqli_query($link, $query_group_list);
 
 <head>
     <meta charset="utf-8">
-    <title> Поиск группы!</title>
+    <title> Группы </title>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_student-group.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
