@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 03, 2019 at 11:51 PM
+-- Generation Time: May 04, 2019 at 12:19 PM
 -- Server version: 8.0.15
 -- PHP Version: 7.2.10
 
@@ -75,7 +75,7 @@ INSERT INTO `classrooms` (`id_classroom`, `name`) VALUES
 CREATE TABLE `courses` (
   `id_course` int(11) NOT NULL,
   `name` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `durationv` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `duration` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `price` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `id_teacher` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -84,7 +84,7 @@ CREATE TABLE `courses` (
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`id_course`, `name`, `durationv`, `price`, `id_teacher`) VALUES
+INSERT INTO `courses` (`id_course`, `name`, `duration`, `price`, `id_teacher`) VALUES
 (1, 'Сетевое администрирование', '72 часа', '9600 руб', 1),
 (2, 'Электротехника', '1024 часов', '0 рублей', 2);
 
@@ -146,7 +146,7 @@ CREATE TABLE `news` (
   `textmin` text NOT NULL,
   `textfull` text NOT NULL,
   `date` date NOT NULL,
-  `image_url` text NOT NULL
+  `imageurl` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -264,6 +264,29 @@ INSERT INTO `teachers` (`id_teacher`, `name`, `birth`, `number`, `id_role`, `id_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tutorials`
+--
+
+CREATE TABLE `tutorials` (
+  `id_tutorial` int(11) NOT NULL,
+  `name` varchar(35) NOT NULL,
+  `author` varchar(30) NOT NULL,
+  `type` varchar(15) NOT NULL,
+  `id_subject` int(11) NOT NULL,
+  `fileurl` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tutorials`
+--
+
+INSERT INTO `tutorials` (`id_tutorial`, `name`, `author`, `type`, `id_subject`, `fileurl`) VALUES
+(1, 'Современные операционные системы', 'Эндрю Таненбаум', 'Книга', 3, ''),
+(2, 'Архитектура компьютера', 'Эндрю Таненбаум', 'Книга', 3, '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -368,9 +391,17 @@ ALTER TABLE `subjects`
 --
 ALTER TABLE `teachers`
   ADD PRIMARY KEY (`id_teacher`),
+  ADD UNIQUE KEY `id_classroom_2` (`id_classroom`),
   ADD KEY `id_user` (`id_user`),
   ADD KEY `id_role` (`id_role`),
   ADD KEY `id_classroom` (`id_classroom`);
+
+--
+-- Indexes for table `tutorials`
+--
+ALTER TABLE `tutorials`
+  ADD PRIMARY KEY (`id_tutorial`),
+  ADD KEY `id_subject` (`id_subject`);
 
 --
 -- Indexes for table `users`
@@ -444,6 +475,12 @@ ALTER TABLE `teachers`
   MODIFY `id_teacher` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `tutorials`
+--
+ALTER TABLE `tutorials`
+  MODIFY `id_tutorial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -502,6 +539,12 @@ ALTER TABLE `teachers`
   ADD CONSTRAINT `teachers_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
   ADD CONSTRAINT `teachers_ibfk_3` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id_role`),
   ADD CONSTRAINT `teachers_ibfk_4` FOREIGN KEY (`id_classroom`) REFERENCES `classrooms` (`id_classroom`);
+
+--
+-- Constraints for table `tutorials`
+--
+ALTER TABLE `tutorials`
+  ADD CONSTRAINT `tutorials_ibfk_1` FOREIGN KEY (`id_subject`) REFERENCES `subjects` (`id_subject`);
 
 --
 -- Constraints for table `users`
