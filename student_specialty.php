@@ -8,7 +8,7 @@ if (empty($_SESSION['id_user']))
 
 require_once 'php/connection.php';
 
-$query_specialty_list = "SELECT id_specialization, name_specialization FROM specialnost ";
+$query_specialty_list = "SELECT id_speciality, specialities.name FROM specialities ";
 
 if (isset($_GET['search-button']))
 {
