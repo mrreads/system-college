@@ -11,19 +11,16 @@ require_once 'php/connection.php';
 $course_id = $_GET['id'];
 
 $query_course_info = "SELECT 
-                            name_course, 
-                            time_of_hours, 
-                            price,
-                            fio,
-                            courses_and_teachers.id_teacher 
+                            courses.name, 
+                            courses.duration, 
+                            courses.price,
+                            teachers.name,
+                            teachers.id_teacher 
                         FROM 
                             courses,
-                            teacher_info,
-                            courses_and_teachers
+                            teachers
                         WHERE
-                            teacher_info.id_teacher = courses_and_teachers.id_teacher
-                        AND
-                            courses_and_teachers.id_course = courses.id_course
+                            teachers.id_teacher = courses.id_teacher
                         AND
                             courses.id_course = '$course_id'";
 $result_course_info = mysqli_query($link, $query_course_info);

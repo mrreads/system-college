@@ -11,17 +11,17 @@ require_once 'php/connection.php';
 $event_id = $_GET['id'];
 
 $query_event_info = "SELECT
-                        name_of_event, 
-                        place,
+                        events.name,
+                        events.place,
                         events.date,
-                        duration,
-                        teacher_info.fio,
-                        teacher_info.id_teacher
+                        events.duration,
+                        teachers.name,
+                        teachers.id_teacher
                     FROM
-                        events,
-                        teacher_info
+                        `events`,
+                        teachers
                     WHERE
-                        teacher_info.id_teacher = events.id_teacher
+                        teachers.id_teacher = events.id_teacher
                     AND
                         id_event = '$event_id'";
 $result_event_info = mysqli_query($link, $query_event_info);

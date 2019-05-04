@@ -7,14 +7,14 @@ if (empty($_SESSION['id_user'])) {
 
 require_once 'php/connection.php';
 
-$query_course_list = "SELECT id_course, name_course FROM courses ";
+$query_course_list = "SELECT id_course, courses.name FROM courses ";
 
 if (isset($_GET['search-button']))
 {
     if (isset($_GET['search-field'])) 
     {
         $search = $_GET['search-field'];
-        $where = "WHERE name_course LIKE '%$search%'";
+        $where = "WHERE courses.name LIKE '%$search%'";
         $query_course_list = $query_course_list.$where;
         #echo $query_course_list;
     }
