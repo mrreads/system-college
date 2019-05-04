@@ -8,13 +8,13 @@ if (empty($_SESSION['id_user']))
 
 require_once 'php/connection.php';
 
-$query_group_list  = "SELECT id_group, number_group FROM `groups` ";
+$query_group_list  = "SELECT id_group, groups.name FROM `groups` ";
 
 if (isset($_GET['search-button'])) 
 {
     if (isset($_GET['search-field'])) {
         $search = $_GET['search-field'];
-        $where = "WHERE number_group LIKE '%$search%'";
+        $where = "WHERE groups.name LIKE '%$search%'";
         $query_group_list = $query_group_list . $where;
         #echo $query_group_list;
     }

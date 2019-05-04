@@ -7,14 +7,14 @@ if (empty($_SESSION['id_user'])) {
 
 require_once 'php/connection.php';
 
-$query_event_list = "SELECT id_event, name_of_event FROM events ";
+$query_event_list = "SELECT id_event, events.name FROM events ";
 
 if (isset($_GET['search-button']))
 {
     if (isset($_GET['search-field'])) 
     {
         $search = $_GET['search-field'];
-        $where = "WHERE name_of_event LIKE '%$search%'";
+        $where = "WHERE events.name LIKE '%$search%'";
         $query_event_list = $query_event_list.$where;
         #echo $query_event_list;
     }
