@@ -27,7 +27,18 @@ else
 }
 
 require_once 'php/connection.php';
-$query_news_list = "SELECT id_news, title, textmin,`date`, imageurl FROM news";
+$query_news_list = "SELECT id_news, title, textmin,`date`, imageurl FROM news ";
+
+if (isset($_GET['search-button'])) {
+    if (isset($_GET['search-field'])) 
+    {
+        $search = $_GET['search-field'];
+        $where = "WHERE title LIKE '%$search%'";
+        $query_news_list = $query_news_list . $where;
+        #echo $query_news_list;
+    }
+}
+
 $result_news_list = mysqli_query($link, $query_news_list);
 ?>
 
@@ -67,8 +78,8 @@ $result_news_list = mysqli_query($link, $query_news_list);
                 <li> <a href="vneurochka_meropriyatia.php"> Мероприятия</a> </li>
                 <li> <a href="schedule.php"> Расписание </a> </li>
                 <form>
-                    <input type="text" placeholder="ИЩИ" id="ishi-pole">
-                    <input id="ishi" type="submit" value=" ">
+                    <input name="search-field" type="text" placeholder="ИЩИ" id="ishi-pole">
+                    <input id="ishi" type="submit" value=" " name="search-button">
                 </form>
             </ul>
         </div>
@@ -95,6 +106,14 @@ $result_news_list = mysqli_query($link, $query_news_list);
             </div>
         </div>
     </div>
+    <?
+    echo "
+    <script>
+        var searchInput = document.querySelector('#ishi-pole');
+        searchInput.value = '$search';
+    </script>
+    ";
+    ?>
 </body>
 
 </html>
