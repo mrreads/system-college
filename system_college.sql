@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: May 04, 2019 at 03:23 PM
--- Server version: 8.0.15
--- PHP Version: 7.2.10
+-- Хост: 127.0.0.1:3306
+-- Время создания: Май 12 2019 г., 19:54
+-- Версия сервера: 8.0.15
+-- Версия PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `system_college`
+-- База данных: `system_college`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `administrations`
+-- Структура таблицы `administrations`
 --
 
 CREATE TABLE `administrations` (
@@ -40,16 +40,17 @@ CREATE TABLE `administrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `administrations`
+-- Дамп данных таблицы `administrations`
 --
 
 INSERT INTO `administrations` (`id_administration`, `name`, `birth`, `number`, `id_role`, `id_user`, `id_classroom`, `email`) VALUES
-(1, 'Зудилина Елена Александровна', '2019-05-14', '+70000000000', 1, 5, 1, 'example@mail.ru');
+(1, 'Зудилина Елена Александровна', '2019-05-14', '+70000000000', 1, 5, 1, 'example@mail.ru'),
+(2, 'Комова Татьяна Ивановна', '2019-05-15', '+70000000000', 1, 6, 5, 'example@mail.ru');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `classrooms`
+-- Структура таблицы `classrooms`
 --
 
 CREATE TABLE `classrooms` (
@@ -58,18 +59,20 @@ CREATE TABLE `classrooms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `classrooms`
+-- Дамп данных таблицы `classrooms`
 --
 
 INSERT INTO `classrooms` (`id_classroom`, `name`) VALUES
 (1, '401'),
 (2, '204'),
-(3, '406');
+(3, '406'),
+(4, '12'),
+(5, '340');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `courses`
+-- Структура таблицы `courses`
 --
 
 CREATE TABLE `courses` (
@@ -81,7 +84,7 @@ CREATE TABLE `courses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `courses`
+-- Дамп данных таблицы `courses`
 --
 
 INSERT INTO `courses` (`id_course`, `name`, `duration`, `price`, `id_teacher`) VALUES
@@ -91,7 +94,7 @@ INSERT INTO `courses` (`id_course`, `name`, `duration`, `price`, `id_teacher`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `events`
+-- Структура таблицы `events`
 --
 
 CREATE TABLE `events` (
@@ -104,7 +107,7 @@ CREATE TABLE `events` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `events`
+-- Дамп данных таблицы `events`
 --
 
 INSERT INTO `events` (`id_event`, `name`, `place`, `date`, `duration`, `id_teacher`) VALUES
@@ -114,7 +117,7 @@ INSERT INTO `events` (`id_event`, `name`, `place`, `date`, `duration`, `id_teach
 -- --------------------------------------------------------
 
 --
--- Table structure for table `groups`
+-- Структура таблицы `groups`
 --
 
 CREATE TABLE `groups` (
@@ -127,17 +130,19 @@ CREATE TABLE `groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `groups`
+-- Дамп данных таблицы `groups`
 --
 
 INSERT INTO `groups` (`id_group`, `name`, `id_speciality`, `enrollment`, `formstudy`, `id_classroom`) VALUES
 (1, '3719', 1, '2019-05-14', 'Очная', 1),
-(2, '3857', 2, '2019-12-27', 'Очная', 2);
+(2, '3857', 2, '2019-12-27', 'Очная', 2),
+(3, '3619', 1, '2016-09-01', 'Очная', 3),
+(4, '3519', 1, '2015-09-01', 'Очная', 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `news`
+-- Структура таблицы `news`
 --
 
 CREATE TABLE `news` (
@@ -150,7 +155,7 @@ CREATE TABLE `news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `news`
+-- Дамп данных таблицы `news`
 --
 
 INSERT INTO `news` (`id_news`, `title`, `textmin`, `textfull`, `date`, `imageurl`) VALUES
@@ -160,7 +165,7 @@ INSERT INTO `news` (`id_news`, `title`, `textmin`, `textfull`, `date`, `imageurl
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Структура таблицы `roles`
 --
 
 CREATE TABLE `roles` (
@@ -169,7 +174,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `roles`
+-- Дамп данных таблицы `roles`
 --
 
 INSERT INTO `roles` (`id_role`, `name`) VALUES
@@ -180,7 +185,7 @@ INSERT INTO `roles` (`id_role`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `specialities`
+-- Структура таблицы `specialities`
 --
 
 CREATE TABLE `specialities` (
@@ -190,7 +195,7 @@ CREATE TABLE `specialities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `specialities`
+-- Дамп данных таблицы `specialities`
 --
 
 INSERT INTO `specialities` (`id_speciality`, `name`, `learnperiod`) VALUES
@@ -200,7 +205,7 @@ INSERT INTO `specialities` (`id_speciality`, `name`, `learnperiod`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `students`
+-- Структура таблицы `students`
 --
 
 CREATE TABLE `students` (
@@ -215,7 +220,7 @@ CREATE TABLE `students` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `students`
+-- Дамп данных таблицы `students`
 --
 
 INSERT INTO `students` (`id_student`, `name`, `id_group`, `birth`, `number`, `id_role`, `id_user`, `email`) VALUES
@@ -225,7 +230,7 @@ INSERT INTO `students` (`id_student`, `name`, `id_group`, `birth`, `number`, `id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subjects`
+-- Структура таблицы `subjects`
 --
 
 CREATE TABLE `subjects` (
@@ -236,7 +241,7 @@ CREATE TABLE `subjects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `subjects`
+-- Дамп данных таблицы `subjects`
 --
 
 INSERT INTO `subjects` (`id_subject`, `name`, `id_speciality`, `id_teacher`) VALUES
@@ -247,7 +252,7 @@ INSERT INTO `subjects` (`id_subject`, `name`, `id_speciality`, `id_teacher`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `teachers`
+-- Структура таблицы `teachers`
 --
 
 CREATE TABLE `teachers` (
@@ -262,7 +267,7 @@ CREATE TABLE `teachers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `teachers`
+-- Дамп данных таблицы `teachers`
 --
 
 INSERT INTO `teachers` (`id_teacher`, `name`, `birth`, `number`, `id_role`, `id_user`, `id_classroom`, `email`) VALUES
@@ -272,7 +277,7 @@ INSERT INTO `teachers` (`id_teacher`, `name`, `birth`, `number`, `id_role`, `id_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tutorials`
+-- Структура таблицы `tutorials`
 --
 
 CREATE TABLE `tutorials` (
@@ -285,7 +290,7 @@ CREATE TABLE `tutorials` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tutorials`
+-- Дамп данных таблицы `tutorials`
 --
 
 INSERT INTO `tutorials` (`id_tutorial`, `name`, `author`, `type`, `id_subject`, `fileurl`) VALUES
@@ -295,7 +300,7 @@ INSERT INTO `tutorials` (`id_tutorial`, `name`, `author`, `type`, `id_subject`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Структура таблицы `users`
 --
 
 CREATE TABLE `users` (
@@ -307,7 +312,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Дамп данных таблицы `users`
 --
 
 INSERT INTO `users` (`id_user`, `login`, `email`, `password`, `id_role`) VALUES
@@ -319,11 +324,11 @@ INSERT INTO `users` (`id_user`, `login`, `email`, `password`, `id_role`) VALUES
 (6, 'admin2', 'admin2@mail.ru', '123', 1);
 
 --
--- Indexes for dumped tables
+-- Индексы сохранённых таблиц
 --
 
 --
--- Indexes for table `administrations`
+-- Индексы таблицы `administrations`
 --
 ALTER TABLE `administrations`
   ADD PRIMARY KEY (`id_administration`),
@@ -332,27 +337,27 @@ ALTER TABLE `administrations`
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `classrooms`
+-- Индексы таблицы `classrooms`
 --
 ALTER TABLE `classrooms`
   ADD PRIMARY KEY (`id_classroom`);
 
 --
--- Indexes for table `courses`
+-- Индексы таблицы `courses`
 --
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`id_course`),
   ADD KEY `id_teacher` (`id_teacher`);
 
 --
--- Indexes for table `events`
+-- Индексы таблицы `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id_event`),
   ADD KEY `id_teacher` (`id_teacher`);
 
 --
--- Indexes for table `groups`
+-- Индексы таблицы `groups`
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`id_group`),
@@ -360,25 +365,25 @@ ALTER TABLE `groups`
   ADD KEY `id_classroom` (`id_classroom`);
 
 --
--- Indexes for table `news`
+-- Индексы таблицы `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id_news`);
 
 --
--- Indexes for table `roles`
+-- Индексы таблицы `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id_role`);
 
 --
--- Indexes for table `specialities`
+-- Индексы таблицы `specialities`
 --
 ALTER TABLE `specialities`
   ADD PRIMARY KEY (`id_speciality`);
 
 --
--- Indexes for table `students`
+-- Индексы таблицы `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id_student`),
@@ -387,7 +392,7 @@ ALTER TABLE `students`
   ADD KEY `id_group` (`id_group`);
 
 --
--- Indexes for table `subjects`
+-- Индексы таблицы `subjects`
 --
 ALTER TABLE `subjects`
   ADD PRIMARY KEY (`id_subject`),
@@ -395,7 +400,7 @@ ALTER TABLE `subjects`
   ADD KEY `id_teacher` (`id_teacher`);
 
 --
--- Indexes for table `teachers`
+-- Индексы таблицы `teachers`
 --
 ALTER TABLE `teachers`
   ADD PRIMARY KEY (`id_teacher`),
@@ -405,101 +410,101 @@ ALTER TABLE `teachers`
   ADD KEY `id_classroom` (`id_classroom`);
 
 --
--- Indexes for table `tutorials`
+-- Индексы таблицы `tutorials`
 --
 ALTER TABLE `tutorials`
   ADD PRIMARY KEY (`id_tutorial`),
   ADD KEY `id_subject` (`id_subject`);
 
 --
--- Indexes for table `users`
+-- Индексы таблицы `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
   ADD KEY `id_role` (`id_role`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT для сохранённых таблиц
 --
 
 --
--- AUTO_INCREMENT for table `administrations`
+-- AUTO_INCREMENT для таблицы `administrations`
 --
 ALTER TABLE `administrations`
-  MODIFY `id_administration` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_administration` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `classrooms`
+-- AUTO_INCREMENT для таблицы `classrooms`
 --
 ALTER TABLE `classrooms`
-  MODIFY `id_classroom` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_classroom` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `courses`
+-- AUTO_INCREMENT для таблицы `courses`
 --
 ALTER TABLE `courses`
   MODIFY `id_course` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `events`
+-- AUTO_INCREMENT для таблицы `events`
 --
 ALTER TABLE `events`
   MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `groups`
+-- AUTO_INCREMENT для таблицы `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id_group` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_group` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `news`
+-- AUTO_INCREMENT для таблицы `news`
 --
 ALTER TABLE `news`
   MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `specialities`
+-- AUTO_INCREMENT для таблицы `specialities`
 --
 ALTER TABLE `specialities`
   MODIFY `id_speciality` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `students`
+-- AUTO_INCREMENT для таблицы `students`
 --
 ALTER TABLE `students`
   MODIFY `id_student` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `subjects`
+-- AUTO_INCREMENT для таблицы `subjects`
 --
 ALTER TABLE `subjects`
   MODIFY `id_subject` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `teachers`
+-- AUTO_INCREMENT для таблицы `teachers`
 --
 ALTER TABLE `teachers`
   MODIFY `id_teacher` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tutorials`
+-- AUTO_INCREMENT для таблицы `tutorials`
 --
 ALTER TABLE `tutorials`
   MODIFY `id_tutorial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
+-- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Constraints for table `administrations`
+-- Ограничения внешнего ключа таблицы `administrations`
 --
 ALTER TABLE `administrations`
   ADD CONSTRAINT `administrations_ibfk_1` FOREIGN KEY (`id_classroom`) REFERENCES `classrooms` (`id_classroom`),
@@ -507,26 +512,26 @@ ALTER TABLE `administrations`
   ADD CONSTRAINT `administrations_ibfk_3` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
 
 --
--- Constraints for table `courses`
+-- Ограничения внешнего ключа таблицы `courses`
 --
 ALTER TABLE `courses`
   ADD CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`id_teacher`) REFERENCES `teachers` (`id_teacher`);
 
 --
--- Constraints for table `events`
+-- Ограничения внешнего ключа таблицы `events`
 --
 ALTER TABLE `events`
   ADD CONSTRAINT `events_ibfk_1` FOREIGN KEY (`id_teacher`) REFERENCES `teachers` (`id_teacher`);
 
 --
--- Constraints for table `groups`
+-- Ограничения внешнего ключа таблицы `groups`
 --
 ALTER TABLE `groups`
   ADD CONSTRAINT `groups_ibfk_1` FOREIGN KEY (`id_speciality`) REFERENCES `specialities` (`id_speciality`),
   ADD CONSTRAINT `groups_ibfk_2` FOREIGN KEY (`id_classroom`) REFERENCES `classrooms` (`id_classroom`);
 
 --
--- Constraints for table `students`
+-- Ограничения внешнего ключа таблицы `students`
 --
 ALTER TABLE `students`
   ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id_role`),
@@ -534,14 +539,14 @@ ALTER TABLE `students`
   ADD CONSTRAINT `students_ibfk_3` FOREIGN KEY (`id_group`) REFERENCES `groups` (`id_group`);
 
 --
--- Constraints for table `subjects`
+-- Ограничения внешнего ключа таблицы `subjects`
 --
 ALTER TABLE `subjects`
   ADD CONSTRAINT `subjects_ibfk_1` FOREIGN KEY (`id_speciality`) REFERENCES `specialities` (`id_speciality`),
   ADD CONSTRAINT `subjects_ibfk_2` FOREIGN KEY (`id_teacher`) REFERENCES `teachers` (`id_teacher`);
 
 --
--- Constraints for table `teachers`
+-- Ограничения внешнего ключа таблицы `teachers`
 --
 ALTER TABLE `teachers`
   ADD CONSTRAINT `teachers_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
@@ -549,13 +554,13 @@ ALTER TABLE `teachers`
   ADD CONSTRAINT `teachers_ibfk_4` FOREIGN KEY (`id_classroom`) REFERENCES `classrooms` (`id_classroom`);
 
 --
--- Constraints for table `tutorials`
+-- Ограничения внешнего ключа таблицы `tutorials`
 --
 ALTER TABLE `tutorials`
   ADD CONSTRAINT `tutorials_ibfk_1` FOREIGN KEY (`id_subject`) REFERENCES `subjects` (`id_subject`);
 
 --
--- Constraints for table `users`
+-- Ограничения внешнего ключа таблицы `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id_role`);

@@ -109,6 +109,110 @@ else if ($group == 3857)
 </table>
 <?
 }
+else if ($group == 3519)
+{ 
+?>
+<table border="1">
+    <tr>
+        <th></th>
+        <th>ПН<br></th>
+        <th>ВТ</th>
+        <th>СР</th>
+        <th>ЧТ</th>
+        <th>ПТ</th>
+        <th>СБ</th>
+    </tr>
+    <tr>
+        <td>9:00<br>10:35<br></td>
+        <td>asdas<br></td>
+        <td>ячс<br></td>
+        <td>1фыв</td>
+        <td>ячсм</td>
+        <td>фыв</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>10:45<br>12:20<br></td>
+        <td>фыва</td>
+        <td>ячсм</td>
+        <td>фыва</td>
+        <td>ячсм</td>
+        <td>ячсм</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>13:00<br>14:35<br></td>
+        <td>пфыв</td>
+        <td>фыва</td>
+        <td>ячсм</td>
+        <td>цук</td>
+        <td>фыва</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>14:35<br>16:20</td>
+        <td>фыва</td>
+        <td>ячсм</td>
+        <td>яцукчсм</td>
+        <td>цук</td>
+        <td>чс</td>
+        <td></td>
+    </tr>
+</table>
+<?
+}
+else if ($group == 3619)
+{ 
+?>
+<table border="1">
+    <tr>
+        <th></th>
+        <th>ПН<br></th>
+        <th>ВТ</th>
+        <th>СР</th>
+        <th>ЧТ</th>
+        <th>ПТ</th>
+        <th>СБ</th>
+    </tr>
+    <tr>
+        <td>9:00<br>10:35<br></td>
+        <td>ячсм<br></td>
+        <td>ыфва<br></td>
+        <td>ячсм</td>
+        <td>авпр</td>
+        <td>цуке</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>10:45<br>12:20<br></td>
+        <td>МяичиАТАН</td>
+        <td>смит</td>
+        <td>екнг</td>
+        <td>счмит</td>
+        <td>ывап</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>13:00<br>14:35<br></td>
+        <td>смит</td>
+        <td>фыва</td>
+        <td>кен</td>
+        <td>прол</td>
+        <td>цу</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>14:35<br>16:20</td>
+        <td>гш</td>
+        <td>пр</td>
+        <td>ывап</td>
+        <td>чсми</td>
+        <td>ыва</td>
+        <td></td>
+    </tr>
+</table>
+<?
+}
 else
 {
     echo "<h1 style='font-size: 54px'> ВЫБЕРИТЕ ГРУППУ </h1>";
