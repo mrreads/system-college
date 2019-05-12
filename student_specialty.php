@@ -20,7 +20,7 @@ if (isset($_GET['search-button']))
     if (isset($_GET['search-field'])) 
     {
         $search = $_GET['search-field'];
-        $where = "WHERE name_specialization LIKE '%$search%'";
+        $where = "WHERE specialities.name LIKE '%$search%'";
         $query_specialty_list = $query_specialty_list.$where;
         #echo $query_specialty_list;
     }
