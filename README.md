@@ -34,6 +34,7 @@
 - teacher1@mail.ru:123
 - teacher2@mail.ru:123
 - admin1@mail.ru:123
+- admin2@mail.ru:123
 
 В планах на реализацию:
 - паггинация
