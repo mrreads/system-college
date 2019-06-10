@@ -15,10 +15,12 @@
     display: flex;
     overflow: auto;
 
-    width: 275px;
+    width: 300px;
     min-width: 250px;
-    height: 400px;
+    height: 450px;
     min-height: 100px;
+
+    box-shadow: 1px 1px 25px 0 rgba(0,0,0,0.5);
 
     flex-flow: column nowrap;
     justify-content: space-between;
@@ -29,7 +31,7 @@
     display: flex;
 
     width: 100%;
-    min-height: 35px;
+    min-height: 40px;
 
     background: linear-gradient(45deg, #874DA2 0%, #C43A30 100%);
 
@@ -40,17 +42,44 @@
 
 #chat .header p
 {
+    font-family: "Oswald", sans-serif;
+
     display: inline-block;
+
+    text-indent: 15px;
+
+    color: white;
 }
 
 #chat .header #expand
 {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
 
     cursor: pointer;
+    transition: width 1s;
 
     background-size: cover;
+}
+
+#chat .header #expand:active
+{
+    transition: width 1s;
+    animation-name: expandRotate;
+    animation-duration: 1s;
+}
+
+@keyframes expandRotate
+{
+    from
+    {
+        transform: rotate(90deg);
+    }
+    to
+    {
+        transform: rotate(0deg);
+    }
 }
 
 #chat .content
@@ -60,6 +89,39 @@
     background-color: white;
 
     flex-grow: 1;
+}
+
+#chat .content .message
+{
+    font-family: "Roboto", sans-serif;
+
+    margin: 0 5px 15px 5px;
+    padding: 10px;
+
+    text-indent: 10px;
+    word-wrap: break-word;
+
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.1);
+    box-shadow: 3px 3px 5px -3px rgba(0,0,0,0.5);
+}
+
+#chat .content .name
+{
+    font-family: "Roboto", sans-serif;
+
+    display: inline-block;
+
+    text-indent: 20px;
+}
+
+#chat .content .date
+{
+    font-family: "Roboto", sans-serif;
+
+    float: right;
+
+    margin-right: 20px;
 }
 
 #chat .footer
@@ -83,11 +145,12 @@
 
 #chat .footer #text
 {
+    font-family: "Oswald", sans-serif;
     font-size: 14px;
 
     padding: 0px 10px;
 
-    text-indent: 25px;
+    text-indent: 5px;
 
     border: none;
 }
@@ -109,30 +172,4 @@
     filter: invert(1);
 }
 
-.message
-{
-    margin: 0 5px 15px 5px;
-    padding: 10px;
 
-    text-indent: 10px;
-    word-wrap: break-word;
-
-    border-radius: 8px;
-    background-color: rgba(0,0,0,0.1);
-    box-shadow: 3px 3px 5px -3px rgba(0,0,0,0.5);
-}
-
-.name
-{
-    display: inline-block;
-
-    text-indent: 20px;
-}
-
-.date
-{
-    display: inline-block;
-    float: right;
-
-    margin-right: 20px;
-}
