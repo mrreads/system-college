@@ -22,7 +22,7 @@ $result_messages = mysqli_query($link, $query_messages);
 <div id="chat">
     <div class="header">
         <p> ГРУППОВОЙ ЧАТ </p>
-        <img src="https://img.icons8.com/metro/26/000000/expand.png" id="expand">
+        <img src="../../images\icons\expand-icon.png" id="expand">
     </div>
 
     <div class="content">
@@ -52,7 +52,7 @@ $result_messages = mysqli_query($link, $query_messages);
     let expandButton = document.querySelector('#expand');
 
     hideUnhide();
-    
+
     chatContent.scrollTop = chatContent.scrollHeight;
 
     expandButton.addEventListener("click", hideUnhide);
@@ -70,12 +70,15 @@ $result_messages = mysqli_query($link, $query_messages);
         }
         else
         {
-            chatFooter.style.display = "flex";
             chatContent.style.display = "block";
-            chatContent.style.height = "auto";
             chat.style.height = '400px';
+            chatFooter.style.display = "flex";
+            chatContent.style.height = "auto";
             chat.style.minHeight   = '150px';
             isHidden = false;
         }
     }
+
+
+
 </script>

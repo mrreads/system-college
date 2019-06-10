@@ -116,14 +116,3 @@
         background-position: 0 50%;
     }
 }
-
-#widget-chat
-{
-    position: fixed;
-    right: 0;
-    bottom: 0;
-
-    overflow: hidden;
-
-    box-shadow: -2px -2px 3px 0 rgba(0,0,0,0.5);
-}
