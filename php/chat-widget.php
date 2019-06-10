@@ -61,20 +61,44 @@ $result_messages = mysqli_query($link, $query_messages);
     {
         if (isHidden == false)
         {
-            chatFooter.style.display = "none";
-            chatContent.style.display = "none";
-            chatContent.style.height = "auto";
-            chat.style.height = 'auto';
-            chat.style.minHeight  = '0px';
+            chat.style.height = "auto";
+            chat.style.minHeight   = '0px';
+
+            chatContent.animate(
+                [{ height: '370px' },{ height: '0px' }],
+                { duration: 300 }
+            );
+
+            chatContent.style.height = "0px";
+
+            chatFooter.animate(
+                [{ marginBottom: '0px' },{ marginBottom: '-40px' }],
+                { duration: 200 }
+            );
+            chatFooter.style.marginBottom = "-40px";
+
             isHidden = true;
         }
         else
         {
-            chatContent.style.display = "block";
-            chat.style.height = '400px';
             chatFooter.style.display = "flex";
-            chatContent.style.height = "auto";
-            chat.style.minHeight   = '150px';
+            chatFooter.style.maginBottom = "-40px";
+
+            chatFooter.animate(
+                [{ marginBottom: '-40px' },{ marginBottom: '0px' }],
+                { duration: 200 }
+            );
+            chatFooter.style.marginBottom = "0px";
+            chatContent.style.height = "0px";
+            chatContent.style.display = "block";
+
+            chatContent.animate(
+                [{ height: '0px' },{ height: '370px' }],
+                { duration: 300 }
+            );
+
+            chatContent.style.height = "370px";
+
             isHidden = false;
         }
     }
