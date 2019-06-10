@@ -127,6 +127,8 @@ $user_id_group = mysqli_fetch_row(mysqli_query($link, "SELECT id_group FROM stud
 </head>
 
 <body>
+    <? include "php\chat-widget.php"; ?>
+    
     <div id="main-wrapper">
         <div id="wrapper-one">
             <div id="side-bar">
@@ -213,6 +215,7 @@ $user_id_group = mysqli_fetch_row(mysqli_query($link, "SELECT id_group FROM stud
             </div>
         </div>
     </div>
+    
 </body>
 
 </html>
