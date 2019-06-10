@@ -127,8 +127,6 @@ $user_id_group = mysqli_fetch_row(mysqli_query($link, "SELECT id_group FROM stud
 </head>
 
 <body>
-    <? include "php\chat-widget.php"; ?>
-    
     <div id="main-wrapper">
         <div id="wrapper-one">
             <div id="side-bar">
@@ -215,7 +213,14 @@ $user_id_group = mysqli_fetch_row(mysqli_query($link, "SELECT id_group FROM stud
             </div>
         </div>
     </div>
-    
+<?
+    if ($role_id == 3)
+    {
+        ?>
+        <iframe src="php/chat-widget.php" frameborder="0" id="widget-chat"></iframe>
+        <?
+    }
+?>
 </body>
 
 </html>

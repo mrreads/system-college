@@ -1,6 +1,25 @@
 <?
 session_start();
+
+if (empty($_SESSION['id_user'])) 
+{
+    header('Location: login.php');
+}
+
+$role_id = $_SESSION['id_role'];
+if ($role_id != 3)
+{
+    header('Location: login.php');    
+}
+
+$user_info = $_SESSION['user_info'];
+$user_fio = explode(' ', $user_info[0]);
+$user_info[0] = $user_fio[1].' '.$user_fio[2];
+
 require_once 'connection.php';
+
+$user_id = $_SESSION['id_user'];
+$group_id = mysqli_fetch_row(mysqli_query($link, "SELECT groups.id_group FROM students, `groups` WHERE students.id_group = groups.id_group AND id_student = '$user_id'"));
 
 $query_messages = "  SELECT
                 messages.name,
@@ -13,10 +32,14 @@ $query_messages = "  SELECT
             WHERE
                 users.id_user = messages.id_user 
             AND 
-                roles.id_role = messages.id_role;";
+                roles.id_role = messages.id_role
+            AND
+                messages.id_group = $group_id[0] 
+            ORDER BY id_message;";
 $result_messages = mysqli_query($link, $query_messages);
 ?>
 
+<link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
 <link rel="stylesheet" href="..\styles\widgets\chat.css">
 
 <div id="chat">
@@ -38,10 +61,18 @@ $result_messages = mysqli_query($link, $query_messages);
 ?>
     </div>
 
-    <form class="footer">
+    <form class="footer" method="POST">
         <input type="text" name="text-chat" id="text" required="" placeholder="ВВЕДИТЕ СООБЩЕНИЕ">
         <input type="submit" name="button-chat" id="button" value="!">
     </form>
+    <?
+        if (isset($_POST['button-chat']))
+        {
+            $message = htmlentities(mysqli_real_escape_string($link, $_POST['text-chat']));
+            $query_send = "INSERT INTO `messages` (`id_message`, `name`, `message`, `date`, `id_group`, `id_role`, `id_user`) VALUES (NULL, '$user_info[0]', '$message', CURRENT_TIMESTAMP, '$group_id[0]', '$role_id', '$user_id')";
+            $result_send = mysqli_query($link, $query_send);
+        }
+    ?>
 </div>
 
 <script>
@@ -51,7 +82,7 @@ $result_messages = mysqli_query($link, $query_messages);
     let chatContent = document.querySelector('#chat .content');
     let expandButton = document.querySelector('#expand');
 
-    hideUnhide();
+    //hideUnhide();
 
     chatContent.scrollTop = chatContent.scrollHeight;
 
