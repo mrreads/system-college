@@ -1,17 +1,17 @@
 <?
 session_start();
 
-if (empty($_SESSION['id_user']) or empty($_GET['id'])) 
-{
+if (empty($_SESSION['id_user']) or empty($_GET['id'])) {
     header('Location: login.php');
 }
 
-$administration_id = $_GET['id'];
+$administration_id = (int)$_GET['id'];
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
-$user_info[0] = $user_fio[1].' '.$user_fio[2];
+$user_info[0] = $user_fio[1] . ' ' . $user_fio[2];
 
-require_once 'php/connection.php';
+require_once(__DIR__ . '/php/connection.php');
+
 $query_administration_info = "SELECT
                                 administrations.name,
                                 administrations.birth,
@@ -20,15 +20,15 @@ $query_administration_info = "SELECT
                                 roles.name,
                                 classrooms.name
                             FROM
-                                administrations,
-                                classrooms,
-                                roles
+                                `administrations`,
+                                `classrooms`,
+                                `roles`
                             WHERE
                                 administrations.id_role = roles.id_role
                             AND
                                 administrations.id_classroom = classrooms.id_classroom
                             AND 
-                                id_administration = '$administration_id';";
+                                `id_administration` = '$administration_id';";
 
 $result_administration_info = mysqli_query($link, $query_administration_info);
 $data_administration_info = mysqli_fetch_row($result_administration_info);
@@ -45,7 +45,6 @@ $admin_fi = explode(' ', $admin_name);
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <? echo "<title> $admin_fi[0] $admin_fi[2] </title>"; ?>
@@ -58,6 +57,7 @@ $admin_fi = explode(' ', $admin_name);
 
 <body>
     <div id="main-wrapper">
+        
         <div id="wrapper-one">
             <div id="side-bar">
                 <div class="hm-logo">
@@ -80,6 +80,7 @@ $admin_fi = explode(' ', $admin_name);
                 </div>
             </div>
         </div>
+
         <div id="wrapper-two">
             <div id="header-menu">
                 <div class="hm-menu">
@@ -96,11 +97,10 @@ $admin_fi = explode(' ', $admin_name);
                 <div id="profile">
                     <img src="https://konata.namikoi.com/characters/5f245464-91c4-4597-b7a2-f4e5397740fa/b88e507d-9053-44b4-8198-aa1961eca6c0.jpg">
                     <div class='p-background'>
-                        <? echo "              <h2 class='b-name'> $admin_fi[1] $admin_fi[0] </h2>"; ?>
-                        <? echo "              <p class='b-info'> $admin_role </p>"; ?>
+                        <? echo "<h2 class='b-name'> $admin_fi[1] $admin_fi[0] </h2>"; ?>
+                        <? echo "<p class='b-info'> $admin_role </p>"; ?>
                     </div>
                     <div class='info-background'>
-
                         <div class="user-info">
                             <p> Имя администрации: </p>
                             <? echo "<p> $admin_name </p>"; ?>
@@ -117,12 +117,12 @@ $admin_fi = explode(' ', $admin_name);
                             <hr>
                             <p> Почта администрации: </p>
                             <? echo "<p> $admin_email </p>"; ?>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
 </body>
 

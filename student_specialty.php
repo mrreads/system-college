@@ -6,23 +6,21 @@ if (empty($_SESSION['id_user']))
     header('Location: login.php');
 }
 
-$administration_id = $_GET['id'];
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-require_once 'php/connection.php';
+require_once(__DIR__ . '/php/connection.php');
 
-$query_specialty_list = "SELECT id_speciality, specialities.name FROM specialities ";
+$query_specialty_list = "SELECT `id_speciality`, specialities.name FROM `specialities` ";
 
 if (isset($_GET['search-button']))
 {
     if (isset($_GET['search-field'])) 
     {
         $search = $_GET['search-field'];
-        $where = "WHERE specialities.name LIKE '%$search%'";
+        $where = "WHERE specialities.name LIKE '%$search%';";
         $query_specialty_list = $query_specialty_list.$where;
-        #echo $query_specialty_list;
     }
 }
 

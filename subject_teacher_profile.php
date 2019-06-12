@@ -6,13 +6,13 @@ if (empty($_SESSION['id_user']))
     header('Location: login.php');
 }
 
-$teacher_id = $_GET['id'];
-$administration_id = $_GET['id'];
+$teacher_id = (int)$_GET['id'];
+$administration_id = (int)$_GET['id'];
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-require_once 'php/connection.php';
+require_once(__DIR__ . '/php/connection.php');
 
 $query_teacher_info = "SELECT
                             teachers.name,
@@ -22,15 +22,15 @@ $query_teacher_info = "SELECT
                             roles.name,
                             classrooms.name
                         FROM
-                            teachers,
-                            classrooms,
-                            roles
+                            `teachers`,
+                            `classrooms`,
+                            `roles`
                         WHERE
                             teachers.id_role = roles.id_role
                         AND
                             teachers.id_classroom = classrooms.id_classroom
                         AND 
-                            id_teacher = '$teacher_id'";
+                            `id_teacher` = '$teacher_id'";
 
 $result_teacher_info = mysqli_query($link, $query_teacher_info);
 $data_teacher_info = mysqli_fetch_row($result_teacher_info);

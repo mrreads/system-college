@@ -6,22 +6,20 @@ if (empty($_SESSION['id_user']))
     header('Location: login.php');
 }
 
-$administration_id = $_GET['id'];
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-require_once 'php/connection.php';
+require_once(__DIR__ . '/php/connection.php');
 
-$query_group_list  = "SELECT id_group, groups.name FROM `groups` ";
+$query_group_list  = "SELECT `id_group`, groups.name FROM `groups` ";
 
 if (isset($_GET['search-button'])) 
 {
     if (isset($_GET['search-field'])) {
         $search = $_GET['search-field'];
-        $where = "WHERE groups.name LIKE '%$search%'";
+        $where = "WHERE groups.name LIKE '%$search%';";
         $query_group_list = $query_group_list . $where;
-        #echo $query_group_list;
     }
 }
 

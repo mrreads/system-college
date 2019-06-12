@@ -6,13 +6,12 @@ if (empty($_SESSION['id_user']))
     header('Location: login.php');
 }
 
-$tutorial_id = $_GET['id'];
-$administration_id = $_GET['id'];
+$tutorial_id = (int)$_GET['id'];
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-require_once 'php/connection.php';
+require_once(__DIR__ . '/php/connection.php');
 
 $query_tutorial_info = "SELECT	
                             tutorials.name,
@@ -22,12 +21,12 @@ $query_tutorial_info = "SELECT
                             subjects.name,
                             tutorials.id_subject
                         FROM
-                            tutorials,
-                            subjects
+                            `tutorials`,
+                            `subjects`
                         WHERE
                             tutorials.id_subject = subjects.id_subject
                         AND
-                            id_tutorial = '$tutorial_id'";
+                            `id_tutorial` = '$tutorial_id'";
 $result_tutorial_info = mysqli_query($link, $query_tutorial_info);
 $data_tutorial_info = mysqli_fetch_row($result_tutorial_info);
 

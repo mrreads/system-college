@@ -7,15 +7,15 @@ if (empty($_SESSION['id_user']))
 }
 
 
-$user_id = $_SESSION['id_user'];
-$role_id = $_SESSION['id_role'];
+$user_id = (int)$_SESSION['id_user'];
+$role_id = (int)$_SESSION['id_role'];
 
-$administration_id = $_GET['id'];
+
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-require_once 'php/connection.php';
+require_once(__DIR__ . '/php/connection.php');
 
 if ($role_id == 3) 
 {
@@ -28,15 +28,15 @@ if ($role_id == 3)
                             students.number,
                             roles.name
                         FROM
-                            students,
+                            `students`,
                             `groups`,
-                            roles
+                            `roles`
                         WHERE
                             students.id_role = roles.id_role
                         AND
                             students.id_group = groups.id_group
                         AND
-                            id_student = '$user_id'";
+                            `id_student` = '$user_id';";
 
 
     $result_user_info = mysqli_query($link, $query_user_info);
@@ -61,13 +61,13 @@ if ($role_id == 2)
                             teachers.number,
                             roles.name
                         FROM
-                            teachers,
-                            classrooms,
-                            roles
+                            `teachers`,
+                            `classrooms`,
+                            `roles`
                         WHERE
                             teachers.id_role = roles.id_role
                         AND
-                            id_teacher = '$user_id'";
+                            `id_teacher` = '$user_id';";
 
     $result_user_info = mysqli_query($link, $query_user_info);
     $data_user_info = mysqli_fetch_row($result_user_info);
@@ -90,13 +90,13 @@ if ($role_id == 1)
                             administrations.number,
                             roles.name
                         FROM
-                            administrations,
-                            classrooms,
-                            roles
+                            `administrations`,
+                            `classrooms`,
+                            `roles`
                         WHERE
                             administrations.id_role = roles.id_role
                         AND
-                            id_administration = '$user_id'";
+                            `id_administration` = '$user_id'";
 
     $result_user_info = mysqli_query($link, $query_user_info);
     $data_user_info = mysqli_fetch_row($result_user_info);
@@ -110,7 +110,7 @@ if ($role_id == 1)
 }
 
 
-$user_id_group = mysqli_fetch_row(mysqli_query($link, "SELECT id_group FROM students WHERE id_student = '$user_id'"));
+$user_id_group = mysqli_fetch_row(mysqli_query($link, "SELECT `id_group` FROM `students` WHERE `id_student` = '$user_id';"));
 ?>
 
 <!DOCTYPE html>
