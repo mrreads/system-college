@@ -8,11 +8,10 @@ if (empty($_SESSION['id_user']))
 
 require_once 'php/connection.php';
 
-$administration_id = $_GET['id'];
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
-$course_id = $_GET['id'];
+$course_id = (int)$_GET['id'];
 
 $query_course_info = "SELECT 
                             courses.name, 
@@ -21,8 +20,8 @@ $query_course_info = "SELECT
                             teachers.name,
                             teachers.id_teacher 
                         FROM 
-                            courses,
-                            teachers
+                            `courses`,
+                            `teachers`
                         WHERE
                             teachers.id_teacher = courses.id_teacher
                         AND
@@ -112,18 +111,6 @@ $course_id_teacher = $data_course_info[4];
                             <p> Длительность: </p>
                             <? echo "<p> $course_hours </p>"; ?>
                         </div>
-                        <!-- <div class="item-opisanie">
-                            <p> Записавшись на нас курс по [название курса], вы научитесь [описание курса], [описание курса], [описание курса], а так же [описание курса]! <br> <br>
-                            В ходе нашего курса вы научитесь: <br>
-                            - [вот этому] <br>
-                            - [этому] <br>
-                            - [а еще этому] <br> <br>
-                            Записывайтесь на курсы! </p>
-                        </div>
-                        <div class="items">
-                            <p class=p-button> <a href="subject_teacher_profile.php"> Ведущий курса </a> </p>
-                            <hr>
-                        </div> -->
                     </div>
                 </div>
             </div>

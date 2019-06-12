@@ -6,20 +6,20 @@ if (empty($_SESSION['id_user']))
     header('Location: login.php');
 }
 
-$administration_id = $_GET['id'];
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-require_once 'php/connection.php';
-$query_taecher_list = "SELECT id_teacher, teachers.name FROM teachers ";
+require_once(__DIR__ . '/php/connection.php');
+$query_taecher_list = "SELECT `id_teacher`, teachers.name FROM `teachers` ";
 
-if (isset($_GET['search-button'])) {
-    if (isset($_GET['search-field'])) {
+if (isset($_GET['search-button'])) 
+{
+    if (isset($_GET['search-field'])) 
+    {
         $search = $_GET['search-field'];
-        $where = "WHERE teachers.name LIKE '%$search%'";
+        $where = "WHERE teachers.name LIKE '%$search%';";
         $query_taecher_list = $query_taecher_list . $where;
-        #echo $query_taecher_list;
     }
 }
 

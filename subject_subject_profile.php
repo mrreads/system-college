@@ -6,13 +6,12 @@ if (empty($_SESSION['id_user']) or empty($_GET['id']))
     header('Location: login.php');
 }
 
-$subject_id = $_GET['id'];
-$administration_id = $_GET['id'];
+$subject_id = (int)$_GET['id'];
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-require_once 'php/connection.php';
+require_once(__DIR__ . '/php/connection.php');
 $query_subject_info = "SELECT
                             subjects.name,
                             specialities.name,
@@ -20,15 +19,15 @@ $query_subject_info = "SELECT
                             teachers.name,
                             teachers.id_teacher
                         FROM
-                            subjects,
-                            specialities,
-                            teachers
+                            `subjects`,
+                            `specialities`,
+                            `teachers`
                         WHERE
                             subjects.id_speciality = specialities.id_speciality
                         AND
                             subjects.id_teacher = teachers.id_teacher
                         AND
-                            id_subject = '$subject_id'";
+                            `id_subject` = '$subject_id'";
 
 $result_subject_info = mysqli_query($link, $query_subject_info);
 $data_subject_info = mysqli_fetch_row($result_subject_info);

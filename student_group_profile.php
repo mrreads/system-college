@@ -6,15 +6,14 @@ if (empty($_SESSION['id_user']))
     header('Location: login.php');
 }
 
-$administration_id = $_GET['id'];
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-require_once 'php/connection.php';
+require_once(__DIR__ . '/php/connection.php');
 
-$group_id = $_GET['id'];
-$user_id = $_SESSION['id_user'];
+$group_id = (int)$_GET['id'];
+$user_id = (int)$_SESSION['id_user'];
 
 $query_group_info = "SELECT	
                         groups.name,
@@ -25,14 +24,14 @@ $query_group_info = "SELECT
                         classrooms.name
                     FROM
                         `groups`,
-                        specialities,
-                        classrooms
+                        `specialities`,
+                        `classrooms`
                     WHERE
                         groups.id_speciality = specialities.id_speciality
                     AND
                         groups.id_classroom = classrooms.id_classroom
                     AND
-                        id_group = '$group_id'";
+                        `id_group` = '$group_id'";
 $result_group_info = mysqli_query($link, $query_group_info);
 $data_group_info = mysqli_fetch_row($result_group_info);
 

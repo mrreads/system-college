@@ -5,22 +5,21 @@ if (empty($_SESSION['id_user'])) {
     header('Location: login.php');
 }
 
-require_once 'php/connection.php';
-$administration_id = $_GET['id'];
+require_once(__DIR__ . '/php/connection.php');
+
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-$query_event_list = "SELECT id_event, events.name FROM events ";
+$query_event_list = "SELECT `id_event`, events.name FROM `events` ";
 
 if (isset($_GET['search-button']))
 {
     if (isset($_GET['search-field'])) 
     {
         $search = $_GET['search-field'];
-        $where = "WHERE events.name LIKE '%$search%'";
+        $where = "WHERE events.name LIKE '%$search%';";
         $query_event_list = $query_event_list.$where;
-        #echo $query_event_list;
     }
 }
 

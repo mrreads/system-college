@@ -1,27 +1,27 @@
 <?
 session_start();
 
-if (empty($_SESSION['id_user'])) {
+if (empty($_SESSION['id_user'])) 
+{
     header('Location: login.php');
 }
 
-$administration_id = $_GET['id'];
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-require_once 'php/connection.php';
+require_once(__DIR__ . '/php/connection.php');
 
-$speciality_id = $_GET['id'];
+$speciality_id = (int)$_GET['id'];
 
-$query_speciality_info = "SELECT specialities.name, specialities.learnperiod FROM specialities WHERE id_speciality = '$speciality_id';";
+$query_speciality_info = "SELECT specialities.name, specialities.learnperiod FROM `specialities` WHERE `id_speciality` = '$speciality_id';";
 $result_speciality_info = mysqli_query($link, $query_speciality_info);
 $data_speciality_info = mysqli_fetch_row($result_speciality_info);
 
 $speciality_name = $data_speciality_info[0];
 $speciality_srok = $data_speciality_info[1];
 
-$query_group_list  = "SELECT id_group, groups.name FROM `groups` WHERE id_speciality = '$speciality_id'";
+$query_group_list  = "SELECT `id_group`, groups.name FROM `groups` WHERE `id_speciality` = '$speciality_id';";
 $result_group_list = mysqli_query($link, $query_group_list);
 ?>
 

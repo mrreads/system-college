@@ -1,12 +1,10 @@
 <?
 session_start();
 
-if (isset($_SESSION['id_user'])) 
-{
-?>
+if (isset($_SESSION['id_user'])) {
+    ?>
     <script async>
-        document.addEventListener("DOMContentLoaded", function() 
-        {
+        document.addEventListener("DOMContentLoaded", function() {
             console.log('Вы войденны');
 
             var auth_button = document.querySelector('#auth-button');
@@ -16,26 +14,22 @@ if (isset($_SESSION['id_user']))
         });
     </script>
 <?
-} 
-else 
-{
-?>
+} else {
+    ?>
     <script>
         console.log('Вы не авторизованны!');
     </script>
 <?
 }
 
-require_once 'php/connection.php';
-$query_news_list = "SELECT id_news, title, textmin,`date`, imageurl FROM news ";
+require_once(__DIR__ . '/php/connection.php');
+$query_news_list = "SELECT `id_news`, `title`, `textmin`, `date`, `imageurl` FROM `news`";
 
 if (isset($_GET['search-button'])) {
-    if (isset($_GET['search-field'])) 
-    {
+    if (isset($_GET['search-field'])) {
         $search = $_GET['search-field'];
-        $where = "WHERE title LIKE '%$search%'";
+        $where = "WHERE title LIKE '%$search%';";
         $query_news_list = $query_news_list . $where;
-        #echo $query_news_list;
     }
 }
 
@@ -44,7 +38,6 @@ $result_news_list = mysqli_query($link, $query_news_list);
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title> Новости </title>
@@ -85,24 +78,19 @@ $result_news_list = mysqli_query($link, $query_news_list);
         </div>
         <div id="content">
             <div id="news">
-            <form method="GET" action="index_news.php">
-            <?
-                while ($data_news_list = mysqli_fetch_row($result_news_list))
-                {
-                    echo "<div class='news_block'>";
-                    echo "<p class='news-date'> $data_news_list[3] </p>";
-                    echo "<h2 class='c-h'> $data_news_list[1] </h2>";
-                    echo "<p class='c-text'> 
-                                <img src='$data_news_list[4]'>
-                            $data_news_list[2]
-                            </p>";
-                        
-                        
-                            echo "<p class='p-link'> Подробнее... <input class='input-link' type='submit' name='id' value='$data_news_list[0]'> </p>";
-                    echo "</div>";
-                }
-            ?>
-            </form>
+                <form method="GET" action="index_news.php">
+                    <?
+                    while ($data_news_list = mysqli_fetch_row($result_news_list)) 
+                    {
+                        echo "<div class='news_block'>";
+                        echo "<p class='news-date'> $data_news_list[3] </p>";
+                        echo "<h2 class='c-h'> $data_news_list[1] </h2>";
+                        echo "<p class='c-text'> <img src='$data_news_list[4]'> $data_news_list[2] </p>";
+                        echo "<p class='p-link'> Подробнее... <input class='input-link' type='submit' name='id' value='$data_news_list[0]'> </p>";
+                        echo "</div>";
+                    }
+                    ?>
+                </form>
             </div>
         </div>
     </div>

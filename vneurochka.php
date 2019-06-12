@@ -5,22 +5,21 @@ if (empty($_SESSION['id_user'])) {
     header('Location: login.php');
 }
 
-require_once 'php/connection.php';
-$administration_id = $_GET['id'];
+require_once(__DIR__ . '/php/connection.php');
+
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-$query_course_list = "SELECT id_course, courses.name FROM courses ";
+$query_course_list = "SELECT `id_course`, courses.name FROM `courses` ";
 
 if (isset($_GET['search-button']))
 {
     if (isset($_GET['search-field'])) 
     {
         $search = $_GET['search-field'];
-        $where = "WHERE courses.name LIKE '%$search%'";
+        $where = "WHERE courses.name LIKE '%$search%';";
         $query_course_list = $query_course_list.$where;
-        #echo $query_course_list;
     }
 }
 

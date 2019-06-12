@@ -5,12 +5,10 @@ if (isset($_SESSION['id_user']))
 {
     header('Location: student_you.php');
 }
-
 ?>
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title> Войти!</title>
@@ -20,7 +18,6 @@ if (isset($_SESSION['id_user']))
     <script src="scripts\particles.js"></script>
     <script src="scripts\app.js"></script>
 </head>
-
 <body>
     <div id="main">
         <form id="login-popup" method="POST" action="php/auth.php">
@@ -37,7 +34,5 @@ if (isset($_SESSION['id_user']))
         </form>
     </div>
     </div>
-
 </body>
-
 </html>

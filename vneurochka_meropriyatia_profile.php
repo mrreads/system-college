@@ -6,12 +6,12 @@ if (empty($_SESSION['id_user']))
     header('Location: login.php');
 }
 
-require_once 'php/connection.php';
-$administration_id = $_GET['id'];
+require_once(__DIR__ . '/php/connection.php');
+
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
-$event_id = $_GET['id'];
+$event_id = (int)$_GET['id'];
 
 $query_event_info = "SELECT
                         events.name,
@@ -22,11 +22,11 @@ $query_event_info = "SELECT
                         teachers.id_teacher
                     FROM
                         `events`,
-                        teachers
+                        `teachers`
                     WHERE
                         teachers.id_teacher = events.id_teacher
                     AND
-                        id_event = '$event_id'";
+                        `id_event` = '$event_id'";
 $result_event_info = mysqli_query($link, $query_event_info);
 $data_event_info = mysqli_fetch_row($result_event_info);
 

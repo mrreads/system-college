@@ -1,26 +1,22 @@
 <?
 session_start();
-
-if (empty($_SESSION['id_user'])) 
-{
+if (empty($_SESSION['id_user'])) {
     header('Location: login.php');
 }
 
-$administration_id = $_GET['id'];
+$administration_id = (int)$_GET['id'];
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
-$user_info[0] = $user_fio[1].' '.$user_fio[2];
+$user_info[0] = $user_fio[1] . ' ' . $user_fio[2];
 
-require_once 'php/connection.php';
-$query_administration_list = "SELECT id_administration, administrations.name FROM administrations ";
+require_once(__DIR__ . '/php/connection.php');
+$query_administration_list = "SELECT `id_administration`, administrations.name FROM `administrations` ";
 
 if (isset($_GET['search-button'])) {
-    if (isset($_GET['search-field'])) 
-    {
+    if (isset($_GET['search-field'])) {
         $search = $_GET['search-field'];
         $where = "WHERE administrations.name LIKE '%$search%'";
         $query_administration_list = $query_administration_list . $where;
-        #echo $query_administration_list;
     }
 }
 
@@ -29,7 +25,6 @@ $result_administration_list = mysqli_query($link, $query_administration_list);
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title> Администрация </title>
@@ -42,6 +37,7 @@ $result_administration_list = mysqli_query($link, $query_administration_list);
 
 <body>
     <div id="main-wrapper">
+
         <div id="wrapper-one">
             <div id="side-bar">
                 <div class="hm-logo">
@@ -64,6 +60,7 @@ $result_administration_list = mysqli_query($link, $query_administration_list);
                 </div>
             </div>
         </div>
+
         <div id="wrapper-two">
             <div id="header-menu">
                 <div class="hm-menu">
@@ -77,7 +74,6 @@ $result_administration_list = mysqli_query($link, $query_administration_list);
                 </div>
             </div>
             <div id="content">
-                
                 <div class="items">
                     <form id="search-form" method="GET">
                         <div class="s-b">
@@ -85,7 +81,6 @@ $result_administration_list = mysqli_query($link, $query_administration_list);
                             <input id="search" type="submit" value="ПОИСК" name="search-button">
                         </div>
                     </form>
-
                     <form method="GET" action="administration_pofile.php">
                         <?
                         while ($data_administration_list = mysqli_fetch_row($result_administration_list)) 
@@ -98,6 +93,7 @@ $result_administration_list = mysqli_query($link, $query_administration_list);
                 </div>
             </div>
         </div>
+
     </div>
     <?
     echo "
