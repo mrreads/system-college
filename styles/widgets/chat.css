@@ -1,6 +1,7 @@
 *
 {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin: 0px;
     padding: 0px;
 }
@@ -12,6 +13,8 @@
     right: 0;
     bottom: 0;
 
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
     width: 400px;
@@ -19,14 +22,22 @@
     height: 450px;
     min-height: 100px;
 
-    box-shadow: 1px 1px 25px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 1px 1px 25px 0 rgba(0,0,0,0.5);
+            box-shadow: 1px 1px 25px 0 rgba(0,0,0,0.5);
 
-    flex-flow: column nowrap;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: justify;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
 #chat .header
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
     width: 100%;
@@ -35,7 +46,14 @@
     background: linear-gradient(45deg, #874DA2 0%, #C43A30 100%);
 
     align-items: center;
-    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: justify;
+    -ms-flex-align: center;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
@@ -63,20 +81,39 @@
 
 #chat .header #expand:hover
 {
-    transition: width 1s;
-    animation-name: expandRotate;
-    animation-duration: 0.1s;
+    -webkit-transition: width 1s;
+            transition: width 1s;
+    -webkit-animation-name: expandRotate;
+            animation-name: expandRotate;
+    -webkit-animation-duration: 0.1s;
+            animation-duration: 0.1s;
+}
+
+@-webkit-keyframes expandRotate
+{
+    from
+    {
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+    }
+    to
+    {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
 }
 
 @keyframes expandRotate
 {
     from
     {
-        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
     }
     to
     {
-        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
     }
 }
 
@@ -86,7 +123,9 @@
 
     background-color: white;
 
+    -webkit-box-flex: 1;
     flex-grow: 1;
+    -ms-flex-positive: 1;
 }
 
 #chat .content .message
@@ -101,7 +140,8 @@
 
     border-radius: 8px;
     background-color: rgba(0,0,0,0.1);
-    box-shadow: 3px 3px 5px -3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 3px 3px 5px -3px rgba(0,0,0,0.5);
+            box-shadow: 3px 3px 5px -3px rgba(0,0,0,0.5);
 }
 
 #chat .content .name
@@ -124,6 +164,8 @@
 
 #chat .footer
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
     width: 100%;
@@ -132,14 +174,19 @@
 
     border-top: 1px solid rgba(0,0,0,0.2);
 
-    flex-flow: row nowrap;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
 }
 
 #chat .footer input
 {
     height: 100%;
 
+    -webkit-box-flex: 1;
     flex-grow: 1;
+    -ms-flex-positive: 1;
 }
 
 #chat .footer #text
@@ -159,7 +206,8 @@
     font-family: "Oswald", sans-serif;
     font-size: 16px;
 
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
     text-align: center;
 
     border: none;
@@ -168,7 +216,8 @@
 
 #chat .footer #button:hover
 {
-    filter: invert(1);
+    -webkit-filter: invert(1);
+            filter: invert(1);
 }
 
 
