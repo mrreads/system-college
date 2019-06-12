@@ -3,7 +3,8 @@
     padding: 50px;
 
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content #profile .info-background p
@@ -45,7 +46,8 @@
     padding: 0px;
 
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 .text-p

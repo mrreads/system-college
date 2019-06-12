@@ -3,7 +3,8 @@
     padding: 50px;
 
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content #profile .info-background .item-info p
@@ -35,7 +36,8 @@
 #content .items
 {
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 .p-button a
@@ -47,7 +49,8 @@
     width: 100%;
     padding: 16px;
 
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
     text-align: left;
     text-decoration: none;
     text-indent: 50px;
@@ -57,7 +60,8 @@
 
 .p-button
 {
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
 }
 
 .p-button:hover
@@ -66,10 +70,12 @@
 
     padding: 20px 0;
 
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
 
     color: black;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content .items p
@@ -83,7 +89,8 @@
     padding: 50px;
 
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content #profile .info-background .item-opisanie p
