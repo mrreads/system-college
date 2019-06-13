@@ -22,14 +22,18 @@ $group_id = mysqli_fetch_row(mysqli_query($link, "SELECT groups.id_group FROM `s
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="..\..\styles\widgets\chat.css">
     <script>
+    // Функция, которая выводит сообщения в пустой (пока что) <div> блок.
+    // А так же обновляет их каждые 1000мс.
     function showMSG()
     {
         var xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function() 
         {
+            // Если запрос прошёёл и он успешный
             if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200)
             {
+                // Вставь в блок #chat-content код из запроса, то есть из chat_message.php.
                 document.querySelector('#chat-content').innerHTML = xhr.responseText;
             }
         }
@@ -37,7 +41,9 @@ $group_id = mysqli_fetch_row(mysqli_query($link, "SELECT groups.id_group FROM `s
         xhr.send();
         
     }
+    // Запрос на вывод сообщений будет отправляться каждые 1000мс
     setInterval(function() { showMSG(); }, 1000);
+    // Скролл снизу.
     setTimeout( function() { document.querySelector('#chat-content').scrollTop = document.querySelector('#chat-content').scrollHeight; }, 1000);
     </script>
 </head>
@@ -49,7 +55,9 @@ $group_id = mysqli_fetch_row(mysqli_query($link, "SELECT groups.id_group FROM `s
         <img src="../../images\icons\expand-icon.png" id="expand">
     </div>
 
-    <div id="chat-content"> </div>
+    <div id="chat-content"> \
+        <!-- Здесь будут выводится сообщения -->
+    </div>
 
     <form class="footer" method="POST" id="form-send" onsubmit="sendMSG(event);">
         <input type="text" name="text" id="text" required="" placeholder="ВВЕДИТЕ СООБЩЕНИЕ">
@@ -103,16 +111,22 @@ $group_id = mysqli_fetch_row(mysqli_query($link, "SELECT groups.id_group FROM `s
         }
     }
 
+    // Функация отправки сообщений/
     function sendMSG(e)
     {
+        // Я ТРИ ЧАСА С ЭТИМ СИДЕЛ, Я НЕ ПОНИМАЛ ПОЧЕМУ onSubmit НЕ РАБОТАЕТ
+        // А onClick РАБОТАЕТ, А МНЕ НУЖЕН onSubmit!!!
+        // ОКАЗЫВАЕТСЯ НУЖНО ПРЕОПРЕДЕЛЯТЬ ДЕФОЛНТНЫЕ ДЕЙСТВИЯ БРАУЗЕРА
+        // И ТОГДА ONSUBMIT ЗАРАБОТАЛ, ММММММММММММММ
         e.preventDefault();
-
-        let body = "text=" + encodeURIComponent(document.querySelector("#text").value);
+        // Сюда заносим $_POST данные, которые отправятся в chat_send.php.
+        let data = "text=" + document.querySelector("#text").value;
         let xhr = new XMLHttpRequest();
         xhr.open('POST', 'php/chat/chat_send.php', true);
         xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        xhr.send(body);
+        xhr.send(data);
         document.querySelector("#text").value = '';
+        // Скролл до самого низа делаем.
         setTimeout( function() { document.querySelector('#chat-content').scrollTop = document.querySelector('#chat-content').scrollHeight; }, 1000)
     }
 </script>
