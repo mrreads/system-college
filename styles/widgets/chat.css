@@ -22,8 +22,8 @@
     height: 450px;
     min-height: 100px;
 
-    -webkit-box-shadow: 1px 1px 25px 0 rgba(0,0,0,0.5);
-            box-shadow: 1px 1px 25px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 1px 1px 15px 0 rgba(0,0,0,0.5);
+            box-shadow: 1px 1px 15px 0 rgba(0,0,0,0.5);
 
     -webkit-box-direction: normal;
     -webkit-box-orient: vertical;
@@ -117,7 +117,7 @@
     }
 }
 
-#chat .content
+#chat #chat-content
 {
     overflow-x: hidden;
 
@@ -128,7 +128,7 @@
     -ms-flex-positive: 1;
 }
 
-#chat .content .message
+#chat #chat-content .message
 {
     font-family: "Roboto", sans-serif;
 
@@ -144,7 +144,7 @@
             box-shadow: 3px 3px 5px -3px rgba(0,0,0,0.5);
 }
 
-#chat .content .name
+#chat #chat-content .name
 {
     font-family: "Roboto", sans-serif;
 
@@ -153,7 +153,7 @@
     text-indent: 20px;
 }
 
-#chat .content .date
+#chat #chat-content .date
 {
     font-family: "Roboto", sans-serif;
 
