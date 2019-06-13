@@ -214,12 +214,10 @@ $user_id_group = mysqli_fetch_row(mysqli_query($link, "SELECT `id_group` FROM `s
         </div>
     </div>
 <?
-    if ($role_id == 3)
-    {
-        ?>
-        <iframe src="php/chat-widget.php" frameborder="0" id="widget-chat"></iframe>
-        <?
-    }
+if ($role_id == 3)
+{
+    require_once(__DIR__ . '\php\chat\chat_widget.php');
+}
 ?>
 </body>
 
