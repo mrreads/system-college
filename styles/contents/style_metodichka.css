@@ -220,13 +220,6 @@
     justify-content: space-between;
 }
 
-#content .items
-{
-    display: inline-block;
-
-    width: 70%;
-}
-
 #content .is-search
 {
     width: 25%;

@@ -74,6 +74,8 @@ $group_id = mysqli_fetch_row(mysqli_query($link, "SELECT groups.id_group FROM `s
 
     chatContent.scrollTop = chatContent.scrollHeight;
 
+    hideUnhide();
+    
     expandButton.addEventListener("click", hideUnhide);
 
     function hideUnhide() 
