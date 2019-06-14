@@ -1,6 +1,7 @@
 # mrreads.github.io
 
 > Версия без чата находятся в ветке **rewritten_database**.
+<<<<<<< refs/remotes/origin/master
 
 <<<<<<< refs/remotes/origin/master
 <<<<<<< refs/remotes/origin/master
@@ -53,3 +54,5 @@
 Чат реализовал в виде **iframe**, так как при использовании **include** обновляется вся страница.
 Пока что чат отображается на **странице пользователя** и **только у студента**.
 >>>>>>> update readme.md
+=======
+>>>>>>> Update README.md
