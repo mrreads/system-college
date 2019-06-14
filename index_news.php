@@ -46,7 +46,17 @@ $news_image = $data_news_info[4];
     <link rel="stylesheet" href="styles/contents/style_news.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="styles/style_login.css">
+    <link rel="stylesheet" href="styles/style_adaptability.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        @media screen and (max-width: 500px)
+        {
+            #news .c-h
+            {
+                margin-top: 50px !important;
+            }
+        }
+    </style>
 </head>
 <style>
     #news .с-link { top: 0; height: 50px; }

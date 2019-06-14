@@ -158,3 +158,17 @@
 
     opacity: 0;
 }
+
+
+@media screen and (max-width: 500px)
+{
+    #news .с-link
+    {
+        width: 100%;
+    }
+
+    #news .с-link a, .input-link, .p-link:hover
+    {
+        padding: 15px 20px 20px 15px;
+    }
+}
