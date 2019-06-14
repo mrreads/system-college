@@ -37,8 +37,8 @@ $result_group_list = mysqli_query($link, $query_group_list);
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_schedule.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style_adaptability.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style_adaptability.css">
 </head>
 
 <body>

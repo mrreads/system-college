@@ -155,7 +155,7 @@
 
     #rasp
     {
-        margin-top: 50px;
+        margin: 25px 10px;
     }
 
     #rasp h1
@@ -170,7 +170,13 @@
 
     .is-search
     {
-        margin: 0 auto;
+        width: 100% !important;
+        margin: 10px !important;
+    }
+
+    th, td
+    {
+        padding: 0;
     }
 
     #content #profile img
@@ -215,6 +221,11 @@
     #content #profile .info-background .user-info, #content #profile .info-background .profile-info
     {
         margin-top: 15px;
+    }
+
+    #content #profile .info-background .user-info p
+    {
+        width: unset;
     }
 
     #content #profile .info-background
