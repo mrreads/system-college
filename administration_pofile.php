@@ -6,6 +6,8 @@ if (empty($_SESSION['id_user']) or empty($_GET['id'])) {
 }
 
 $administration_id = (int)$_GET['id'];
+
+$user_avatar = $_SESSION['you_avatar'];
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1] . ' ' . $user_fio[2];
@@ -18,7 +20,8 @@ $query_administration_info = "SELECT
                                 administrations.email,
                                 administrations.number,
                                 roles.name,
-                                classrooms.name
+                                classrooms.name,
+                                administrations.image
                             FROM
                                 `administrations`,
                                 `classrooms`,
@@ -39,6 +42,7 @@ $admin_email = $data_administration_info[2];
 $admin_phone = $data_administration_info[3];
 $admin_role = $data_administration_info[4];
 $admin_classroom = $data_administration_info[5];
+$admin_avatar = $data_administration_info[6];
 
 $admin_fi = explode(' ', $admin_name);
 ?>
@@ -64,8 +68,8 @@ $admin_fi = explode(' ', $admin_name);
                     <h2> <a href="index.php"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
                 </div>
                 <div class="sb-profile">
-                    <img src="images/avatar.jpg">
-                    <? echo " <p class='sb-name'> $user_info[0] </p>"; ?>
+                    <? echo "<img src='$user_avatar'>"; ?>
+                    <? echo "<p class='sb-name'> $user_info[0] </p>"; ?>
                     <? echo "<p class='sb-role'> $user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
@@ -95,7 +99,7 @@ $admin_fi = explode(' ', $admin_name);
             </div>
             <div id="content">
                 <div id="profile">
-                    <img src="https://konata.namikoi.com/characters/5f245464-91c4-4597-b7a2-f4e5397740fa/b88e507d-9053-44b4-8198-aa1961eca6c0.jpg">
+                <? echo "<img src='$admin_avatar'>"; ?>
                     <div class='p-background'>
                         <? echo "<h2 class='b-name'> $admin_fi[1] $admin_fi[0] </h2>"; ?>
                         <? echo "<p class='b-info'> $admin_role </p>"; ?>
