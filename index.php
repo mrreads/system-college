@@ -40,6 +40,7 @@ $result_news_list = mysqli_query($link, $query_news_list);
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Новости </title>
     <link rel="stylesheet" href="styles/style_index.css">
     <link rel="stylesheet" href="styles/contents/style_news.css">

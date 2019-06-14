@@ -118,6 +118,7 @@ $user_id_group = mysqli_fetch_row(mysqli_query($link, "SELECT `id_group` FROM `s
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <? echo "<title> $user_info[0] </title>"; ?>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">

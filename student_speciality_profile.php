@@ -31,6 +31,7 @@ $result_group_list = mysqli_query($link, $query_group_list);
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <? echo "<title> $speciality_name </title>"; ?>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_student-speciality_profile.css">

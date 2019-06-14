@@ -33,6 +33,7 @@ $result_teacher_list = mysqli_query($link, $query_taecher_list);
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Преподаватли </title>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_subject_teachery.css">

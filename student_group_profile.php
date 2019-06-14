@@ -50,6 +50,7 @@ $group_classroom = $data_group_info[5];
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <? echo "<title> $group_name </title>"; ?>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_student-group_profile.css">

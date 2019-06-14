@@ -11,6 +11,7 @@ if (isset($_SESSION['id_user']))
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Войти!</title>
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
