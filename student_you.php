@@ -10,7 +10,7 @@ if (empty($_SESSION['id_user']))
 $user_id = (int)$_SESSION['id_user'];
 $role_id = (int)$_SESSION['id_role'];
 
-
+$user_avatar = $_SESSION['you_avatar'];
 $user_info = $_SESSION['user_info'];
 $user_fio = explode(' ', $user_info[0]);
 $user_info[0] = $user_fio[1].' '.$user_fio[2];
@@ -134,7 +134,7 @@ $user_id_group = mysqli_fetch_row(mysqli_query($link, "SELECT `id_group` FROM `s
                     <h2> <a href="index.php"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
                 </div>
                 <div class="sb-profile">
-                    <img src="images/avatar.jpg">
+                    <? echo "<img src='$user_avatar'>"; ?>
                     <? echo " <p class='sb-name'> $user_info[0] </p>"; ?>
                     <? echo "<p class='sb-role'> $user_info[1] </p>"; ?>
                 </div>
@@ -171,7 +171,7 @@ $user_id_group = mysqli_fetch_row(mysqli_query($link, "SELECT `id_group` FROM `s
             </div>
             <div id="content">
                 <div id="profile">
-                    <img src="images/avatar.jpg">
+            <? echo "<img src='$user_avatar'>"; ?>
                     <div class='p-background'>
             <? echo "<h2 class='b-name'> $user_info[0] </h2>"; ?>
             <? echo "<p class='b-info'> $user_info[1] </p>"; ?>

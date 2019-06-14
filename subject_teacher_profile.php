@@ -6,6 +6,7 @@ if (empty($_SESSION['id_user']))
     header('Location: login.php');
 }
 
+$user_avatar = $_SESSION['you_avatar'];
 $teacher_id = (int)$_GET['id'];
 $administration_id = (int)$_GET['id'];
 $user_info = $_SESSION['user_info'];
@@ -20,7 +21,8 @@ $query_teacher_info = "SELECT
                             teachers.email,
                             teachers.number,
                             roles.name,
-                            classrooms.name
+                            classrooms.name,
+                            teachers.image
                         FROM
                             `teachers`,
                             `classrooms`,
@@ -41,6 +43,7 @@ $teacher_email = $data_teacher_info[2];
 $teacher_phone = $data_teacher_info[3];
 $teacher_role = $data_teacher_info[4];
 $teacher_classroom = $data_teacher_info[5];
+$teacher_avatar = $data_teacher_info[6];
 
 $teacher_fi = explode(' ',  $teacher_name);
 #$teacher_fi[1] = ИМЯ
@@ -72,7 +75,7 @@ $teacher_fi = explode(' ',  $teacher_name);
                     <h2> <a href="index.php"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
                 </div>
                 <div class="sb-profile">
-                    <img src="images/avatar.jpg">
+                    <? echo "<img src='$user_avatar'>"; ?>
                     <? echo " <p class='sb-name'> $user_info[0] </p>"; ?>
                     <? echo "<p class='sb-role'> $user_info[1] </p>"; ?>
                 </div>
@@ -108,7 +111,7 @@ $teacher_fi = explode(' ',  $teacher_name);
             </div>
             <div id="content">
                 <div id="profile">
-                    <img src="https://vignette.wikia.nocookie.net/bokunoheroacademia/images/9/94/Eraser.png/revision/latest?cb=20181002192225&path-prefix=pt-br">
+                    <? echo "<img src='$teacher_avatar'>"; ?>
                     <div class='p-background'>
                         <? echo "<h2 class='b-name'> $teacher_fi[1] $teacher_fi[2] </h2>"; ?>
                         <? echo "<p class='b-info'> $teacher_role </p>"; ?>
@@ -131,18 +134,6 @@ $teacher_fi = explode(' ',  $teacher_name);
                             <p> Номер: </p>
                             <? echo "<p> $teacher_phone </p>"; ?>
                         </div>
-                        <!-- <div class="items">
-                            <p class=p-button> <a href="subject_subject_profile.php"> Предмет, который ведёт препод </a> </p>
-                            <hr>
-                            <p class=p-button> <a href="subject_subject_profile.php"> Предмет, который ведёт препод </a> </p>
-                            <hr>
-                            <p class=p-button> <a href="subject_subject_profile.php"> Предмет, который ведёт препод </a> </p>
-                            <hr>
-                            <p class=p-button> <a href="subject_subject_profile.php"> Предмет, который ведёт препод </a> </p>
-                            <hr>
-                            <p class=p-button> <a href="subject_subject_profile.php"> Предмет, который ведёт препод </a> </p>
-                            <hr>
-                        </div> -->
                     </div>
                 </div>
             </div>
