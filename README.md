@@ -2,6 +2,7 @@
 
 > Версия без чата находятся в ветке **rewritten_database**.
 <<<<<<< refs/remotes/origin/master
+<<<<<<< refs/remotes/origin/master
 
 <<<<<<< refs/remotes/origin/master
 <<<<<<< refs/remotes/origin/master
@@ -55,4 +56,8 @@
 Пока что чат отображается на **странице пользователя** и **только у студента**.
 >>>>>>> update readme.md
 =======
+>>>>>>> Update README.md
+=======
+
+Чат работает только для **студентов** и отображается только на вкладке **профиль**.
 >>>>>>> Update README.md
