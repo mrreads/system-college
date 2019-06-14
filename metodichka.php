@@ -83,18 +83,16 @@ $result_group_list = mysqli_query($link, $query_group_list);
                     <a href="php/logout.php"> Выйти </a>
                 </div>
             </div>
+
             <div id="content">
 
-                <div class="items" style="width: 100%;">
+                <div class="items">
                     <form id="search-form" method="GET">
                         <div class="s-b">
                             <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
                             <input id="search" type="submit" value="ПОИСК" name="search-button">
                         </div>
                     </form>
-                </div>
-                
-                <div class="items" style="width: 100%;">
                     <form method="GET" action="metodichka_profile.php">
                             <?
                             while ($data_tutorial_list = mysqli_fetch_row($result_tutorial_list)) 
@@ -103,27 +101,7 @@ $result_group_list = mysqli_query($link, $query_group_list);
                                 echo "<hr>";
                             }
                             ?>
-                        </form>
-                 </div>
-
-                <!--
-                <div class="is-search">
-                    <form id="search-form" method="GET">
-                        <div class="s-b">
-                            <input id="enter" type="text" placeholder="Введите группу." value="" name="search-field">
-                            <input id="search" type="submit" value="!" name="search-button">
-                        </div>
                     </form>
-
-                    <form method="GET" action="schedule.php">
-                        <?
-                        while ($data_group_list = mysqli_fetch_row($result_group_list)) 
-                        {
-                            echo "<p class='text-p-sleva'> $data_group_list[1] <input class='p-button-sleva' type='submit' name='id' value='$data_group_list[0]'> </p>";
-                            echo "<hr>";
-                        }
-                        ?>
-                    </form> -->
                 </div>
             </div>
         </div>
