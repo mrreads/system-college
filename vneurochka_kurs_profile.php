@@ -42,6 +42,7 @@ $course_id_teacher = $data_course_info[4];
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <? echo "<title> $course_name </title>"; ?>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_vneurochka_kurs_profile.css">

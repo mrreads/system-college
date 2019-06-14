@@ -58,6 +58,7 @@ $teacher_fi = explode(' ',  $teacher_name);
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <? echo "<title> $teacher_name </title>"; ?>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_subject_teacher_profile.css">

@@ -32,6 +32,7 @@ $result_course_list = mysqli_query($link, $query_course_list);
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Курсы </title>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_vneurochka.css">
