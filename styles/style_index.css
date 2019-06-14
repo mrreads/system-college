@@ -8,87 +8,9 @@ html, head, body, #main-wrapper
 {
     font-family: "PT Sans Narrow", sans-serif, "Roboto", sans-serif, "Oswald", sans-serif;
 
-    min-width: 800px;
     height: 100%;
 
     background-color: #CECECE;
-}
-
-@media screen and (max-width: 1210px)
-{
-    .hm-logo
-    {
-        width: 100%;
-    }
-
-    .hm-menu ul
-    {
-        align-items: center;
-        -webkit-box-align: center;
-        -webkit-box-pack: center;
-        -ms-flex-align: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-    }
-}
-
-@media screen and (max-width: 960px)
-{
-    .hm-login
-    {
-        margin: 0 auto;
-    }
-
-    .hm-menu
-    {
-        margin: 0 auto;
-    }
-    .hm-menu ul
-    {
-        align-items: center;
-        -webkit-box-align: center;
-        -webkit-box-pack: center;
-        -ms-flex-align: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-    }
-
-    #nav-menu ul
-    {
-        align-items: center;
-        -webkit-box-align: center;
-        -webkit-box-pack: center;
-        -ms-flex-align: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-    }
-
-    .с-link
-    {
-        text-align: center;
-    }
-}
-
-@media screen and (max-width: 500px)
-{
-    .hm-login
-    {
-        width: 100%;
-    }
-
-    .hm-menu
-    {
-        width: 100%;
-    }
-    .hm-menu li
-    {
-        width: 100%;
-    }
-
-    #nav-menu li
-    {
-        width: 100%;
-    }
 }
 
 #header-menu
@@ -297,8 +219,6 @@ form input
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-
-    width: 100%;
 
     list-style-type: none;
 

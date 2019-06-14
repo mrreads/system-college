@@ -72,11 +72,11 @@ $result_news_list = mysqli_query($link, $query_news_list);
                 <li> <a href="index.php" id="nav-menu_active"> Новости </a> </li>
                 <li> <a href="vneurochka_meropriyatia.php"> Мероприятия</a> </li>
                 <li> <a href="schedule.php"> Расписание </a> </li>
-                <form>
+            </ul>
+            <form>
                     <input name="search-field" type="text" placeholder="ИЩИ" id="ishi-pole">
                     <input id="ishi" type="submit" value=" " name="search-button">
-                </form>
-            </ul>
+            </form>
         </div>
         <div id="content">
             <div id="news">
