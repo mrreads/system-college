@@ -173,6 +173,7 @@
     margin-bottom: 0px;
 
     border-top: 1px solid rgba(0,0,0,0.2);
+    background-color: white;
 
     -webkit-box-direction: normal;
     -webkit-box-orient: horizontal;
@@ -182,7 +183,7 @@
 
 #chat .footer input
 {
-    height: 100%;
+    height: 40px;
 
     -webkit-box-flex: 1;
     flex-grow: 1;
