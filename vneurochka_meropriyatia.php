@@ -35,7 +35,7 @@ $user_fio = explode(' ', $user_fio);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">

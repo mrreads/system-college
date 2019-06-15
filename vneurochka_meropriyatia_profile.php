@@ -40,7 +40,7 @@ $event_id_teacher = $data_event_info[5];
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">

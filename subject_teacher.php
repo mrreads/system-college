@@ -29,7 +29,7 @@ $result_teacher_list = mysqli_query($link, $query_taecher_list);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">

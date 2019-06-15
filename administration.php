@@ -24,7 +24,7 @@ $result_administration_list = mysqli_query($link, $query_administration_list);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

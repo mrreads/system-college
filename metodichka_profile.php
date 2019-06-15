@@ -40,7 +40,7 @@ $tutorial_id_subject = $data_tutorial_info[5];
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
