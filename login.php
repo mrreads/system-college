@@ -8,7 +8,7 @@ if (isset($_SESSION['id_user']))
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +16,6 @@ if (isset($_SESSION['id_user']))
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="styles/style_login.css">
-    <script src="scripts\particles.js"></script>
-    <script src="scripts\app.js"></script>
 </head>
 <body>
     <div id="main">

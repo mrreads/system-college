@@ -35,7 +35,7 @@ $result_group_list = mysqli_query($link, $query_group_list);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">

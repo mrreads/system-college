@@ -29,7 +29,7 @@ $result_specialty_list = mysqli_query($link, $query_specialty_list);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">

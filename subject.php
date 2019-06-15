@@ -28,7 +28,7 @@ $result_subject_list = mysqli_query($link, $query_subject_list);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">

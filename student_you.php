@@ -114,7 +114,7 @@ $user_id_group = mysqli_fetch_row(mysqli_query($link, "SELECT `id_group` FROM `s
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
