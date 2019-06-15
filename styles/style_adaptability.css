@@ -82,6 +82,14 @@
     }
 }
 
+@media screen and (max-width: 768px)
+{
+    #content #profile .info-background .user-info p
+    {
+        width: unset;
+    }
+}
+
 @media screen and (max-width: 500px)
 {
     .sb-profile, .hm-logo
