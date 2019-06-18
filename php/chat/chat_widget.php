@@ -20,7 +20,7 @@ $group_id = mysqli_fetch_row(mysqli_query($link, "SELECT groups.id_group FROM `s
 
 <head>
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" href="..\..\styles\widgets\chat.css">
+    <link rel="stylesheet" href="../../styles/widgets/chat.css">
     <script>
     // Функция, которая выводит сообщения в пустой (пока что) <div> блок.
     // А так же обновляет их каждые 1000мс.

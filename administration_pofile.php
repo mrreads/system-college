@@ -1,7 +1,8 @@
 <?
 session_start();
 
-if (empty($_SESSION['id_user']) or empty($_GET['id'])) {
+if (empty($_SESSION['id_user']) or empty($_GET['id'])) 
+{
     header('Location: login.php');
 }
 
