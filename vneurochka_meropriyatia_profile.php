@@ -118,13 +118,6 @@ $event_id_teacher = $data_event_info[5];
                             <p> Длительность: </p>
                             <? echo "<p> $event_duration </p>"; ?>
                         </div>
-                        <!-- <div class="item-opisanie">
-                            <p> [фотографии с мероприятия, если оно уже было] </p>
-                        </div>
-                        <div class="items">
-                            <p class=p-button> <a href="subject_teacher_profile.php"> Огранизатор мероприятия </a> </p>
-                            <hr>
-                        </div> -->
                     </div>
                 </div>
             </div>

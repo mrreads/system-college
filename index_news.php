@@ -1,10 +1,12 @@
 <?
 session_start();
 
-if (isset($_SESSION['id_user'])) {
+if (isset($_SESSION['id_user'])) 
+{
     ?>
     <script async>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function() 
+        {
             console.log('Вы войденны');
 
             var auth_button = document.querySelector('#auth-button');
@@ -14,7 +16,9 @@ if (isset($_SESSION['id_user'])) {
         });
     </script>
 <?
-} else {
+} 
+else 
+{
     ?>
     <script>
         console.log('Вы не авторизованны!');

@@ -1,10 +1,12 @@
 <?
 session_start();
 
-if (isset($_SESSION['id_user'])) {
+if (isset($_SESSION['id_user'])) 
+{
     ?>
     <script async>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function() 
+        {
             console.log('Вы войденны');
 
             var auth_button = document.querySelector('#auth-button');
@@ -14,7 +16,9 @@ if (isset($_SESSION['id_user'])) {
         });
     </script>
 <?
-} else {
+} 
+else 
+{
     ?>
     <script>
         console.log('Вы не авторизованны!');
@@ -25,8 +29,10 @@ if (isset($_SESSION['id_user'])) {
 require_once(__DIR__ . '/php/connection.php');
 $query_news_list = "SELECT `id_news`, `title`, `textmin`, `date`, `imageurl` FROM `news`";
 
-if (isset($_GET['search-button'])) {
-    if (isset($_GET['search-field'])) {
+if (isset($_GET['search-button'])) 
+{
+    if (isset($_GET['search-field'])) 
+    {
         $search = $_GET['search-field'];
         $where = "WHERE title LIKE '%$search%';";
         $query_news_list = $query_news_list . $where;
