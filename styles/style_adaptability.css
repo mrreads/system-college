@@ -4,6 +4,11 @@
             box-sizing: border-box !important;
 }
 
+img
+{
+    object-fit: cover;
+}
+
 #main-wrapper
 {
     min-width: 320px;
