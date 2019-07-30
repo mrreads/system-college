@@ -6,34 +6,35 @@ if (empty($_SESSION['id_user']))
     header('Location: login.php');
 }
 
-require_once 'php/connection.php';
-$query_taecher_list = "SELECT id_teacher, fio FROM teacher_info ";
+$user_avatar = $_SESSION['you_avatar'];
+$user_info = $_SESSION['user_info'];
+$user_fio = explode(' ', $user_info[0]);
+$user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-if (isset($_GET['search-button'])) {
-    if (isset($_GET['search-field'])) {
+require_once(__DIR__ . '/php/connection.php');
+$query_taecher_list = "SELECT `id_teacher`, teachers.name FROM `teachers` ";
+
+if (isset($_GET['search-button'])) 
+{
+    if (isset($_GET['search-field'])) 
+    {
         $search = $_GET['search-field'];
-        $where = "WHERE fio LIKE '%$search%'";
+        $where = "WHERE teachers.name LIKE '%$search%';";
         $query_taecher_list = $query_taecher_list . $where;
-        #echo $query_taecher_list;
     }
 }
 
 $result_teacher_list = mysqli_query($link, $query_taecher_list);
 
-$user_id = $_SESSION['id_user'];
-$query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
-$result_user_info = mysqli_query($link, $query_user_info);
-$data_user_info = mysqli_fetch_row($result_user_info);
-$user_fio = $data_user_info[0];
-$user_fio = explode(' ', $user_fio);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
-    <title> Поиск учителя!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Преподаватли </title>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_subject_teachery.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
@@ -49,15 +50,15 @@ $user_fio = explode(' ', $user_fio);
                     <h2> <a href="index.php"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
                 </div>
                 <div class="sb-profile">
-                    <img src="images/avatar.jpg">
-                    <? echo " <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo "<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo "<img src='$user_avatar'>"; ?>
+                    <? echo " <p class='sb-name'> $user_info[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
                         <li> <a href="administration.php"> Администрация </a> </li>
                         <li> <a href="subject.php" id="sb-menu_active"> Предметы </a> </li>
-                        <li> <a href="student_you.php"> Студент </a> </li>
+                        <li> <a href="student_you.php"> Профиль </a> </li>
                         <li> <a href="schedule.php"> Расписание </a> </li>
                         <li> <a href="metodichka.php"> Методичка </a> </li>
                         <li> <a href="vneurochka.php"> Внеурочка </a> </li>

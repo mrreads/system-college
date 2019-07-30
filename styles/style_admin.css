@@ -1,6 +1,7 @@
 *
 {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -52,6 +53,7 @@ html, head, body, #main-wrapper
     width: 20%;
     height: 100%;
 
+    background-image: -webkit-gradient(linear, left top, right top, from(#6A11CB), to(#2575FC));
     background-image: linear-gradient(to right, #6A11CB 0%, #2575FC 100%);
 
     -ms-overflow-style: none;
@@ -79,7 +81,8 @@ html, head, body, #main-wrapper
     margin: 75px auto 15px auto;
 
     border-radius: 100%;
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.5);
 }
 
 .sb-profile .sb-name
@@ -99,20 +102,32 @@ html, head, body, #main-wrapper
 
 .sb-menu
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+        flex-direction: column;
 
     padding: 100px 0;
+
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
 }
 
 .sb-menu ul
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+        flex-direction: column;
 
     width: 100%;
 
     list-style-type: none;
+
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
 }
 
 .sb-menu a
@@ -124,7 +139,8 @@ html, head, body, #main-wrapper
     width: 100%;
     padding: 15px 0 15px 0;
 
-    transition: 0.3s linear;
+    -webkit-transition: 0.3s linear;
+            transition: 0.3s linear;
     text-align: center;
     text-decoration: none;
 
@@ -133,37 +149,48 @@ html, head, body, #main-wrapper
 
 .sb-menu a:hover, #sb-menu_active
 {
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
 
     background-color: rgba(255,255,255,0.2);
-    box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
+    -webkit-box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
+            box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
 }
 
 #header-menu
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
     background-color: white;
 
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 
 .hm-menu
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 
 .hm-menu ul
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
     width: 100%;
 
     list-style-type: none;
 
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 
 .hm-menu a
@@ -176,7 +203,8 @@ html, head, body, #main-wrapper
     min-width: 200px;
     padding: 15px 0 15px 0;
 
-    transition: 0.3s linear;
+    -webkit-transition: 0.3s linear;
+            transition: 0.3s linear;
     text-align: center;
     text-decoration: none;
 
@@ -185,10 +213,12 @@ html, head, body, #main-wrapper
 
 .hm-menu a:hover, #hm-menu_active
 {
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
 
     background-color: #CECECE;
-    box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
+    -webkit-box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
+            box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
 }
 
 .hm-login
@@ -205,7 +235,8 @@ html, head, body, #main-wrapper
     min-width: 200px;
     padding: 15px 0 15px 0;
 
-    transition: 0.3s linear;
+    -webkit-transition: 0.3s linear;
+            transition: 0.3s linear;
     text-align: center;
     text-decoration: none;
 
@@ -215,10 +246,12 @@ html, head, body, #main-wrapper
 
 .hm-login a:hover
 {
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
 
     background-color: #CECECE;
-    box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
+    -webkit-box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
+            box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
 }
 
 .hm-logo a
@@ -230,24 +263,30 @@ html, head, body, #main-wrapper
 
 #nav-menu
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
     background-color: #CECECE;
 
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 
 #nav-menu ul
 {
     font-size: 23px;
 
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
     width: 100%;
 
     list-style-type: none;
 
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 
 #nav-menu a
@@ -258,7 +297,8 @@ html, head, body, #main-wrapper
     min-width: 200px;
     padding: 15px 0 15px 0;
 
-    transition: 0.3s linear;
+    -webkit-transition: 0.3s linear;
+            transition: 0.3s linear;
     text-align: center;
     text-decoration: none;
 
@@ -267,10 +307,12 @@ html, head, body, #main-wrapper
 
 #nav-menu a:hover, #nav-menu_active
 {
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
 
     background-color: #BDBDBD;
-    box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
+    -webkit-box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
+            box-shadow: 0 -75px 85px -130px rgba(0,0,0,0.85) inset;
 }
 
 #content
@@ -300,9 +342,10 @@ html, head, body, #main-wrapper
     position: relative;
 
     width: 100%;
-    padding: 16px 0px;
+    padding: 16px 0;
 
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
     text-indent: 50px;
 }
 
@@ -310,17 +353,22 @@ html, head, body, #main-wrapper
 {
     font-size: 27px;
 
-    padding: 20px 0px;
+    padding: 20px 0;
 
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
 }
 
 .s-b
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
 .s-b input
 {
+    -webkit-box-flex: 1;
     flex-grow: 1;
+    -ms-flex-positive: 1;
 }

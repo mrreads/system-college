@@ -1,40 +1,35 @@
 <?
 session_start();
-
 if (empty($_SESSION['id_user'])) 
 {
     header('Location: login.php');
 }
 
-require_once 'php/connection.php';
-$query_administration_list = "SELECT id_administration, fio FROM administration_info ";
+$user_avatar = $_SESSION['you_avatar'];
+$user_info = $_SESSION['user_info'];
+$user_fio = explode(' ', $user_info[0]);
+$user_info[0] = $user_fio[1] . ' ' . $user_fio[2];
+
+require_once(__DIR__ . '/php/connection.php');
+$query_administration_list = "SELECT `id_administration`, administrations.name FROM `administrations` ";
 
 if (isset($_GET['search-button'])) {
-    if (isset($_GET['search-field'])) 
-    {
+    if (isset($_GET['search-field'])) {
         $search = $_GET['search-field'];
-        $where = "WHERE fio LIKE '%$search%'";
+        $where = "WHERE administrations.name LIKE '%$search%'";
         $query_administration_list = $query_administration_list . $where;
-        #echo $query_administration_list;
     }
 }
 
 $result_administration_list = mysqli_query($link, $query_administration_list);
-
-$user_id = $_SESSION['id_user'];
-$query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
-$result_user_info = mysqli_query($link, $query_user_info);
-$data_user_info = mysqli_fetch_row($result_user_info);
-$user_fio = $data_user_info[0];
-$user_fio = explode(' ', $user_fio);
 ?>
 
 <!DOCTYPE html>
-<html>
-
+<html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title> Администрация!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Администрация </title>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_administration.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
@@ -44,21 +39,22 @@ $user_fio = explode(' ', $user_fio);
 
 <body>
     <div id="main-wrapper">
+
         <div id="wrapper-one">
             <div id="side-bar">
                 <div class="hm-logo">
                     <h2> <a href="index.php"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
                 </div>
                 <div class="sb-profile">
-                    <img src="images/avatar.jpg">
-                    <? echo " <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo "<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo "<img src='$user_avatar'>"; ?>
+                    <? echo "<p class='sb-name'> $user_info[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
                         <li> <a href="administration.php" id="sb-menu_active"> Администрация </a> </li>
                         <li> <a href="subject.php"> Предметы </a> </li>
-                        <li> <a href="student_you.php"> Студент </a> </li>
+                        <li> <a href="student_you.php"> Профиль </a> </li>
                         <li> <a href="schedule.php"> Расписание </a> </li>
                         <li> <a href="metodichka.php"> Методичка </a> </li>
                         <li> <a href="vneurochka.php"> Внеурочка </a> </li>
@@ -66,6 +62,7 @@ $user_fio = explode(' ', $user_fio);
                 </div>
             </div>
         </div>
+
         <div id="wrapper-two">
             <div id="header-menu">
                 <div class="hm-menu">
@@ -85,16 +82,7 @@ $user_fio = explode(' ', $user_fio);
                             <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
                             <input id="search" type="submit" value="ПОИСК" name="search-button">
                         </div>
-                        <!-- <div class="checkbox">
-                            <input type="checkbox">
-                            <label for="gsp"> ГСП </label>
-                            <input type="checkbox">
-                            <label for="gsp"> ОСП </label>
-                            <input type="checkbox">
-                            <label for="gsp"> ПСП </label>
-                        </div> -->
                     </form>
-
                     <form method="GET" action="administration_pofile.php">
                         <?
                         while ($data_administration_list = mysqli_fetch_row($result_administration_list)) 
@@ -107,6 +95,7 @@ $user_fio = explode(' ', $user_fio);
                 </div>
             </div>
         </div>
+
     </div>
     <?
     echo "

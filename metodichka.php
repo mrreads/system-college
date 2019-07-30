@@ -6,22 +6,41 @@ if (empty($_SESSION['id_user']))
     header('Location: login.php');
 }
 
-require_once 'php/connection.php';
+$user_avatar = $_SESSION['you_avatar'];
+$user_info = $_SESSION['user_info'];
+$user_fio = explode(' ', $user_info[0]);
+$user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-$user_id = $_SESSION['id_user'];
-$query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
-$result_user_info = mysqli_query($link, $query_user_info);
-$data_user_info = mysqli_fetch_row($result_user_info);
-$user_fio = $data_user_info[0];
-$user_fio = explode(' ', $user_fio);
+require_once(__DIR__ . '/php/connection.php');
+
+$query_tutorial_list = "SELECT tutorials.id_tutorial, tutorials.name FROM `tutorials` ";
+
+if (isset($_GET['search-button'])) 
+{
+    if (isset($_GET['search-field'])) 
+    {
+        $search = $_GET['search-field'];
+        $where = "WHERE tutorials.name LIKE '%$search%';";
+        $query_tutorial_list = $query_tutorial_list . $where;
+    }
+}
+
+$result_tutorial_list = mysqli_query($link, $query_tutorial_list);
+
+$query_group_list  = "SELECT `id_group`, groups.name FROM `groups` ";
+
+
+
+$result_group_list = mysqli_query($link, $query_group_list);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
-    <title> Поиск методички!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Методички </title>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_metodichka.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
@@ -37,15 +56,15 @@ $user_fio = explode(' ', $user_fio);
                     <h2> <a href="index.php"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
                 </div>
                 <div class="sb-profile">
-                    <img src="images/avatar.jpg">
-                    <? echo" <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo"<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo "<img src='$user_avatar'>"; ?>
+                    <? echo " <p class='sb-name'> $user_info[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
                         <li> <a href="administration.php"> Администрация </a> </li>
                         <li> <a href="subject.php"> Предметы </a> </li>
-                        <li> <a href="student_you.php"> Студент </a> </li>
+                        <li> <a href="student_you.php"> Профиль </a> </li>
                         <li> <a href="schedule.php"> Расписание </a> </li>
                         <li> <a href="metodichka.php" id="sb-menu_active"> Методичка </a> </li>
                         <li> <a href="vneurochka.php"> Внеурочка </a> </li>
@@ -65,60 +84,37 @@ $user_fio = explode(' ', $user_fio);
                     <a href="php/logout.php"> Выйти </a>
                 </div>
             </div>
+
             <div id="content">
-                <div class="search">
-                    <form>
-                        <input id="enter" type="text" placeholder="Введите название вспомогательного материала.">
-                        <input id="search" type="submit" value="ПОИСК">
-                        <div class="checkbox">
-                            <input type="checkbox">
-                            <label for="gsp"> КОНСПЕКТЫ </label>
-                            <input type="checkbox">
-                            <label for="gsp"> ПРЕЗЕНТАЦИИ </label>
-                            <input type="checkbox">
-                            <label for="gsp"> МЕТОДИЧЕСКИЕ ОБЕСПЕЧЕНИЯ </label>
+
+                <div class="items">
+                    <form id="search-form" method="GET">
+                        <div class="s-b">
+                            <input id="enter" type="text" placeholder="Введите имя администрации." value="" name="search-field">
+                            <input id="search" type="submit" value="ПОИСК" name="search-button">
                         </div>
                     </form>
-                </div>
-                <div class="items-search">
-                    <div class="items">
-                        <p class=p-button> <a href="metodichka_profile.php"> Название методички </a> </p>
-                        <hr>
-                        <p class=p-button> <a href="metodichka_profile.php"> Название презентации </a> </p>
-                        <hr>
-                        <p class=p-button> <a href="metodichka_profile.php"> Название книги </a> </p>
-                        <hr>
-                        <p class=p-button> <a href="metodichka_profile.php"> Название презентации </a> </p>
-                        <hr>
-                        <p class=p-button> <a href="metodichka_profile.php"> Название методички </a> </p>
-                        <hr>
-                        <p class=p-button> <a href="metodichka_profile.php"> Название конспекта </a> </p>
-                        <hr>
-                        <p class=p-button> <a href="metodichka_profile.php"> Название методички </a> </p>
-                        <hr>
-                        <p class=p-button> <a href="metodichka_profile.php"> Название статьи </a> </p>
-                    </div>
-                    <form class="is-search">
-                        <input type="text" placeholder="Введите предмет">
-                        <div class="is-items">
-                            <p class=is-p-button> <a href="#"> Математика </a> </p>
-                            <hr>
-                            <p class=is-p-button> <a href="#"> Русский </a> </p>
-                            <hr>
-                            <p class=is-p-button> <a href="#"> История </a> </p>
-                            <hr>
-                            <p class=is-p-button> <a href="#"> Химия </a> </p>
-                            <hr>
-                            <p class=is-p-button> <a href="#"> Биология </a> </p>
-                            <hr>
-                            <p class=is-p-button> <a href="#"> Философия </a> </p>
-                            <hr>
-                        </div>
+                    <form method="GET" action="metodichka_profile.php">
+                            <?
+                            while ($data_tutorial_list = mysqli_fetch_row($result_tutorial_list)) 
+                            {
+                                echo "<p class='text-p'> $data_tutorial_list[1] <input class='p-button' type='submit' name='id' value='$data_tutorial_list[0]'> </p>";
+                                echo "<hr>";
+                            }
+                            ?>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <?
+    echo "
+    <script>
+        var searchInput = document.querySelector('#enter');
+        searchInput.value = '$search';
+    </script>
+    ";
+    ?>
 </body>
 
 </html>

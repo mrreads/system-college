@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_SESSION['id_user'])) 
 {
-?>
+    ?>
     <script async>
         document.addEventListener("DOMContentLoaded", function() 
         {
@@ -19,28 +19,40 @@ if (isset($_SESSION['id_user']))
 } 
 else 
 {
-?>
+    ?>
     <script>
         console.log('Вы не авторизованны!');
     </script>
 <?
 }
 
-require_once 'php/connection.php';
-$query_news_list = "SELECT id_news, title, min_text,`date`,image_url FROM news";
+require_once(__DIR__ . '/php/connection.php');
+$query_news_list = "SELECT `id_news`, `title`, `textmin`, `date`, `imageurl` FROM `news`";
+
+if (isset($_GET['search-button'])) 
+{
+    if (isset($_GET['search-field'])) 
+    {
+        $search = $_GET['search-field'];
+        $where = "WHERE title LIKE '%$search%';";
+        $query_news_list = $query_news_list . $where;
+    }
+}
+
 $result_news_list = mysqli_query($link, $query_news_list);
 ?>
 
 <!DOCTYPE html>
-<html>
-
+<html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title> Новости!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Новости </title>
     <link rel="stylesheet" href="styles/style_index.css">
     <link rel="stylesheet" href="styles/contents/style_news.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style_adaptability.css">
 </head>
 
 <body>
@@ -66,35 +78,38 @@ $result_news_list = mysqli_query($link, $query_news_list);
                 <li> <a href="index.php" id="nav-menu_active"> Новости </a> </li>
                 <li> <a href="vneurochka_meropriyatia.php"> Мероприятия</a> </li>
                 <li> <a href="schedule.php"> Расписание </a> </li>
-                <form>
-                    <input type="text" placeholder="ИЩИ" id="ishi-pole">
-                    <input id="ishi" type="submit" value=" ">
-                </form>
             </ul>
+            <form>
+                    <input name="search-field" type="text" placeholder="ИЩИ" id="ishi-pole">
+                    <input id="ishi" type="submit" value=" " name="search-button">
+            </form>
         </div>
         <div id="content">
             <div id="news">
-            <form method="GET" action="index_news.php">
-            <?
-                while ($data_news_list = mysqli_fetch_row($result_news_list))
-                {
-                    echo "<div class='news_block'>";
-                    echo "<p class='news-date'> $data_news_list[3] </p>";
-                    echo "<h2 class='c-h'> $data_news_list[1] </h2>";
-                    echo "<p class='c-text'> 
-                                <img src='$data_news_list[4]'>
-                            $data_news_list[2]
-                            </p>";
-                        
-                        
-                            echo "<p class='p-link'> Подробнее... <input class='input-link' type='submit' name='id' value='$data_news_list[0]'> </p>";
-                    echo "</div>";
-                }
-            ?>
-            </form>
+                <form method="GET" action="index_news.php">
+                    <?
+                    while ($data_news_list = mysqli_fetch_row($result_news_list)) 
+                    {
+                        echo "<div class='news_block'>";
+                        echo "<p class='news-date'> $data_news_list[3] </p>";
+                        echo "<h2 class='c-h'> $data_news_list[1] </h2>";
+                        echo "<p class='c-text'> <img src='$data_news_list[4]'> $data_news_list[2] </p>";
+                        echo "<p class='p-link'> Подробнее... <input class='input-link' type='submit' name='id' value='$data_news_list[0]'> </p>";
+                        echo "</div>";
+                    }
+                    ?>
+                </form>
             </div>
         </div>
     </div>
+    <?
+    echo "
+    <script>
+        var searchInput = document.querySelector('#ishi-pole');
+        searchInput.value = '$search';
+    </script>
+    ";
+    ?>
 </body>
 
 </html>

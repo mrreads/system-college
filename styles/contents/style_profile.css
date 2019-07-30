@@ -42,7 +42,8 @@
     margin: 100px 20px 0 50px;
 
     border-radius: 5%;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content #profile .info-background
@@ -51,6 +52,7 @@
 
     height: 50%;
 
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#E6E9F0), to(#EEF1F5));
     background-image: linear-gradient(to top, #E6E9F0 0%, #EEF1F5 100%);
 }
 
@@ -67,7 +69,8 @@
     padding: 50px;
 
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content #profile .info-background .user-info p, #content #profile .info-background .profile-info p
@@ -95,10 +98,27 @@
 
     height: 50%;
 
-    animation: anime 5s ease infinite;
+    -webkit-animation: anime 5s ease infinite;
+            animation: anime 5s ease infinite;
 
     background: linear-gradient(45deg, #874DA2 0%, #C43A30 100%);
     background-size: 400% 400%;
+}
+
+@-webkit-keyframes anime
+{
+    0%
+    {
+        background-position: 0 50%;
+    }
+    50%
+    {
+        background-position: 100% 50%;
+    }
+    100%
+    {
+        background-position: 0 50%;
+    }
 }
 
 @keyframes anime

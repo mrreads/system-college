@@ -31,6 +31,7 @@
 {
     height: 50%;
 
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#E6E9F0), to(#EEF1F5));
     background-image: linear-gradient(to top, #E6E9F0 0%, #EEF1F5 100%);
 }
 
@@ -45,7 +46,8 @@
     padding: 50px;
 
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content #profile .info-background p

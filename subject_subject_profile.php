@@ -6,47 +6,52 @@ if (empty($_SESSION['id_user']) or empty($_GET['id']))
     header('Location: login.php');
 }
 
-$subject_id = $_GET['id'];
+$user_avatar = $_SESSION['you_avatar'];
+$subject_id = (int)$_GET['id'];
+$user_info = $_SESSION['user_info'];
+$user_fio = explode(' ', $user_info[0]);
+$user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-require_once 'php/connection.php';
+require_once(__DIR__ . '/php/connection.php');
 $query_subject_info = "SELECT
-                        subject_name, quantity_hour, teacher_info.fio, teacher_info.id_teacher
-                    FROM
-                        subjects, teacher_info, subject_teacher
-                    WHERE 
-                        teacher_info.id_teacher = subject_teacher.id_teacher
-                    AND
-                        subject_teacher.id_subject = subjects.id_subject
-                    AND
-                        subjects.id_subject = '$subject_id'";
+                            subjects.name,
+                            specialities.name,
+                            specialities.id_speciality,
+                            teachers.name,
+                            teachers.id_teacher
+                        FROM
+                            `subjects`,
+                            `specialities`,
+                            `teachers`
+                        WHERE
+                            subjects.id_speciality = specialities.id_speciality
+                        AND
+                            subjects.id_teacher = teachers.id_teacher
+                        AND
+                            `id_subject` = '$subject_id'";
 
 $result_subject_info = mysqli_query($link, $query_subject_info);
 $data_subject_info = mysqli_fetch_row($result_subject_info);
 
 $subject_name = $data_subject_info[0];
-$subject_hours = $data_subject_info[1];
-$subject_teacher = $data_subject_info[2];
-$subject_id_teacher = $data_subject_info[3];
-
-$user_id = $_SESSION['id_user'];
-$query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
-$result_user_info = mysqli_query($link, $query_user_info);
-$data_user_info = mysqli_fetch_row($result_user_info);
-$user_fio = $data_user_info[0];
-$user_fio = explode(' ', $user_fio);
+$subject_speciality = $data_subject_info[1];
+$subject_id_speciality = $data_subject_info[2];
+$subject_teacher = $data_subject_info[3];
+$subject_id_teacher = $data_subject_info[4];
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
-    <title> О предметье!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <? echo "<title> $subject_name </title>"; ?>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_subject_subject_profile.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style_adaptability.css">
     <link rel="stylesheet" href="styles/contents/style_profile.css">
+    <link rel="stylesheet" href="styles/style_adaptability.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
@@ -58,15 +63,15 @@ $user_fio = explode(' ', $user_fio);
                     <h2> <a href="index.php"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
                 </div>
                 <div class="sb-profile">
-                    <img src="images/avatar.jpg">
-                    <? echo " <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo "<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo "<img src='$user_avatar'>"; ?>
+                    <? echo " <p class='sb-name'> $user_info[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
                         <li> <a href="administration.php"> Администрация </a> </li>
                         <li> <a href="subject.php" id="sb-menu_active"> Предметы </a> </li>
-                        <li> <a href="student_you.php"> Студент </a> </li>
+                        <li> <a href="student_you.php"> Профиль </a> </li>
                         <li> <a href="schedule.php"> Расписание </a> </li>
                         <li> <a href="metodichka.php"> Методичка </a> </li>
                         <li> <a href="vneurochka.php"> Внеурочка </a> </li>
@@ -102,24 +107,12 @@ $user_fio = explode(' ', $user_fio);
                             <p> Название предмета: </p>
                             <? echo "<p> $subject_name </p>"; ?>
                             <hr>
-                            <p> Кол-во часов: </p>
-                            <? echo "<p> $subject_hours </p>"; ?>
+                            <p> Специальность: </p>
+                            <? echo "<p> <a href='student_speciality_profile.php?id=$subject_id_speciality'> $subject_speciality </a> </p>"; ?>
                             <hr>
-                            <p> Ведёт: </p>
+                            <p> Учитель: </p>
                             <? echo "<p> <a href='subject_teacher_profile.php?id=$subject_id_teacher'> $subject_teacher </a> </p>"; ?>
                         </div>
-                        <!-- <div class="items">
-                            <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
-                            <hr>
-                            <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
-                            <hr>
-                            <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
-                            <hr>
-                            <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
-                            <hr>
-                            <p class=p-button> <a href="subject_teacher_profile.php"> Преподаватель предмета </a> </p>
-                            <hr>
-                        </div> -->
                     </div>
                 </div>
             </div>

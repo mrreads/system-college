@@ -1,6 +1,17 @@
+*
+{
+    -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+}
+
+img
+{
+    object-fit: cover;
+}
+
 #main-wrapper
 {
-    min-width: 800px;
+    min-width: 320px;
 }
 
 @media screen and (max-width: 1210px)
@@ -13,6 +24,10 @@
     .hm-menu
     {
         align-items: center;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        -ms-flex-align: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
 }
@@ -42,17 +57,27 @@
     .hm-menu ul
     {
         align-items: center;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        -ms-flex-align: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
 
     #nav-menu ul li, #header-menu div, #header-menu div ul, #header-menu div ul li
     {
+        -webkit-box-flex: 1;
         flex-grow: 1;
+        -ms-flex-positive: 1;
     }
 
     #nav-menu ul
     {
         align-items: center;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        -ms-flex-align: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
 
@@ -62,8 +87,21 @@
     }
 }
 
+@media screen and (max-width: 768px)
+{
+    #content #profile .info-background .user-info p
+    {
+        width: unset;
+    }
+}
+
 @media screen and (max-width: 500px)
 {
+    .sb-profile, .hm-logo
+    {
+        display: none !important;
+    }
+
     .sb-menu ul li a
     {
         font-size: 11px;
@@ -71,18 +109,37 @@
 
     #wrapper-two
     {
-        width: 90% !important;
+        width: 100% !important;
     }
 
     #wrapper-one
     {
-        width: 10% !important;
-        min-width: 80px !important;
+        float: unset;
+
+        width: 100%;
+        height: auto;
+        min-height: unset;
     }
 
-    .hm-logo, .sb-profile
+    #wrapper-one .sb-menu
     {
-        display: none;
+        padding: 0px;
+    }
+
+    #wrapper-one .sb-menu ul
+    {
+            flex-direction: row;
+
+        -webkit-box-direction: normal;
+        -webkit-box-orient: horizontal;
+        -ms-flex-direction: row;
+    }
+
+    #wrapper-one .sb-menu ul li
+    {
+        -webkit-box-flex: 1;
+        flex-grow: 1;
+        -ms-flex-positive: 1;
     }
 
     .hm-login
@@ -102,5 +159,224 @@
     #nav-menu li
     {
         width: 100%;
+    }
+
+    #content
+    {
+        padding: 0px;
+    }
+
+    #rasp
+    {
+        margin: 25px 10px;
+    }
+
+    #rasp h1
+    {
+        text-align: center;
+    }
+
+    #content .items
+    {
+        margin: 10px;
+    }
+
+    .is-search
+    {
+        width: 100% !important;
+        margin: 10px !important;
+    }
+
+    th, td
+    {
+        padding: 0;
+    }
+
+    #content #profile img
+    {
+        display: none;
+    }
+
+    #content #profile .p-background
+    {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        align-items: center;
+        -webkit-box-align: center;
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -webkit-box-pack: center;
+        -ms-flex-align: center;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    #content #profile .p-background .b-name
+    {
+        position: unset;
+
+        margin: 0;
+
+        text-align: center;
+    }
+
+    #content #profile .p-background .b-info
+    {
+        position: unset;
+
+        margin: 0;
+    }
+
+    #content #profile .info-background .user-info, #content #profile .info-background .profile-info
+    {
+        margin-top: 15px;
+    }
+
+    #content #profile .info-background .user-info p
+    {
+        width: unset;
+    }
+
+    #content #profile .info-background
+    {
+        padding: 10px;
+    }
+
+    #enter, #search
+    {
+        font-size: 16px;
+    }
+
+    #content #profile .p-background .b-name
+    {
+        padding: 15px 25px;
+    }
+
+    .text-p
+    {
+        font-size: 18px;
+
+        text-indent: 25px;
+    }
+
+    .text-p:hover
+    {
+        font-size: 19px;
+    }
+
+    #wrapper-two #header-menu
+    {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: horizontal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    }
+
+    #nav-menu a, .hm-menu ul li a, .hm-login a
+    {
+        font-size: 13px;
+
+        min-width: unset;
+    }
+
+    .items
+    {
+        width: unset;
+    }
+
+    #nav-menu ul
+    {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        width: 100%;
+
+        -webkit-box-direction: normal;
+        -webkit-box-orient: horizontal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    }
+
+    #nav-menu, form
+    {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    #nav-menu form
+    {
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+    #ishi-pole
+    {
+        width: 70%;
+    }
+    #header-menu div ul
+    {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        -webkit-box-direction: normal;
+        -webkit-box-orient: horizontal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    }
+
+    #news
+    {
+        padding: 10px;
+    }
+
+    #news .c-text
+    {
+        font-size: 16px;
+
+        display: flex;
+
+        text-align: center;
+
+        flex-flow: column nowrap;
+    }
+    #news .c-text img
+    {
+        width: 100%;
+        height: 100%;
+        margin: 25px auto;
+    }
+
+    #news .с-link a, .input-link, .p-link
+    {
+        width: 100%;
+    }
+
+    #news .с-link a, .input-link, .p-link:hover
+    {
+        padding: 15px 20px 20px 15px;
+    }
+
+    #news .news-date
+    {
+        font-size: 16px;
+
+        position: unset;
+
+        margin: 0px;
+
+        text-align: center;
+    }
+
+    #news .c-h
+    {
+        margin: 0px;
+
+        text-align: center;
     }
 }

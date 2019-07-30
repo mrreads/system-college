@@ -26,7 +26,8 @@
     width: 19%;
     height: 55px;
 
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
     text-align: center;
 
     border: none;
@@ -36,7 +37,8 @@
 #search:hover
 {
     cursor: pointer;
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
 
     color: white;
     background-color: black;
@@ -47,17 +49,30 @@
     margin-bottom: 50px;
 
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 
-    flex-flow: column nowrap;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: justify;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
 #content .search .s-b
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
-    flex-flow: row nowrap;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: justify;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
@@ -84,7 +99,8 @@
     width: 150px;
     padding: 16px;
 
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
     text-align: center;
     text-decoration: none;
 
@@ -95,11 +111,13 @@
 {
     padding: 16px;
 
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
 
     color: white;
     background-color: black;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content hr
@@ -114,7 +132,8 @@
 #content .items
 {
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 .p-button a
@@ -125,7 +144,8 @@
 
     padding: 16px;
 
-    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
     text-align: left;
     text-decoration: none;
     text-indent: 50px;
@@ -140,13 +160,18 @@
 
 #content .checkbox
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
     height: auto;
     margin: 10px 50px;
     padding: 10px 0 15px 0;
 
-    flex-flow: row nowrap;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
 }
 
 #content .checkbox input

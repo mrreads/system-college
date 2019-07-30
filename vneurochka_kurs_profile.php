@@ -8,22 +8,23 @@ if (empty($_SESSION['id_user']))
 
 require_once 'php/connection.php';
 
-$course_id = $_GET['id'];
+$user_avatar = $_SESSION['you_avatar'];
+$user_info = $_SESSION['user_info'];
+$user_fio = explode(' ', $user_info[0]);
+$user_info[0] = $user_fio[1].' '.$user_fio[2];
+$course_id = (int)$_GET['id'];
 
 $query_course_info = "SELECT 
-                            name_course, 
-                            time_of_hours, 
-                            price,
-                            fio,
-                            courses_and_teachers.id_teacher 
+                            courses.name, 
+                            courses.duration, 
+                            courses.price,
+                            teachers.name,
+                            teachers.id_teacher 
                         FROM 
-                            courses,
-                            teacher_info,
-                            courses_and_teachers
+                            `courses`,
+                            `teachers`
                         WHERE
-                            teacher_info.id_teacher = courses_and_teachers.id_teacher
-                        AND
-                            courses_and_teachers.id_course = courses.id_course
+                            teachers.id_teacher = courses.id_teacher
                         AND
                             courses.id_course = '$course_id'";
 $result_course_info = mysqli_query($link, $query_course_info);
@@ -34,26 +35,20 @@ $course_hours = $data_course_info[1];
 $course_price = $data_course_info[2];
 $course_teacher = $data_course_info[3];
 $course_id_teacher = $data_course_info[4];
-
-$user_id = $_SESSION['id_user'];
-$query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
-$result_user_info = mysqli_query($link, $query_user_info);
-$data_user_info = mysqli_fetch_row($result_user_info);
-$user_fio = $data_user_info[0];
-$user_fio = explode(' ', $user_fio);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
-    <title> Курсы!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <? echo "<title> $course_name </title>"; ?>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_vneurochka_kurs_profile.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style_adaptability.css">
     <link rel="stylesheet" href="styles/contents/style_profile.css">
+    <link rel="stylesheet" href="styles/style_adaptability.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
@@ -65,15 +60,15 @@ $user_fio = explode(' ', $user_fio);
                     <h2> <a href="index.php"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
                 </div>
                 <div class="sb-profile">
-                    <img src="images/avatar.jpg">
-                    <? echo" <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo"<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo "<img src='$user_avatar'>"; ?>
+                    <? echo " <p class='sb-name'> $user_info[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
                         <li> <a href="administration.php"> Администрация </a> </li>
                         <li> <a href="subject.php"> Предметы </a> </li>
-                        <li> <a href="student_you.php"> Студент </a> </li>
+                        <li> <a href="student_you.php"> Профиль </a> </li>
                         <li> <a href="schedule.php"> Расписание </a> </li>
                         <li> <a href="metodichka.php"> Методичка </a> </li>
                         <li> <a href="vneurochka.php" id="sb-menu_active"> Внеурочка </a> </li>
@@ -118,18 +113,6 @@ $user_fio = explode(' ', $user_fio);
                             <p> Длительность: </p>
                             <? echo "<p> $course_hours </p>"; ?>
                         </div>
-                        <!-- <div class="item-opisanie">
-                            <p> Записавшись на нас курс по [название курса], вы научитесь [описание курса], [описание курса], [описание курса], а так же [описание курса]! <br> <br>
-                            В ходе нашего курса вы научитесь: <br>
-                            - [вот этому] <br>
-                            - [этому] <br>
-                            - [а еще этому] <br> <br>
-                            Записывайтесь на курсы! </p>
-                        </div>
-                        <div class="items">
-                            <p class=p-button> <a href="subject_teacher_profile.php"> Ведущий курса </a> </p>
-                            <hr>
-                        </div> -->
                     </div>
                 </div>
             </div>

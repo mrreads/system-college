@@ -1,43 +1,43 @@
 <?
 session_start();
 
-if (empty($_SESSION['id_user'])) {
+if (empty($_SESSION['id_user'])) 
+{
     header('Location: login.php');
 }
 
-require_once 'php/connection.php';
+$user_avatar = $_SESSION['you_avatar'];
+$user_info = $_SESSION['user_info'];
+$user_fio = explode(' ', $user_info[0]);
+$user_info[0] = $user_fio[1].' '.$user_fio[2];
 
-$speciality_id = $_GET['id'];
+require_once(__DIR__ . '/php/connection.php');
 
-$query_speciality_info = "SELECT name_specialization, srok_obycheniya FROM specialnost WHERE id_specialization = '$speciality_id';";
+$speciality_id = (int)$_GET['id'];
+
+$query_speciality_info = "SELECT specialities.name, specialities.learnperiod FROM `specialities` WHERE `id_speciality` = '$speciality_id';";
 $result_speciality_info = mysqli_query($link, $query_speciality_info);
 $data_speciality_info = mysqli_fetch_row($result_speciality_info);
 
 $speciality_name = $data_speciality_info[0];
 $speciality_srok = $data_speciality_info[1];
 
-$query_group_list  = "SELECT id_group, number_group FROM `groups` WHERE id_specialization = '$speciality_id'";
+$query_group_list  = "SELECT `id_group`, groups.name FROM `groups` WHERE `id_speciality` = '$speciality_id';";
 $result_group_list = mysqli_query($link, $query_group_list);
-
-$user_id = $_SESSION['id_user'];
-$query_user_info = "SELECT fio, name_role FROM students, roles WHERE students.id_role = roles.id_role AND id_student = '$user_id'";
-$result_user_info = mysqli_query($link, $query_user_info);
-$data_user_info = mysqli_fetch_row($result_user_info);
-$user_fio = $data_user_info[0];
-$user_fio = explode(' ', $user_fio);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
-    <title> О специальности!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <? echo "<title> $speciality_name </title>"; ?>
     <link rel="stylesheet" href="styles/style_admin.css">
     <link rel="stylesheet" href="styles/contents/style_student-speciality_profile.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow|Roboto&amp;subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style_adaptability.css">
     <link rel="stylesheet" href="styles/contents/style_profile.css">
+    <link rel="stylesheet" href="styles/style_adaptability.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 </head>
@@ -50,15 +50,15 @@ $user_fio = explode(' ', $user_fio);
                     <h2> <a href="index.php"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
                 </div>
                 <div class="sb-profile">
-                    <img src="images/avatar.jpg">
-                    <? echo " <p class='sb-name'> $user_fio[1] $user_fio[0] </p>"; ?>
-                    <? echo "<p class='sb-role'> $data_user_info[1] </p>"; ?>
+                    <? echo "<img src='$user_avatar'>"; ?>
+                    <? echo " <p class='sb-name'> $user_info[0] </p>"; ?>
+                    <? echo "<p class='sb-role'> $user_info[1] </p>"; ?>
                 </div>
                 <div class="sb-menu">
                     <ul>
                         <li> <a href="administration.php"> Администрация </a> </li>
                         <li> <a href="subject.php"> Предметы </a> </li>
-                        <li> <a href="student_you.php" id="sb-menu_active"> Студент </a> </li>
+                        <li> <a href="student_you.php" id="sb-menu_active"> Профиль </a> </li>
                         <li> <a href="schedule.php"> Расписание </a> </li>
                         <li> <a href="metodichka.php"> Методичка </a> </li>
                         <li> <a href="vneurochka.php"> Внеурочка </a> </li>

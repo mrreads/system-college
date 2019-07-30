@@ -1,7 +1,10 @@
 #content #profile .info-background .item-info
 {
-    margin: 0 0 50px 0;
-    margin-bottom: 50px;
+    padding: 50px;
+
+    background-color: white;
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content #profile .info-background .item-info p
@@ -19,8 +22,8 @@
     margin: 25px 5px;
 
     border: 0;
-    border-bottom: 1px solid #ccc;
-    background: #999;
+    border-bottom: 1px solid #CCCCCC;
+    background: #999999;
 }
 
 #content .items hr
@@ -29,14 +32,15 @@
     margin: 0 5px;
 
     border: 0;
-    border-bottom: 1px solid #ccc;
-    background: #999;
+    border-bottom: 1px solid #CCCCCC;
+    background: #999999;
 }
 
 #content .items
 {
     background-color: white;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 .p-button a
@@ -48,7 +52,8 @@
     width: 100%;
     padding: 16px;
 
-    transition: .2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
     text-align: left;
     text-decoration: none;
     text-indent: 50px;
@@ -58,7 +63,8 @@
 
 .p-button
 {
-    transition: .2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
 }
 
 .p-button:hover
@@ -67,10 +73,12 @@
 
     padding: 20px 0;
 
-    transition: .2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
 
     color: black;
-    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.5);
+    -webkit-box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
 
 #content .items p a
@@ -82,7 +90,8 @@
 
 .item-info p a
 {
-    transition: .2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
     text-decoration: none;
 
     color: blue;
@@ -90,7 +99,8 @@
 
 .item-info p a:hover
 {
-    transition: .2s linear;
+    -webkit-transition: 0.2s linear;
+            transition: 0.2s linear;
     text-decoration: none;
 
     color: red;
