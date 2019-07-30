@@ -116,10 +116,6 @@ $group_id = mysqli_fetch_row(mysqli_query($link, "SELECT groups.id_group FROM `s
     // Функация отправки сообщений/
     function sendMSG(e)
     {
-        // Я ТРИ ЧАСА С ЭТИМ СИДЕЛ, Я НЕ ПОНИМАЛ ПОЧЕМУ onSubmit НЕ РАБОТАЕТ
-        // А onClick РАБОТАЕТ, А МНЕ НУЖЕН onSubmit!!!
-        // ОКАЗЫВАЕТСЯ НУЖНО ПРЕОПРЕДЕЛЯТЬ ДЕФОЛНТНЫЕ ДЕЙСТВИЯ БРАУЗЕРА
-        // И ТОГДА ONSUBMIT ЗАРАБОТАЛ, ММММММММММММММ
         e.preventDefault();
         // Сюда заносим $_POST данные, которые отправятся в chat_send.php.
         let data = "text=" + document.querySelector("#text").value;
