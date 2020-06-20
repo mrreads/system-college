@@ -46,7 +46,7 @@ $result_group_list = mysqli_query($link, $query_group_list);
         <div id="wrapper-one">
             <div id="side-bar">
                 <div class="hm-logo">
-                    <h2> <a href="index.php"> ЩЕЛКОВСКИЙ <br> КОЛЛЕДЖ </a> </h2>
+                    <h2> <a href="index.php"> КОЛЛЕДЖ </a> </h2>
                 </div>
                 <div class="sb-profile">
                     <? echo "<img src='$user_avatar'>"; ?>

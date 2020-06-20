@@ -59,7 +59,7 @@ $result_news_list = mysqli_query($link, $query_news_list);
     <div id="main-wrapper">
         <div id="header-menu">
             <div class="hm-logo">
-                <h2> <a href="index.php"> ЩЕЛКОВСКИЙ КОЛЛЕДЖ </a> </h2>
+                <h2> <a href="index.php"> КОЛЛЕДЖ </a> </h2>
             </div>
             <div class="hm-menu">
                 <ul>
@@ -80,7 +80,7 @@ $result_news_list = mysqli_query($link, $query_news_list);
                 <li> <a href="schedule.php"> Расписание </a> </li>
             </ul>
             <form>
-                    <input name="search-field" type="text" placeholder="ИЩИ" id="ishi-pole">
+                    <input name="search-field" type="text" placeholder="ПОИСК" id="ishi-pole">
                     <input id="ishi" type="submit" value=" " name="search-button">
             </form>
         </div>

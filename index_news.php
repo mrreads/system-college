@@ -72,7 +72,7 @@ $news_image = $data_news_info[4];
     <div id="main-wrapper">
         <div id="header-menu">
             <div class="hm-logo">
-                <h2> <a href="index.php"> ЩЕЛКОВСКИЙ КОЛЛЕДЖ </a> </h2>
+                <h2> <a href="index.php"> КОЛЛЕДЖ </a> </h2>
             </div>
             <div class="hm-menu">
                 <ul>

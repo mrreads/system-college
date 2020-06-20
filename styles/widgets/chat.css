@@ -1,224 +1,183 @@
 *
 {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
 }
 
 #chat
 {
-    position: fixed;
-    z-index: 25;
-    right: 0;
-    bottom: 0;
+	position: fixed;
+	z-index: 25;
+	right: 0;
+	bottom: 0;
 
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
 
-    width: 375px;
-    min-width: 250px;
-    height: 450px;
-    min-height: 100px;
+	width: 375px;
+	min-width: 250px;
+	height: 450px;
+	min-height: 100px;
 
-    -webkit-box-shadow: 1px 1px 15px 0 rgba(0,0,0,0.5);
-            box-shadow: 1px 1px 15px 0 rgba(0,0,0,0.5);
-
-    -webkit-box-direction: normal;
-    -webkit-box-orient: vertical;
-    -webkit-box-pack: justify;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+	box-shadow: 1px 1px 15px 0 rgba(0,0,0,0.5);
 }
 
 #chat .header
 {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+	display: flex;
+	align-items: center;
+	flex-flow: row nowrap;
+	justify-content: space-between;
 
-    width: 100%;
-    min-height: 40px;
+	width: 100%;
+	min-height: 40px;
 
-    background: linear-gradient(45deg, #874DA2 0%, #C43A30 100%);
-
-    align-items: center;
-    -webkit-box-align: center;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: justify;
-    -ms-flex-align: center;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+	background: linear-gradient(45deg, #874DA2 0%, #C43A30 100%);
 }
 
 #chat .header p
 {
-    font-family: "Oswald", sans-serif;
+	font-family: "Oswald", sans-serif;
 
-    display: inline-block;
+	display: inline-block;
 
-    text-indent: 15px;
+	text-indent: 15px;
 
-    color: white;
+	color: white;
 }
 
 #chat .header #expand
 {
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
+	width: 25px;
+	height: 25px;
+	margin-right: 10px;
 
-    cursor: pointer;
+	cursor: pointer;
 
-    background-size: cover;
+	background-size: cover;
 }
 
 #chat .header #expand:hover
 {
-    -webkit-transition: width 1s;
-            transition: width 1s;
-    -webkit-animation-name: expandRotate;
-            animation-name: expandRotate;
-    -webkit-animation-duration: 0.1s;
-            animation-duration: 0.1s;
+	transition: width 1s;
+	animation-name: expandRotate;
+	animation-duration: 0.1s;
 }
 
 @-webkit-keyframes expandRotate
 {
-    from
-    {
-        -webkit-transform: rotate(90deg);
-                transform: rotate(90deg);
-    }
-    to
-    {
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-    }
+	from
+	{
+		transform: rotate(90deg);
+	}
+	to
+	{
+		transform: rotate(0deg);
+	}
 }
 
 @keyframes expandRotate
 {
-    from
-    {
-        -webkit-transform: rotate(90deg);
-                transform: rotate(90deg);
-    }
-    to
-    {
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-    }
+	from
+	{
+		transform: rotate(90deg);
+	}
+	to
+	{
+		transform: rotate(0deg);
+	}
 }
 
 #chat #chat-content
 {
-    overflow-x: hidden;
+	overflow-x: hidden;
+	flex-grow: 1;
 
-    background-color: white;
-
-    -webkit-box-flex: 1;
-    flex-grow: 1;
-    -ms-flex-positive: 1;
+	background-color: white;
 }
 
 #chat #chat-content .message
 {
-    font-family: "Roboto", sans-serif;
+	font-family: "Roboto", sans-serif;
 
-    margin: 0 5px 15px 5px;
-    padding: 10px;
+	margin: 0 5px 15px 5px;
+	padding: 10px;
 
-    text-indent: 10px;
-    word-wrap: break-word;
+	text-indent: 10px;
+	word-wrap: break-word;
 
-    border-radius: 8px;
-    background-color: rgba(0,0,0,0.1);
-    -webkit-box-shadow: 3px 3px 5px -3px rgba(0,0,0,0.5);
-            box-shadow: 3px 3px 5px -3px rgba(0,0,0,0.5);
+	border-radius: 8px;
+	background-color: rgba(0,0,0,0.1);
+	box-shadow: 3px 3px 5px -3px rgba(0,0,0,0.5);
 }
 
 #chat #chat-content .name
 {
-    font-family: "Roboto", sans-serif;
+	font-family: "Roboto", sans-serif;
 
-    display: inline-block;
+	display: inline-block;
 
-    text-indent: 20px;
+	text-indent: 20px;
 }
 
 #chat #chat-content .date
 {
-    font-family: "Roboto", sans-serif;
+	font-family: "Roboto", sans-serif;
 
-    float: right;
+	float: right;
 
-    margin-right: 20px;
+	margin-right: 20px;
 }
 
 #chat .footer
 {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+	display: flex;
+	flex-flow: row nowrap;
 
-    width: 100%;
-    min-height: 40px;
-    margin-bottom: 0px;
+	width: 100%;
+	min-height: 40px;
+	margin-bottom: 0px;
 
-    border-top: 1px solid rgba(0,0,0,0.2);
-    background-color: white;
-
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
+	border-top: 1px solid rgba(0,0,0,0.2);
+	background-color: white;
 }
 
 #chat .footer input
 {
-    height: 40px;
+	flex-grow: 1;
 
-    -webkit-box-flex: 1;
-    flex-grow: 1;
-    -ms-flex-positive: 1;
+	height: 40px;
 }
 
 #chat .footer #text
 {
-    font-family: "Oswald", sans-serif;
-    font-size: 14px;
+	font-family: "Oswald", sans-serif;
+	font-size: 14px;
 
-    padding: 0px 10px;
+	padding: 0px 10px;
 
-    text-indent: 5px;
+	text-indent: 5px;
 
-    border: none;
+	border: none;
 }
 
 #chat .footer #button
 {
-    font-family: "Oswald", sans-serif;
-    font-size: 16px;
+	font-family: "Oswald", sans-serif;
+	font-size: 16px;
 
-    -webkit-transition: 0.2s linear;
-            transition: 0.2s linear;
-    text-align: center;
+	transition: 0.2s linear;
+	text-align: center;
 
-    border: none;
-    background-color: white;
+	border: none;
+	background-color: white;
 }
 
 #chat .footer #button:hover
 {
-    -webkit-filter: invert(1);
-            filter: invert(1);
+	filter: invert(1);
 }
 
 
