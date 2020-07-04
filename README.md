@@ -21,6 +21,14 @@
 
 > Все запросы к базе данных произовятся с помощью **mysqli**.
 
+## Аккаунты для авторизации:
+
+- student1@mail:123
+- student2@mail:123
+- teacher1@mail:123
+- teacher2@mail:123
+- admin1@mail.ru:123
+- admin2@mail.ru:123
 
 ### Файловая структура:
 
